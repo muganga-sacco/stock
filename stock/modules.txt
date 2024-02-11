@@ -1,1 +1,7 @@
 stock
+setup
+Assets
+Buying
+Subcontracting
+Selling
+Utilities

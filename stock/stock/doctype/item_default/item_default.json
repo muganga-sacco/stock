@@ -1,0 +1,88 @@
+{
+ "actions": [],
+ "creation": "2018-05-03 02:29:24.444341",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "default_warehouse",
+  "column_break_3",
+  "default_price_list",
+  "purchase_defaults",
+  "buying_cost_center",
+  "default_supplier",
+  "selling_defaults",
+  "selling_cost_center"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_list_view": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "default_warehouse",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Default Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "default_price_list",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Default Price List",
+   "options": "Price List"
+  },
+  {
+   "fieldname": "purchase_defaults",
+   "fieldtype": "Section Break",
+   "label": "Purchase Defaults"
+  },
+  {
+   "fieldname": "buying_cost_center",
+   "fieldtype": "Link",
+   "label": "Default Buying Cost Center",
+   "options": "Cost Center"
+  },
+  {
+   "fieldname": "default_supplier",
+   "fieldtype": "Link",
+   "label": "Default Supplier",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "selling_defaults",
+   "fieldtype": "Section Break",
+   "label": "Sales Defaults"
+  },
+  {
+   "fieldname": "selling_cost_center",
+   "fieldtype": "Link",
+   "label": "Default Selling Cost Center",
+   "options": "Cost Center"
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2024-02-06 11:28:51.910044",
+ "modified_by": "Administrator",
+ "module": "stock",
+ "name": "Item Default",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

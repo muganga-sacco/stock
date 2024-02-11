@@ -13,6 +13,17 @@ app_license = "mit"
 # app_include_css = "/assets/stock/css/stock.css"
 # app_include_js = "/assets/stock/js/stock.js"
 
+app_include_js = "stock.bundle.js"
+web_include_js = "stock-web.bundle.js"
+
+treeviews = [
+	"Warehouse",
+	"Item Group",
+	"Customer Group",
+	"Supplier Group",
+	
+]
+
 # include js, css files in header of web template
 # web_include_css = "/assets/stock/css/stock.css"
 # web_include_js = "/assets/stock/js/stock.js"
