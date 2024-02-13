@@ -91,16 +91,19 @@ def make_sl_entries(sl_entries, allow_negative_stock=False, via_landed_cost_vouc
 					)
 					sle["outgoing_rate"] = 0.0
 
-			# if sle.get("actual_qty") or sle.get("voucher_type") == "Stock Reconciliation":
-			# 	sle_doc = make_entry(sle, allow_negative_stock, via_landed_cost_voucher)
+			if sle.get("actual_qty") or sle.get("voucher_type") == "Stock Reconciliation":
+				sle_doc = make_entry(sle, allow_negative_stock, via_landed_cost_voucher)
 
-			# args = sle_doc.as_dict()
+			args = sle_doc.as_dict()
 
 			if sle.get("voucher_type") == "Stock Reconciliation":
 				# preserve previous_qty_after_transaction for qty reposting
 				args.previous_qty_after_transaction = sle.get("previous_qty_after_transaction")
 
 			is_stock_item = frappe.get_cached_value("Item", args.get("item_code"), "is_stock_item")
+   
+			print(is_stock_item)
+   
 			if is_stock_item:
 				bin_name = get_or_make_bin(args.get("item_code"), args.get("warehouse"))
 				args.reserved_stock = flt(frappe.db.get_value("Bin", bin_name, "reserved_stock"))

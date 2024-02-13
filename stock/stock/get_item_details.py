@@ -1214,34 +1214,34 @@ def apply_price_list(args, as_doc=False):
 	"""
 	args = process_args(args)
 
-	parent = get_price_list_currency_and_exchange_rate(args)
-	args.update(parent)
+	# parent = get_price_list_currency_and_exchange_rate(args)
+	# args.update(parent)
 
-	children = []
+	# children = []
 
-	if "items" in args:
-		item_list = args.get("items")
-		args.update(parent)
+	# if "items" in args:
+	# 	item_list = args.get("items")
+	# 	args.update(parent)
 
-		for item in item_list:
-			args_copy = frappe._dict(args.copy())
-			args_copy.update(item)
-			item_details = apply_price_list_on_item(args_copy)
-			children.append(item_details)
+	# 	for item in item_list:
+	# 		args_copy = frappe._dict(args.copy())
+	# 		args_copy.update(item)
+	# 		item_details = apply_price_list_on_item(args_copy)
+	# 		children.append(item_details)
 
-	if as_doc:
-		args.price_list_currency = (parent.price_list_currency,)
-		args.plc_conversion_rate = parent.plc_conversion_rate
-		if args.get("items"):
-			for i, item in enumerate(args.get("items")):
-				for fieldname in children[i]:
-					# if the field exists in the original doc
-					# update the value
-					if fieldname in item and fieldname not in ("name", "doctype"):
-						item[fieldname] = children[i][fieldname]
-		return args
-	else:
-		return {"parent": parent, "children": children}
+	# if as_doc:
+	# 	args.price_list_currency = (parent.price_list_currency,)
+	# 	args.plc_conversion_rate = parent.plc_conversion_rate
+	# 	if args.get("items"):
+	# 		for i, item in enumerate(args.get("items")):
+	# 			for fieldname in children[i]:
+	# 				# if the field exists in the original doc
+	# 				# update the value
+	# 				if fieldname in item and fieldname not in ("name", "doctype"):
+	# 					item[fieldname] = children[i][fieldname]
+	# 	return args
+	# else:
+	# 	return {"parent": parent, "children": children}
 
 
 def apply_price_list_on_item(args):

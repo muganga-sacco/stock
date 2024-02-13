@@ -43,13 +43,7 @@ stock.get_sales_trends_filters = function() {
 			],
 			"default": ""
 		},
-		{
-			"fieldname":"fiscal_year",
-			"label": __("Fiscal Year"),
-			"fieldtype": "Link",
-			"options":'Fiscal Year',
-			"default": stock.utils.get_fiscal_year(frappe.datetime.get_today()),
-		},
+		
 		{
 			"fieldname":"company",
 			"label": __("Company"),

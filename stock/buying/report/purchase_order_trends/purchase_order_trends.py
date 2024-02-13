@@ -4,18 +4,18 @@
 
 from frappe import _
 
-from stock.controllers.trends import get_columns, get_data
+# from stock.controllers.trends import get_columns, get_data
 
 
 def execute(filters=None):
-	if not filters:
-		filters = {}
-	data = []
-	conditions = get_columns(filters, "Purchase Order")
-	data = get_data(filters, conditions)
-	chart_data = get_chart_data(data, conditions, filters)
+	# if not filters:
+	# 	filters = {}
+	# data = []
+	# conditions = get_columns(filters, "Purchase Order")
+	# data = get_data(filters, conditions)
+	# chart_data = get_chart_data(data, conditions, filters)
 
-	return conditions["columns"], data, None, chart_data
+	return 0
 
 
 def get_chart_data(data, conditions, filters):

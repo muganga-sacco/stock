@@ -5,7 +5,7 @@
  "custom_options": "",
  "docstatus": 0,
  "doctype": "Dashboard Chart",
- "dynamic_filters_json": "{\"company\":\"frappe.defaults.get_user_default(\\\"Company\\\")\",\"fiscal_year\":\"stock.utils.get_fiscal_year()\"}",
+ "dynamic_filters_json": "{\"company\":\"frappe.defaults.get_user_default(\\\"Company\\\")\"}",
  "filters_json": "{\"period\":\"Yearly\",\"based_on\":\"Customer\"}",
  "idx": 0,
  "is_public": 1,
