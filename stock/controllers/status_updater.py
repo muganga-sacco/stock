@@ -338,7 +338,7 @@ class StatusUpdater(Document):
 			else:
 				args["cond"] = " and parent!='%s'" % self.name.replace('"', '"')
 
-			self._update_children(args, update_modified)
+			# self._update_children(args, update_modified)
 
 			if "percent_join_field" in args or "percent_join_field_parent" in args:
 				self._update_percent_field_in_targets(args, update_modified)
