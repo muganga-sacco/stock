@@ -139,7 +139,7 @@ def get_delivered_items(filters):
 	dn_items = query.run(as_dict=True)
 
 	parent = frappe.qb.DocType("Sales Invoice")
-	child = frappe.qb.DocType("Sales Invoice Item")
+	# child = frappe.qb.DocType("Sales Invoice Item")
 	query = (
 		frappe.qb.from_(parent)
 		.from_(child)

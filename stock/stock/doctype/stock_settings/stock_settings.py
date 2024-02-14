@@ -211,8 +211,8 @@ class StockSettings(Document):
 						)
 					)
 
-	def on_update(self):
-		self.toggle_warehouse_field_for_inter_warehouse_transfer()
+	# def on_update(self):
+	# 	self.toggle_warehouse_field_for_inter_warehouse_transfer()
 
 	def change_precision_for_for_sales(self):
 		doc_before_save = self.get_doc_before_save()
@@ -223,7 +223,7 @@ class StockSettings(Document):
 			return
 
 		if self.allow_to_edit_stock_uom_qty_for_sales:
-			doctypes = ["Sales Order Item", "Sales Invoice Item", "Delivery Note Item", "Quotation Item"]
+			doctypes = ["Sales Order Item", "Delivery Note Item", "Quotation Item"]
 			self.make_property_setter_for_precision(doctypes)
 
 	def change_precision_for_purchase(self):
@@ -264,39 +264,38 @@ class StockSettings(Document):
 				validate_fields_for_doctype=False,
 			)
 
-	def toggle_warehouse_field_for_inter_warehouse_transfer(self):
-		make_property_setter(
-			"Sales Invoice Item",
-			"target_warehouse",
-			"hidden",
-			1 - cint(self.allow_from_dn),
-			"Check",
-			validate_fields_for_doctype=False,
-		)
-		make_property_setter(
-			"Delivery Note Item",
-			"target_warehouse",
-			"hidden",
-			1 - cint(self.allow_from_dn),
-			"Check",
-			validate_fields_for_doctype=False,
-		)
-		make_property_setter(
-			"Purchase Invoice Item",
-			"from_warehouse",
-			"hidden",
-			1 - cint(self.allow_from_pr),
-			"Check",
-			validate_fields_for_doctype=False,
-		)
-		make_property_setter(
-			"Purchase Receipt Item",
-			"from_warehouse",
-			"hidden",
-			1 - cint(self.allow_from_pr),
-			"Check",
-			validate_fields_for_doctype=False,
-		)
+	# def toggle_warehouse_field_for_inter_warehouse_transfer(self):
+	# 	make_property_setter(
+	# 		"target_warehouse",
+	# 		"hidden",
+	# 		1 - cint(self.allow_from_dn),
+	# 		"Check",
+	# 		validate_fields_for_doctype=False,
+	# 	)
+	# 	make_property_setter(
+	# 		"Delivery Note Item",
+	# 		"target_warehouse",
+	# 		"hidden",
+	# 		1 - cint(self.allow_from_dn),
+	# 		"Check",
+	# 		validate_fields_for_doctype=False,
+	# 	)
+	# 	make_property_setter(
+	# 		"Purchase Invoice Item",
+	# 		"from_warehouse",
+	# 		"hidden",
+	# 		1 - cint(self.allow_from_pr),
+	# 		"Check",
+	# 		validate_fields_for_doctype=False,
+	# 	)
+	# 	make_property_setter(
+	# 		"Purchase Receipt Item",
+	# 		"from_warehouse",
+	# 		"hidden",
+	# 		1 - cint(self.allow_from_pr),
+	# 		"Check",
+	# 		validate_fields_for_doctype=False,
+	# 	)
 
 
 def clean_all_descriptions():
