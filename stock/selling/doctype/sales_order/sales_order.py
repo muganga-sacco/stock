@@ -373,7 +373,7 @@ class SalesOrder(SellingController):
 		frappe.get_doc("Authorization Control").validate_approving_authority(
 			self.doctype, self.company, self.base_grand_total, self
 		)
-		self.update_project()
+		# self.update_project()
 		self.update_prevdoc_status("submit")
 
 		# self.update_blanket_order()
@@ -910,12 +910,12 @@ def make_delivery_note(source_name, target_doc=None, kwargs=None):
 		item = get_item_defaults(target.item_code, source_parent.company)
 		item_group = get_item_group_defaults(target.item_code, source_parent.company)
 
-		if item:
-			target.cost_center = (
-				frappe.db.get_value("Project", source_parent.project, "cost_center")
-				or item.get("buying_cost_center")
-				or item_group.get("buying_cost_center")
-			)
+		# if item:
+		# 	target.cost_center = (
+		# 		frappe.db.get_value("Project", source_parent.project, "cost_center")
+		# 		or item.get("buying_cost_center")
+		# 		or item_group.get("buying_cost_center")
+		# 	)
 
 	if not kwargs.skip_item_mapping:
 		mapper["Sales Order Item"] = {

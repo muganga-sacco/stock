@@ -204,9 +204,9 @@ class DeliveryNote(SellingController):
 				]
 			)
 
-	def onload(self):
-		if self.docstatus == 0:
-			self.set_onload("has_unpacked_items", self.has_unpacked_items())
+	# def onload(self):
+	# 	if self.docstatus == 0:
+	# 		self.set_onload("has_unpacked_items", self.has_unpacked_items())
 
 	def before_print(self, settings=None):
 		def toggle_print_hide(meta, fieldname):
@@ -365,16 +365,16 @@ class DeliveryNote(SellingController):
 					"Bin", {"item_code": d.item_code, "warehouse": d.warehouse}, "actual_qty"
 				)
 
-			for d in self.get("packed_items"):
-				bin_qty = frappe.db.get_value(
-					"Bin",
-					{"item_code": d.item_code, "warehouse": d.warehouse},
-					["actual_qty", "projected_qty"],
-					as_dict=True,
-				)
-				if bin_qty:
-					d.actual_qty = flt(bin_qty.actual_qty)
-					d.projected_qty = flt(bin_qty.projected_qty)
+			# for d in self.get("packed_items"):
+			# 	bin_qty = frappe.db.get_value(
+			# 		"Bin",
+			# 		{"item_code": d.item_code, "warehouse": d.warehouse},
+			# 		["actual_qty", "projected_qty"],
+			# 		as_dict=True,
+			# 	)
+			# 	if bin_qty:
+			# 		d.actual_qty = flt(bin_qty.actual_qty)
+			# 		d.projected_qty = flt(bin_qty.projected_qty)
 
 	def on_submit(self):
 		self.validate_packed_qty()
@@ -387,7 +387,7 @@ class DeliveryNote(SellingController):
 
 		# update delivered qty in sales order
 		self.update_prevdoc_status()
-		self.update_billing_status()
+		# self.update_billing_status()
 
 		self.update_stock_reservation_entries()
 
@@ -398,8 +398,8 @@ class DeliveryNote(SellingController):
 		# Updating stock ledger should always be called after updating prevdoc status,
 		# because updating reserved qty in bin depends upon updated delivered qty in SO
 		self.update_stock_ledger()
-		self.make_gl_entries()
-		self.repost_future_sle_and_gle()
+		# self.make_gl_entries()
+		# self.repost_future_sle_and_gle()
 
 	def on_cancel(self):
 		super(DeliveryNote, self).on_cancel()
@@ -408,7 +408,7 @@ class DeliveryNote(SellingController):
 		self.check_next_docstatus()
 
 		self.update_prevdoc_status()
-		self.update_billing_status()
+		# self.update_billing_status()
 
 		self.update_stock_reservation_entries()
 
@@ -758,20 +758,20 @@ def update_billed_amount_based_on_so(so_detail, update_modified=True):
 	from frappe.query_builder.functions import Sum
 
 	# Billed against Sales Order directly
-	si_item = frappe.qb.DocType("Sales Invoice Item").as_("si_item")
-	sum_amount = Sum(si_item.amount).as_("amount")
+	# si_item = frappe.qb.DocType("Sales Invoice Item").as_("si_item")
+	# sum_amount = Sum(si_item.amount).as_("amount")
 
-	billed_against_so = (
-		frappe.qb.from_(si_item)
-		.select(sum_amount)
-		.where(
-			(si_item.so_detail == so_detail)
-			& ((si_item.dn_detail.isnull()) | (si_item.dn_detail == ""))
-			& (si_item.docstatus == 1)
-		)
-		.run()
-	)
-	billed_against_so = billed_against_so and billed_against_so[0][0] or 0
+	# billed_against_so = (
+	# 	frappe.qb.from_(si_item)
+	# 	.select(sum_amount)
+	# 	.where(
+	# 		(si_item.so_detail == so_detail)
+	# 		& ((si_item.dn_detail.isnull()) | (si_item.dn_detail == ""))
+	# 		& (si_item.docstatus == 1)
+	# 	)
+	# 	.run()
+	# )
+	# billed_against_so = billed_against_so and billed_against_so[0][0] or 0
 
 	# Get all Delivery Note Item rows against the Sales Order Item row
 	dn = frappe.qb.DocType("Delivery Note").as_("dn")

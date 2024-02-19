@@ -363,14 +363,14 @@ class StatusUpdater(Document):
 				if not args.get("second_source_extra_cond"):
 					args["second_source_extra_cond"] = ""
 
-				args["second_source_condition"] = frappe.db.sql(
-					""" select ifnull((select sum(%(second_source_field)s)
-					from `tab%(second_source_dt)s`
-					where `%(second_join_field)s`='%(detail_id)s'
-					and (`tab%(second_source_dt)s`.docstatus=1)
-					%(second_source_extra_cond)s), 0) """
-					% args
-				)[0][0]
+				# args["second_source_condition"] = frappe.db.sql(
+				# 	""" select ifnull((select sum(%(second_source_field)s)
+				# 	from `tab%(second_source_dt)s`
+				# 	where `%(second_join_field)s`='%(detail_id)s'
+				# 	and (`tab%(second_source_dt)s`.docstatus=1)
+				# 	%(second_source_extra_cond)s), 0) """
+				# 	% args
+				# )[0][0]
 
 			if args["detail_id"]:
 				if not args.get("extra_cond"):

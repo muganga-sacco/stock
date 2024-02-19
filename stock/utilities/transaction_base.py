@@ -53,8 +53,8 @@ class TransactionBase(StatusUpdater):
 						ref_doc.setdefault(key, [])
 						if ref_dn not in ref_doc[key]:
 							ref_doc[key].append(ref_dn)
-			if ref_doc:
-				self.compare_values(ref_doc, val["compare_fields"])
+			# if ref_doc:
+			# 	self.compare_values(ref_doc, val["compare_fields"])
 
 	def compare_values(self, ref_doc, fields, doc=None):
 		for reference_doctype, ref_dn_list in ref_doc.items():
