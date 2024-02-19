@@ -711,9 +711,7 @@ class Item(Document):
 				"default_price_list",
 				"buying_cost_center",
 				"default_supplier",
-				"expense_account",
 				"selling_cost_center",
-				"income_account",
 			],
 			as_dict=1,
 		)
@@ -727,9 +725,7 @@ class Item(Document):
 						"default_price_list": item.default_price_list,
 						"buying_cost_center": item.buying_cost_center,
 						"default_supplier": item.default_supplier,
-						"expense_account": item.expense_account,
 						"selling_cost_center": item.selling_cost_center,
-						"income_account": item.income_account,
 					},
 				)
 		else:

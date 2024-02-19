@@ -1486,7 +1486,7 @@ class StockEntry(StockController):
 		item = frappe.db.sql(
 			"""select i.name, i.stock_uom, i.description, i.image, i.item_name, i.item_group,
 				i.has_batch_no, i.sample_quantity, i.has_serial_no, i.allow_alternative_item,
-				id.expense_account, id.buying_cost_center
+				id.buying_cost_center
 			from `tabItem` i LEFT JOIN `tabItem Default` id ON i.name=id.parent and id.company=%s
 			where i.name=%s
 				and i.disabled=0
@@ -1522,7 +1522,6 @@ class StockEntry(StockController):
 				"has_serial_no": item.has_serial_no,
 				"has_batch_no": item.has_batch_no,
 				"sample_quantity": item.sample_quantity,
-				"expense_account": item.expense_account,
 			}
 		)
 
@@ -1533,19 +1532,14 @@ class StockEntry(StockController):
 		if args.get("uom") and for_update:
 			ret.update(get_uom_details(args.get("item_code"), args.get("uom"), args.get("qty")))
 
-		if self.purpose == "Material Issue":
-			ret["expense_account"] = (
-				item.get("expense_account")
-				or item_group_defaults.get("expense_account")
-				or frappe.get_cached_value("Company", self.company, "default_expense_account")
-			)
+		
 
-		for company_field, field in {
-			"stock_adjustment_account": "expense_account",
-			"cost_center": "cost_center",
-		}.items():
-			if not ret.get(field):
-				ret[field] = frappe.get_cached_value("Company", self.company, company_field)
+		# for company_field, field in {
+		# 	"stock_adjustment_account": "expense_account",
+		# 	"cost_center": "cost_center",
+		# }.items():
+		# 	if not ret.get(field):
+		# 		ret[field] = frappe.get_cached_value("Company", self.company, company_field)
 
 		args["posting_date"] = self.posting_date
 		args["posting_time"] = self.posting_time

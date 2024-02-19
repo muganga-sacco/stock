@@ -176,7 +176,6 @@ def make_stock_entry(**args):
 			"serial_no": args.serial_no,
 			"batch_no": args.batch_no,
 			"cost_center": args.cost_center,
-			"expense_account": args.expense_account,
 		},
 	)
 
