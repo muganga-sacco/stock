@@ -368,7 +368,7 @@ class PurchaseReceipt(BuyingController):
 		# depends upon updated ordered qty in PO
 		self.update_stock_ledger()
 		# self.make_gl_entries()
-		self.repost_future_sle_and_gle()
+		# self.repost_future_sle_and_gle()
 		self.set_consumed_qty_in_subcontract_order()
 		self.reserve_stock_for_sales_order()
 

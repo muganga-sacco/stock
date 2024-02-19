@@ -190,7 +190,7 @@ class PurchaseOrder(BuyingController):
 		self.validate_uom_is_integer("uom", "qty")
 		self.validate_uom_is_integer("stock_uom", "stock_qty")
 
-		self.validate_with_previous_doc()
+		# self.validate_with_previous_doc()
 		self.validate_for_subcontracting()
 		self.validate_minimum_order_qty()
 
@@ -217,7 +217,6 @@ class PurchaseOrder(BuyingController):
 				"Supplier Quotation Item": {
 					"ref_dn_field": "supplier_quotation_item",
 					"compare_fields": [
-						["project", "="],
 						["item_code", "="],
 						["uom", "="],
 						["conversion_factor", "="],
