@@ -14,8 +14,8 @@ from frappe.utils import add_days, add_months, cint, cstr, flt, getdate
 
 from stock import get_company_currency
 
-from hrms.setup.doctype.brand.brand import get_brand_defaults
-from hrms.setup.doctype.item_group.item_group import get_item_group_defaults
+from stock.stock.doctype.brand.brand import get_brand_defaults
+from stock.stock.doctype.item_group.item_group import get_item_group_defaults
 from hrms.setuputils import get_exchange_rate
 from stock.stock.doctype.item.item import get_item_defaults, get_uom_conv_factor
 from stock.stock.doctype.item_manufacturer.item_manufacturer import get_item_manufacturer_part_no

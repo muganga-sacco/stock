@@ -21,8 +21,8 @@ from stock.assets.doctype.asset.depreciation import (
 from stock.assets.doctype.asset_activity.asset_activity import add_asset_activity
 from stock.assets.doctype.asset_category.asset_category import get_asset_category_account
 from stock.controllers.stock_controller import StockController
-from hrms.setup.doctype.brand.brand import get_brand_defaults
-from hrms.setup.doctype.item_group.item_group import get_item_group_defaults
+from stock.stock.doctype.brand.brand import get_brand_defaults
+from stock.stock.doctype.item_group.item_group import get_item_group_defaults
 from stock.stock import get_warehouse_account_map
 from stock.stock.doctype.item.item import get_item_defaults
 from stock.stock.get_item_details import (

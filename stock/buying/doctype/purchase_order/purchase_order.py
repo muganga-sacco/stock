@@ -14,7 +14,7 @@ from frappe.utils import cint, cstr, flt, get_link_to_form
 from stock.buying.utils import check_on_hold_or_closed_status, validate_for_items
 from stock.controllers.buying_controller import BuyingController
 
-from hrms.setup.doctype.item_group.item_group import get_item_group_defaults
+from stock.stock.doctype.item_group.item_group import get_item_group_defaults
 from stock.stock.doctype.item.item import get_item_defaults, get_last_purchase_details
 from stock.stock.stock_balance import get_ordered_qty, update_bin_qty
 from stock.stock.utils import get_bin
