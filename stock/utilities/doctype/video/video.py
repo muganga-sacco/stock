@@ -11,7 +11,7 @@ from frappe import _
 from frappe.model.document import Document
 from frappe.utils import cint
 from frappe.utils.data import get_system_timezone
-from pyyoutube import Api
+# from pyyoutube import Api
 
 
 class Video(Document):
@@ -122,43 +122,43 @@ def get_id_from_url(url):
 	return id.groups()[-1]
 
 
-@frappe.whitelist()
-def batch_update_youtube_data():
-	def get_youtube_statistics(video_ids):
-		api_key = frappe.db.get_single_value("Video Settings", "api_key")
-		api = Api(api_key=api_key)
-		try:
-			video = api.get_video_by_id(video_id=video_ids)
-			video_stats = video.items
-			return video_stats
-		except Exception:
-			frappe.log_error("Unable to update YouTube statistics")
+# @frappe.whitelist()
+# def batch_update_youtube_data():
+# 	def get_youtube_statistics(video_ids):
+# 		api_key = frappe.db.get_single_value("Video Settings", "api_key")
+# 		# api = Api(api_key=api_key)
+# 		try:
+# 			# video = api.get_video_by_id(video_id=video_ids)
+# 			video_stats = video.items
+# 			return video_stats
+# 		except Exception:
+# 			frappe.log_error("Unable to update YouTube statistics")
 
-	def prepare_and_set_data(video_list):
-		video_ids = get_formatted_ids(video_list)
-		stats = get_youtube_statistics(video_ids)
-		set_youtube_data(stats)
+# 	def prepare_and_set_data(video_list):
+# 		video_ids = get_formatted_ids(video_list)
+# 		stats = get_youtube_statistics(video_ids)
+# 		set_youtube_data(stats)
 
-	def set_youtube_data(entries):
-		for entry in entries:
-			video_stats = entry.to_dict().get("statistics")
-			video_id = entry.to_dict().get("id")
-			stats = {
-				"like_count": cint(video_stats.get("likeCount")),
-				"view_count": cint(video_stats.get("viewCount")),
-				"dislike_count": cint(video_stats.get("dislikeCount")),
-				"comment_count": cint(video_stats.get("commentCount")),
-			}
-			frappe.db.set_value("Video", video_id, stats)
+# 	def set_youtube_data(entries):
+# 		for entry in entries:
+# 			video_stats = entry.to_dict().get("statistics")
+# 			video_id = entry.to_dict().get("id")
+# 			stats = {
+# 				"like_count": cint(video_stats.get("likeCount")),
+# 				"view_count": cint(video_stats.get("viewCount")),
+# 				"dislike_count": cint(video_stats.get("dislikeCount")),
+# 				"comment_count": cint(video_stats.get("commentCount")),
+# 			}
+# 			frappe.db.set_value("Video", video_id, stats)
 
-	video_list = frappe.get_all("Video", fields=["youtube_video_id"])
-	if len(video_list) > 50:
-		# Update in batches of 50
-		start, end = 0, 50
-		while start < len(video_list):
-			batch = video_list[start:end]
-			prepare_and_set_data(batch)
-			start += 50
-			end += 50
-	else:
-		prepare_and_set_data(video_list)
+# 	video_list = frappe.get_all("Video", fields=["youtube_video_id"])
+# 	if len(video_list) > 50:
+# 		# Update in batches of 50
+# 		start, end = 0, 50
+# 		while start < len(video_list):
+# 			batch = video_list[start:end]
+# 			prepare_and_set_data(batch)
+# 			start += 50
+# 			end += 50
+# 	else:
+# 		prepare_and_set_data(video_list)

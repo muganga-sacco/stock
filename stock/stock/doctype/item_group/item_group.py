@@ -1,5 +1,6 @@
-# Copyright (c) 2021, Frappe Technologies Pvt. Ltd. and Contributors
-# License: GNU General Public License v3. See license.txt
+# Copyright (c) 2024, mugangasacco and contributors
+# For license information, please see license.txt
+
 
 import copy
 
@@ -40,8 +41,8 @@ class ItemGroup(NestedSet):
 	
 
 	def on_update(self):
-		NestedSet.on_update(self)
-		self.validate_one_root()
+		# NestedSet.on_update(self)
+		# self.validate_one_root()
 		self.delete_child_item_groups_key()
 
 	def on_trash(self):

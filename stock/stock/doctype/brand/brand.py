@@ -1,16 +1,12 @@
-# Copyright (c) 2015, Frappe Technologies Pvt. Ltd. and Contributors
-# License: GNU General Public License v3. See license.txt
+# Copyright (c) 2024, mugangasacco and contributors
+# For license information, please see license.txt
 
-
-import copy
-
-import frappe
+# import frappe
 from frappe.model.document import Document
 
 
 class Brand(Document):
-    pass
-
+	pass
 
 def get_brand_defaults(item, company):
     item = frappe.get_cached_doc("Item", item)

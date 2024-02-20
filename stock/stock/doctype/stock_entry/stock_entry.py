@@ -25,7 +25,7 @@ from frappe.utils import (
 import stock
 from stock.buying.utils import check_on_hold_or_closed_status
 from stock.controllers.taxes_and_totals import init_landed_taxes_and_totals
-from stock.stock.doctype.brand.brand import get_brand_defaults
+# from stock.stock.doctype.brand.brand import get_brand_defaults
 from stock.stock.doctype.item_group.item_group import get_item_group_defaults
 from stock.stock.doctype.batch.batch import get_batch_qty
 from stock.stock.doctype.item.item import get_item_defaults

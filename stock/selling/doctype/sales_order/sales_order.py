@@ -1155,7 +1155,7 @@ def get_events(start, end, filters=None):
 def make_purchase_order_for_default_supplier(source_name, selected_items=None, target_doc=None):
 	"""Creates Purchase Order for each Supplier. Returns a list of doc objects."""
 
-	from hrms.setuputils import get_exchange_rate
+	# from hrms.setuputils import get_exchange_rate
 
 	if not selected_items:
 		return

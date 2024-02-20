@@ -1,6 +1,9 @@
-# Copyright (c) 2015, Frappe Technologies Pvt. Ltd. and Contributors
-# License: GNU General Public License v3. See license.txt
+# Copyright (c) 2024, mugangasacco and Contributors
+# See license.txt
 
-import frappe
+# import frappe
+from frappe.tests.utils import FrappeTestCase
 
-test_records = frappe.get_test_records("Brand")
+
+class TestBrand(FrappeTestCase):
+	pass

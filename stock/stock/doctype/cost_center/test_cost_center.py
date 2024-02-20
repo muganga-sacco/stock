@@ -5,5 +5,5 @@
 from frappe.tests.utils import FrappeTestCase
 
 
-class TestItemGroup(FrappeTestCase):
+class TestCostCenter(FrappeTestCase):
 	pass
