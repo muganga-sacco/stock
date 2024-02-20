@@ -19,7 +19,7 @@ from frappe.utils import add_days, cint, cstr, flt, get_link_to_form, getdate, n
 from stock.controllers.selling_controller import SellingController
 
 from stock.selling.doctype.customer.customer import check_credit_limit
-from stock.setup.doctype.item_group.item_group import get_item_group_defaults
+from hrms.setupdoctype.item_group.item_group import get_item_group_defaults
 from stock.stock.doctype.item.item import get_item_defaults
 from stock.stock.doctype.stock_reservation_entry.stock_reservation_entry import (
 	get_sre_reserved_qty_details_for_voucher,
@@ -1155,7 +1155,7 @@ def get_events(start, end, filters=None):
 def make_purchase_order_for_default_supplier(source_name, selected_items=None, target_doc=None):
 	"""Creates Purchase Order for each Supplier. Returns a list of doc objects."""
 
-	from stock.setup.utils import get_exchange_rate
+	from hrms.setuputils import get_exchange_rate
 
 	if not selected_items:
 		return

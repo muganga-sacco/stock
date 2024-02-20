@@ -35,7 +35,7 @@ from stock.controllers.print_settings import (
 )
 from stock.controllers.sales_and_purchase_return import validate_return
 from stock.exceptions import InvalidCurrency
-# from stock.setup.utils import get_exchange_rate
+# from hrms.setuputils import get_exchange_rate
 from stock.stock.doctype.item.item import get_uom_conv_factor
 # from stock.stock.doctype.packed_item.packed_item import make_packing_list
 # from stock.stock.get_item_details import (

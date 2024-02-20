@@ -24,7 +24,7 @@ class Quotation(SellingController):
 		
 	
 		from stock.selling.doctype.quotation_item.quotation_item import QuotationItem
-		from stock.setup.doctype.quotation_lost_reason_detail.quotation_lost_reason_detail import (
+		from hrms.setupdoctype.quotation_lost_reason_detail.quotation_lost_reason_detail import (
 			QuotationLostReasonDetail,
 		)
 		from stock.stock.doctype.packed_item.packed_item import PackedItem

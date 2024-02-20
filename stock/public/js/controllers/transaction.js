@@ -1049,7 +1049,7 @@ stock.TransactionController = class TransactionController extends stock.taxes_an
 
 		if (!transaction_date || !from_currency || !to_currency) return;
 		return frappe.call({
-			method: "stock.setup.utils.get_exchange_rate",
+			method: "hrms.setuputils.get_exchange_rate",
 			args: {
 				transaction_date: transaction_date,
 				from_currency: from_currency,

@@ -185,7 +185,7 @@
     get_terms: function(tc_name, doc, callback) {
       if (tc_name) {
         return frappe.call({
-          method: "stock.setup.doctype.terms_and_conditions.terms_and_conditions.get_terms_and_conditions",
+          method: "hrms.setupdoctype.terms_and_conditions.terms_and_conditions.get_terms_and_conditions",
           args: {
             template_name: tc_name,
             doc
@@ -3337,7 +3337,7 @@
       if (!transaction_date || !from_currency || !to_currency)
         return;
       return frappe.call({
-        method: "stock.setup.utils.get_exchange_rate",
+        method: "hrms.setuputils.get_exchange_rate",
         args: {
           transaction_date,
           from_currency,
@@ -8011,7 +8011,7 @@
   stock.demo.clear_demo = function() {
     frappe.confirm(__("Are you sure you want to clear all demo data?"), () => {
       frappe.call({
-        method: "stock.setup.demo.clear_demo_data",
+        method: "hrms.setupdemo.clear_demo_data",
         freeze: true,
         freeze_message: __("Clearing Demo Data..."),
         callback: function(r) {

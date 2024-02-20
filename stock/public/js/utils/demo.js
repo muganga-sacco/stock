@@ -19,7 +19,7 @@ function render_clear_demo_action() {
 stock.demo.clear_demo = function () {
 	frappe.confirm(__("Are you sure you want to clear all demo data?"), () => {
 		frappe.call({
-			method: "stock.setup.demo.clear_demo_data",
+			method: "hrms.setupdemo.clear_demo_data",
 			freeze: true,
 			freeze_message: __("Clearing Demo Data..."),
 			callback: function (r) {

@@ -526,7 +526,7 @@ class TestLandedCostVoucher(FrappeTestCase):
 		self.assertEqual(pr.items[1].landed_cost_voucher_amount, 100)
 
 	def test_multi_currency_lcv(self):
-		from stock.setup.doctype.currency_exchange.test_currency_exchange import (
+		from hrms.setupdoctype.currency_exchange.test_currency_exchange import (
 			save_new_records,
 			test_records,
 		)

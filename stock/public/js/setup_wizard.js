@@ -8,10 +8,10 @@ frappe.pages['setup-wizard'].on_page_load = function(wrapper) {
 };
 
 frappe.setup.on("before_load", function () {
-	stock.setup.slides_settings.map(frappe.setup.add_slide);
+	hrms.setupslides_settings.map(frappe.setup.add_slide);
 });
 
-stock.setup.slides_settings = [
+hrms.setupslides_settings = [
 	{
 		// Organization
 		name: 'organization',
@@ -91,7 +91,7 @@ stock.setup.slides_settings = [
 			var country = frappe.wizard.values.country;
 
 			if (country) {
-				let fy = stock.setup.fiscal_years[country];
+				let fy = hrms.setupfiscal_years[country];
 				let current_year = moment(new Date()).year();
 				let next_year = current_year + 1;
 				if (!fy) {
@@ -186,7 +186,7 @@ stock.setup.slides_settings = [
 // Source: https://en.wikipedia.org/wiki/Fiscal_year
 // default 1st Jan - 31st Dec
 
-stock.setup.fiscal_years = {
+hrms.setupfiscal_years = {
 	"Afghanistan": ["12-21", "12-20"],
 	"Australia": ["07-01", "06-30"],
 	"Bangladesh": ["07-01", "06-30"],
