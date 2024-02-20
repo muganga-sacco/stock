@@ -1,5 +1,4 @@
 stock
-setup
 Assets
 Buying
 Subcontracting
