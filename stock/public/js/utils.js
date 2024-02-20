@@ -182,7 +182,7 @@ $.extend(stock.utils, {
 	get_terms: function(tc_name, doc, callback) {
 		if(tc_name) {
 			return frappe.call({
-				method: 'hrms.setupdoctype.terms_and_conditions.terms_and_conditions.get_terms_and_conditions',
+				method: 'hrms.setup.doctype.terms_and_conditions.terms_and_conditions.get_terms_and_conditions',
 				args: {
 					template_name: tc_name,
 					doc: doc

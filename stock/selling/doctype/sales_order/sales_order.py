@@ -19,7 +19,7 @@ from frappe.utils import add_days, cint, cstr, flt, get_link_to_form, getdate, n
 from stock.controllers.selling_controller import SellingController
 
 from stock.selling.doctype.customer.customer import check_credit_limit
-from hrms.setupdoctype.item_group.item_group import get_item_group_defaults
+from hrms.setup.doctype.item_group.item_group import get_item_group_defaults
 from stock.stock.doctype.item.item import get_item_defaults
 from stock.stock.doctype.stock_reservation_entry.stock_reservation_entry import (
 	get_sre_reserved_qty_details_for_voucher,

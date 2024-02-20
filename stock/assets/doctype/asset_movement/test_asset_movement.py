@@ -7,7 +7,7 @@ import frappe
 from frappe.utils import now
 
 from stock.assets.doctype.asset.test_asset import create_asset_data
-from hrms.setupdoctype.employee.test_employee import make_employee
+from hrms.setup.doctype.employee.test_employee import make_employee
 from stock.stock.doctype.purchase_receipt.test_purchase_receipt import make_purchase_receipt
 
 
