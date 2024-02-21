@@ -194,7 +194,7 @@ class Item(Document):
 		self.validate_item_type()
 		self.validate_naming_series()
 		# self.check_for_active_boms()
-		self.fill_customer_code()
+		# self.fill_customer_code()
 		# self.check_item_tax()
 		# self.validate_barcode()
 		self.validate_warehouse_for_reorder()

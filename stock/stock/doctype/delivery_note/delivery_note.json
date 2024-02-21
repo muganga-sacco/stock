@@ -104,7 +104,6 @@
   "column_break_101",
   "company_address_display",
   "terms_tab",
-  "tc_name",
   "terms",
   "more_info_tab",
   "section_break_83",
@@ -116,8 +115,6 @@
   "column_break_89",
   "per_returned",
   "transporter_info",
-  "transporter",
-  "driver",
   "lr_no",
   "vehicle_no",
   "col_break34",
@@ -147,9 +144,7 @@
   "is_internal_customer",
   "represents_company",
   "inter_company_reference",
-  "customer_group",
   "packed_items",
-  "territory",
   "column_break5",
   "excise_page",
   "instructions",
@@ -799,15 +794,6 @@
    "width": "150px"
   },
   {
-   "fieldname": "tc_name",
-   "fieldtype": "Link",
-   "label": "Terms",
-   "oldfieldname": "tc_name",
-   "oldfieldtype": "Link",
-   "options": "Terms and Conditions",
-   "print_hide": 1
-  },
-  {
    "fieldname": "terms",
    "fieldtype": "Text Editor",
    "label": "Terms and Conditions Details",
@@ -821,22 +807,6 @@
    "fieldtype": "Section Break",
    "label": "Transporter Info",
    "options": "fa fa-truck",
-   "print_hide": 1
-  },
-  {
-   "fieldname": "transporter",
-   "fieldtype": "Link",
-   "label": "Transporter",
-   "options": "Supplier",
-   "print_hide": 1,
-   "print_width": "150px",
-   "width": "150px"
-  },
-  {
-   "fieldname": "driver",
-   "fieldtype": "Link",
-   "label": "Driver",
-   "options": "Driver",
    "print_hide": 1
   },
   {
@@ -911,21 +881,6 @@
    "no_copy": 1,
    "print_hide": 1,
    "read_only": 1
-  },
-  {
-   "fieldname": "customer_group",
-   "fieldtype": "Link",
-   "hidden": 1,
-   "label": "Customer Group",
-   "options": "Customer Group",
-   "print_hide": 1
-  },
-  {
-   "fieldname": "territory",
-   "fieldtype": "Link",
-   "label": "Territory",
-   "options": "Territory",
-   "print_hide": 1
   },
   {
    "collapsible": 1,
@@ -1290,7 +1245,7 @@
  "idx": 146,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-02-09 09:27:54.599502",
+ "modified": "2024-02-21 15:48:45.098983",
  "modified_by": "Administrator",
  "module": "stock",
  "name": "Delivery Note",
@@ -1381,7 +1336,7 @@
    "write": 1
   }
  ],
- "search_fields": "status,customer,customer_name, territory,base_grand_total",
+ "search_fields": "status,customer,customer_name,base_grand_total",
  "show_name_in_global_search": 1,
  "sort_field": "modified",
  "sort_order": "DESC",

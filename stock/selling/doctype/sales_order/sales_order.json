@@ -55,7 +55,6 @@
   "taxes_section",
   "column_break_38",
   "column_break_49",
-  "incoterm",
   "named_place",
   "section_break_40",
   "section_break_43",
@@ -89,8 +88,6 @@
   "billing_address_column",
   "customer_address",
   "address_display",
-  "customer_group",
-  "territory",
   "column_break_84",
   "contact_person",
   "contact_display",
@@ -110,7 +107,6 @@
   "payment_schedule_section",
   "payment_terms_section",
   "terms_section_break",
-  "tc_name",
   "terms",
   "more_info",
   "section_break_78",
@@ -425,25 +421,6 @@
    "label": "Shipping Address",
    "print_hide": 1,
    "read_only": 1
-  },
-  {
-   "fieldname": "customer_group",
-   "fieldtype": "Link",
-   "hidden": 1,
-   "hide_days": 1,
-   "hide_seconds": 1,
-   "label": "Customer Group",
-   "options": "Customer Group",
-   "print_hide": 1
-  },
-  {
-   "fieldname": "territory",
-   "fieldtype": "Link",
-   "hide_days": 1,
-   "hide_seconds": 1,
-   "label": "Territory",
-   "options": "Territory",
-   "print_hide": 1
   },
   {
    "collapsible": 1,
@@ -991,17 +968,6 @@
    "options": "fa fa-legal"
   },
   {
-   "fieldname": "tc_name",
-   "fieldtype": "Link",
-   "hide_days": 1,
-   "hide_seconds": 1,
-   "label": "Terms",
-   "oldfieldname": "tc_name",
-   "oldfieldtype": "Link",
-   "options": "Terms and Conditions",
-   "print_hide": 1
-  },
-  {
    "fieldname": "terms",
    "fieldtype": "Text Editor",
    "hide_days": 1,
@@ -1451,12 +1417,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "incoterm",
-   "fieldtype": "Link",
-   "label": "Incoterm",
-   "options": "Incoterm"
-  },
-  {
    "depends_on": "incoterm",
    "fieldname": "named_place",
    "fieldtype": "Data",
@@ -1478,7 +1438,7 @@
  "idx": 105,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-02-09 09:09:57.362617",
+ "modified": "2024-02-21 15:43:11.170847",
  "modified_by": "Administrator",
  "module": "Selling",
  "name": "Sales Order",
@@ -1547,7 +1507,7 @@
    "write": 1
   }
  ],
- "search_fields": "status,transaction_date, territory,order_type,company",
+ "search_fields": "status,transaction_date,order_type,company",
  "show_name_in_global_search": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
