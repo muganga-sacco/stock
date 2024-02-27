@@ -4,7 +4,7 @@ app_publisher = "mugangasacco"
 app_description = "mugangasacco stock management app"
 app_email = "kelly.kalisa@mugangasacco.rw"
 app_license = "mit"
-# required_apps = []
+required_apps = ["frappe", "https://github.com/victor-abz/basic.git"]
 
 # Includes in <head>
 # ------------------
@@ -17,11 +17,10 @@ app_include_js = "stock.bundle.js"
 web_include_js = "stock-web.bundle.js"
 
 treeviews = [
-	"Warehouse",
-	"Item Group",
-	"Customer Group",
-	"Supplier Group",
-	
+    "Warehouse",
+    "Item Group",
+    "Customer Group",
+    "Supplier Group",
 ]
 
 # include js, css files in header of web template
@@ -237,4 +236,3 @@ treeviews = [
 # default_log_clearing_doctypes = {
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
-

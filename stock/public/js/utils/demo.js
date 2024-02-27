@@ -1,34 +1,34 @@
-frappe.provide("stock.demo");
+frappe.provide('stock.demo');
 
-$(document).on("toolbar_setup", function () {
-	if (frappe.boot.sysdefaults.demo_company) {
-		render_clear_demo_action();
-	}
+$(document).on('toolbar_setup', function () {
+  if (frappe.boot.sysdefaults.demo_company) {
+    render_clear_demo_action();
+  }
 });
 
 function render_clear_demo_action() {
-	let demo_action = $(
-		`<a class="dropdown-item" onclick="return stock.demo.clear_demo()">
-			${__("Clear Demo Data")}
+  let demo_action = $(
+    `<a class="dropdown-item" onclick="return stock.demo.clear_demo()">
+			${__('Clear Demo Data')}
 		</a>`
-	);
+  );
 
-	demo_action.appendTo($("#toolbar-user"));
+  demo_action.appendTo($('#toolbar-user'));
 }
 
 stock.demo.clear_demo = function () {
-	frappe.confirm(__("Are you sure you want to clear all demo data?"), () => {
-		frappe.call({
-			method: "hrms.setupdemo.clear_demo_data",
-			freeze: true,
-			freeze_message: __("Clearing Demo Data..."),
-			callback: function (r) {
-				frappe.ui.toolbar.clear_cache();
-				frappe.show_alert({
-					message: __("Demo data cleared"),
-					indicator: "green",
-				});
-			},
-		});
-	});
+  frappe.confirm(__('Are you sure you want to clear all demo data?'), () => {
+    frappe.call({
+      method: 'basic.setupdemo.clear_demo_data',
+      freeze: true,
+      freeze_message: __('Clearing Demo Data...'),
+      callback: function (r) {
+        frappe.ui.toolbar.clear_cache();
+        frappe.show_alert({
+          message: __('Demo data cleared'),
+          indicator: 'green',
+        });
+      },
+    });
+  });
 };
