@@ -193,7 +193,7 @@ class SalesOrder(SellingController):
             self.set_onload("has_reserved_stock", True)
 
     def validate(self):
-        super(SalesOrder, self).validate()
+        # super(SalesOrder, self).validate()
         self.validate_delivery_date()
         # self.validate_proj_cust()
         self.validate_po()

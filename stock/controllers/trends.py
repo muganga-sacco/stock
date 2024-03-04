@@ -219,31 +219,31 @@ def get_mon(dt):
 	return getdate(dt).strftime("%b")
 
 
-def period_wise_columns_query(filters, trans):
-	query_details = ""
-	pwc = []
-	bet_dates = get_period_date_ranges(filters.get("period"), filters.get("fiscal_year"))
+# def period_wise_columns_query(filters, trans):
+# 	query_details = ""
+# 	pwc = []
+# 	bet_dates = get_period_date_ranges(filters.get("period"), filters.get("fiscal_year"))
 
-	if trans in ["Purchase Receipt", "Delivery Note", "Purchase Invoice", "Sales Invoice"]:
-		trans_date = "posting_date"
-		if filters.period_based_on:
-			trans_date = filters.period_based_on
-	else:
-		trans_date = "transaction_date"
+# 	if trans in ["Purchase Receipt", "Delivery Note", "Purchase Invoice", "Sales Invoice"]:
+# 		trans_date = "posting_date"
+# 		if filters.period_based_on:
+# 			trans_date = filters.period_based_on
+# 	else:
+# 		trans_date = "transaction_date"
 
-	if filters.get("period") != "Yearly":
-		for dt in bet_dates:
-			get_period_wise_columns(dt, filters.get("period"), pwc)
-			query_details = get_period_wise_query(dt, trans_date, query_details)
-	else:
-		pwc = [
-			_(filters.get("fiscal_year")) + " (" + _("Qty") + "):Float:120",
-			_(filters.get("fiscal_year")) + " (" + _("Amt") + "):Currency:120",
-		]
-		query_details = " SUM(t2.stock_qty), SUM(t2.base_net_amount),"
+# 	if filters.get("period") != "Yearly":
+# 		for dt in bet_dates:
+# 			get_period_wise_columns(dt, filters.get("period"), pwc)
+# 			query_details = get_period_wise_query(dt, trans_date, query_details)
+# 	else:
+# 		pwc = [
+# 			_(filters.get("fiscal_year")) + " (" + _("Qty") + "):Float:120",
+# 			_(filters.get("fiscal_year")) + " (" + _("Amt") + "):Currency:120",
+# 		]
+# 		query_details = " SUM(t2.stock_qty), SUM(t2.base_net_amount),"
 
-	query_details += "SUM(t2.stock_qty), SUM(t2.base_net_amount)"
-	return pwc, query_details
+# 	query_details += "SUM(t2.stock_qty), SUM(t2.base_net_amount)"
+# 	return pwc, query_details
 
 
 def get_period_wise_columns(bet_dates, period, pwc):
@@ -270,43 +270,43 @@ def get_period_wise_query(bet_dates, trans_date, query_details):
 	return query_details
 
 
-@frappe.whitelist(allow_guest=True)
-def get_period_date_ranges(period, fiscal_year=None, year_start_date=None):
-	from dateutil.relativedelta import relativedelta
+# @frappe.whitelist(allow_guest=True)
+# def get_period_date_ranges(period, fiscal_year=None, year_start_date=None):
+# 	from dateutil.relativedelta import relativedelta
 
-	if not year_start_date:
-		year_start_date, year_end_date = frappe.get_cached_value(
-			"Fiscal Year", fiscal_year, ["year_start_date", "year_end_date"]
-		)
+# 	if not year_start_date:
+# 		year_start_date, year_end_date = frappe.get_cached_value(
+# 			"Fiscal Year", fiscal_year, ["year_start_date", "year_end_date"]
+# 		)
 
-	increment = {"Monthly": 1, "Quarterly": 3, "Half-Yearly": 6, "Yearly": 12}.get(period)
+# 	increment = {"Monthly": 1, "Quarterly": 3, "Half-Yearly": 6, "Yearly": 12}.get(period)
 
-	period_date_ranges = []
-	for i in range(1, 13, increment):
-		period_end_date = getdate(year_start_date) + relativedelta(months=increment, days=-1)
-		if period_end_date > getdate(year_end_date):
-			period_end_date = year_end_date
-		period_date_ranges.append([year_start_date, period_end_date])
-		year_start_date = period_end_date + relativedelta(days=1)
-		if period_end_date == year_end_date:
-			break
+# 	period_date_ranges = []
+# 	for i in range(1, 13, increment):
+# 		period_end_date = getdate(year_start_date) + relativedelta(months=increment, days=-1)
+# 		if period_end_date > getdate(year_end_date):
+# 			period_end_date = year_end_date
+# 		period_date_ranges.append([year_start_date, period_end_date])
+# 		year_start_date = period_end_date + relativedelta(days=1)
+# 		if period_end_date == year_end_date:
+# 			break
 
-	return period_date_ranges
+# 	return period_date_ranges
 
 
-def get_period_month_ranges(period, fiscal_year):
-	from dateutil.relativedelta import relativedelta
+# def get_period_month_ranges(period, fiscal_year):
+# 	from dateutil.relativedelta import relativedelta
 
-	period_month_ranges = []
+# 	period_month_ranges = []
 
-	for start_date, end_date in get_period_date_ranges(period, fiscal_year):
-		months_in_this_period = []
-		while start_date <= end_date:
-			months_in_this_period.append(start_date.strftime("%B"))
-			start_date += relativedelta(months=1)
-		period_month_ranges.append(months_in_this_period)
+# 	for start_date, end_date in get_period_date_ranges(period, fiscal_year):
+# 		months_in_this_period = []
+# 		while start_date <= end_date:
+# 			months_in_this_period.append(start_date.strftime("%B"))
+# 			start_date += relativedelta(months=1)
+# 		period_month_ranges.append(months_in_this_period)
 
-	return period_month_ranges
+# 	return period_month_ranges
 
 
 def based_wise_columns_query(based_on, trans):

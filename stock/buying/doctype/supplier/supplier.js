@@ -2,69 +2,69 @@
 // License: GNU General Public License v3. See license.txt
 
 frappe.ui.form.on("Supplier", {
-	setup: function (frm) {
-		frm.set_query('default_price_list', { 'buying': 1 });
-		if (frm.doc.__islocal == 1) {
-			frm.set_value("represents_company", "");
-		}
-		frm.set_query('account', 'accounts', function (doc, cdt, cdn) {
-			let d = locals[cdt][cdn];
-			return {
-				filters: {
-					'account_type': 'Payable',
-					'root_type': 'Liability',
-					'company': d.company,
-					"is_group": 0
-				}
-			}
-		});
+	// setup: function (frm) {
+	// 	frm.set_query('default_price_list', { 'buying': 1 });
+	// 	if (frm.doc.__islocal == 1) {
+	// 		frm.set_value("represents_company", "");
+	// 	}
+	// 	frm.set_query('account', 'accounts', function (doc, cdt, cdn) {
+	// 		let d = locals[cdt][cdn];
+	// 		return {
+	// 			filters: {
+	// 				'account_type': 'Payable',
+	// 				'root_type': 'Liability',
+	// 				'company': d.company,
+	// 				"is_group": 0
+	// 			}
+	// 		}
+	// 	});
 
-		frm.set_query('advance_account', 'accounts', function (doc, cdt, cdn) {
-			let d = locals[cdt][cdn];
-			return {
-				filters: {
-					"account_type": "Payable",
-					"root_type": "Asset",
-					"company": d.company,
-					"is_group": 0
-				}
-			}
-		});
+	// 	frm.set_query('advance_account', 'accounts', function (doc, cdt, cdn) {
+	// 		let d = locals[cdt][cdn];
+	// 		return {
+	// 			filters: {
+	// 				"account_type": "Payable",
+	// 				"root_type": "Asset",
+	// 				"company": d.company,
+	// 				"is_group": 0
+	// 			}
+	// 		}
+	// 	});
 
-		frm.set_query("default_bank_account", function() {
-			return {
-				filters: {
-					"is_company_account":1
-				}
-			}
-		});
+	// 	frm.set_query("default_bank_account", function() {
+	// 		return {
+	// 			filters: {
+	// 				"is_company_account":1
+	// 			}
+	// 		}
+	// 	});
 
-		frm.set_query("supplier_primary_contact", function(doc) {
-			return {
-				query: "stock.buying.doctype.supplier.supplier.get_supplier_primary_contact",
-				filters: {
-					"supplier": doc.name
-				}
-			};
-		});
+	// 	frm.set_query("supplier_primary_contact", function(doc) {
+	// 		return {
+	// 			query: "stock.buying.doctype.supplier.supplier.get_supplier_primary_contact",
+	// 			filters: {
+	// 				"supplier": doc.name
+	// 			}
+	// 		};
+	// 	});
 
-		frm.set_query("supplier_primary_address", function(doc) {
-			return {
-				filters: {
-					"link_doctype": "Supplier",
-					"link_name": doc.name
-				}
-			};
-		});
+	// 	frm.set_query("supplier_primary_address", function(doc) {
+	// 		return {
+	// 			filters: {
+	// 				"link_doctype": "Supplier",
+	// 				"link_name": doc.name
+	// 			}
+	// 		};
+	// 	});
 
-		frm.set_query("user", "portal_users", function(doc) {
-			return {
-				filters: {
-					"ignore_user_type": true,
-				}
-			};
-		});
-	},
+	// 	frm.set_query("user", "portal_users", function(doc) {
+	// 		return {
+	// 			filters: {
+	// 				"ignore_user_type": true,
+	// 			}
+	// 		};
+	// 	});
+	// },
 
 	refresh: function (frm) {
 		if (frappe.defaults.get_default("supp_master_name") != "Naming Series") {

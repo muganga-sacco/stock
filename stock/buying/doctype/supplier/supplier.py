@@ -66,10 +66,10 @@ class Supplier(TransactionBase):
 		website: DF.Data | None
 	# end: auto-generated types
 
-	def onload(self):
-		"""Load address and contacts in `__onload`"""
-		load_address_and_contact(self)
-		self.load_dashboard_info()
+	# def onload(self):
+	# 	"""Load address and contacts in `__onload`"""
+	# 	load_address_and_contact(self)
+	# 	self.load_dashboard_info()
 
 	def before_save(self):
 		if not self.on_hold:

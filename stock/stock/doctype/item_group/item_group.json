@@ -1,124 +1,137 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "field:item_group_name",
  "creation": "2024-02-20 17:51:04.240042",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-    "gs",
-    "item_group_name",
-    "parent_item_group",
-    "is_group",
-    "image",
-    "column_break_5",
-    "defaults",
-    "item_group_defaults",
-    "lft",
-    "old_parent",
-    "rgt"
-   ],
-   "fields": [
-    {
-     "fieldname": "gs",
-     "fieldtype": "Section Break",
-     "label": "General Settings"
-    },
-    {
-     "fieldname": "item_group_name",
-     "fieldtype": "Data",
-     "in_list_view": 1,
-     "label": "Item Group Name",
-     "oldfieldname": "item_group_name",
-     "oldfieldtype": "Data",
-     "reqd": 1,
-     "unique": 1
-    },
-    {
-     "bold": 1,
-     "fieldname": "parent_item_group",
-     "fieldtype": "Link",
-     "ignore_user_permissions": 1,
-     "in_list_view": 1,
-     "label": "Parent Item Group",
-     "oldfieldname": "parent_item_group",
-     "oldfieldtype": "Link",
-     "options": "Item Group"
-    },
-    {
-     "bold": 1,
-     "default": "0",
-     "description": "Only leaf nodes are allowed in transaction",
-     "fieldname": "is_group",
-     "fieldtype": "Check",
-     "in_list_view": 1,
-     "label": "Is Group",
-     "oldfieldname": "is_group",
-     "oldfieldtype": "Select"
-    },
-    {
-     "fieldname": "image",
-     "fieldtype": "Attach Image",
-     "hidden": 1,
-     "label": "Image"
-    },
-    {
-     "fieldname": "column_break_5",
-     "fieldtype": "Column Break"
-    },
-    {
-     "fieldname": "defaults",
-     "fieldtype": "Section Break",
-     "label": "Defaults"
-    },
-    {
-     "fieldname": "item_group_defaults",
-     "fieldtype": "Table",
-     "label": "Item Group Defaults",
-     "options": "Item Default"
-    },
-    {
-     "fieldname": "lft",
-     "fieldtype": "Int",
-     "hidden": 1,
-     "label": "lft",
-     "no_copy": 1,
-     "oldfieldname": "lft",
-     "oldfieldtype": "Int",
-     "print_hide": 1,
-     "search_index": 1
-    },
-    {
-     "fieldname": "rgt",
-     "fieldtype": "Int",
-     "hidden": 1,
-     "label": "rgt",
-     "no_copy": 1,
-     "oldfieldname": "rgt",
-     "oldfieldtype": "Int",
-     "print_hide": 1,
-     "search_index": 1
-    },
-    {
-     "fieldname": "old_parent",
-     "fieldtype": "Link",
-     "hidden": 1,
-     "ignore_user_permissions": 1,
-     "label": "old_parent",
-     "no_copy": 1,
-     "oldfieldname": "old_parent",
-     "oldfieldtype": "Data",
-     "options": "Item Group",
-     "print_hide": 1,
-     "report_hide": 1
-    }
-   ],
+  "gs",
+  "item_group_name",
+  "parent_item_group",
+  "is_group",
+  "image",
+  "column_break_5",
+  "defaults",
+  "item_group_defaults",
+  "lft",
+  "old_parent",
+  "rgt",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "gs",
+   "fieldtype": "Section Break",
+   "label": "General Settings"
+  },
+  {
+   "fieldname": "item_group_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Item Group Name",
+   "oldfieldname": "item_group_name",
+   "oldfieldtype": "Data",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "bold": 1,
+   "fieldname": "parent_item_group",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_list_view": 1,
+   "label": "Parent Item Group",
+   "oldfieldname": "parent_item_group",
+   "oldfieldtype": "Link",
+   "options": "Item Group"
+  },
+  {
+   "bold": 1,
+   "default": "0",
+   "description": "Only leaf nodes are allowed in transaction",
+   "fieldname": "is_group",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is Group",
+   "oldfieldname": "is_group",
+   "oldfieldtype": "Select"
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Attach Image",
+   "hidden": 1,
+   "label": "Image"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "defaults",
+   "fieldtype": "Section Break",
+   "label": "Defaults"
+  },
+  {
+   "fieldname": "item_group_defaults",
+   "fieldtype": "Table",
+   "label": "Item Group Defaults",
+   "options": "Item Default"
+  },
+  {
+   "fieldname": "lft",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "lft",
+   "no_copy": 1,
+   "oldfieldname": "lft",
+   "oldfieldtype": "Int",
+   "print_hide": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "rgt",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "rgt",
+   "no_copy": 1,
+   "oldfieldname": "rgt",
+   "oldfieldtype": "Int",
+   "print_hide": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "old_parent",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "ignore_user_permissions": 1,
+   "label": "old_parent",
+   "no_copy": 1,
+   "oldfieldname": "old_parent",
+   "oldfieldtype": "Data",
+   "options": "Item Group",
+   "print_hide": 1,
+   "report_hide": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Item Group",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-02-20 17:51:04.240042",
+ "modified": "2024-03-01 11:57:08.773012",
  "modified_by": "Administrator",
  "module": "stock",
  "name": "Item Group",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
