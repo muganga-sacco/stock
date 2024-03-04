@@ -1,0 +1,119 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "question-sign",
+  "modified": "2024-03-01 15:59:39.307672",
+  "name": "Pending",
+  "style": "",
+  "workflow_state_name": "Pending"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2024-03-04 08:51:41.484181",
+  "name": "Approved By Supervisor",
+  "style": "",
+  "workflow_state_name": "Approved By Supervisor"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2024-03-04 08:53:22.166609",
+  "name": "Approved By HR",
+  "style": "",
+  "workflow_state_name": "Approved By HR"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "remove",
+  "modified": "2024-03-01 15:59:39.312025",
+  "name": "Rejected",
+  "style": "Danger",
+  "workflow_state_name": "Rejected"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2024-03-04 08:52:36.025769",
+  "name": "Rejected By Supervisor",
+  "style": "",
+  "workflow_state_name": "Rejected By Supervisor"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2024-03-04 08:53:41.184868",
+  "name": "Rejected By HR",
+  "style": "",
+  "workflow_state_name": "Rejected By HR"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "ok-sign",
+  "modified": "2024-03-01 15:59:39.309968",
+  "name": "Approved",
+  "style": "Success",
+  "workflow_state_name": "Approved"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2024-03-04 08:52:11.355905",
+  "name": "Returned For Correction",
+  "style": "",
+  "workflow_state_name": "Returned For Correction"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2024-03-04 08:47:01.837054",
+  "name": "Draft",
+  "style": "",
+  "workflow_state_name": "Draft"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2024-03-04 08:49:58.743307",
+  "name": "Pending Submission",
+  "style": "",
+  "workflow_state_name": "Pending Submission"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2024-03-04 08:54:10.476210",
+  "name": "Pending DAF Approval",
+  "style": "",
+  "workflow_state_name": "Pending DAF Approval"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2024-03-04 08:51:01.235975",
+  "name": "Pending Supervisor Approval",
+  "style": "",
+  "workflow_state_name": "Pending Supervisor Approval"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2024-03-04 08:53:06.040842",
+  "name": "Pending HR Approval",
+  "style": "",
+  "workflow_state_name": "Pending HR Approval"
+ }
+]

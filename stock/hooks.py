@@ -22,6 +22,18 @@ treeviews = [
     "Customer Group",
     "Supplier Group",
 ]
+fixtures = [
+    "Workflow",
+    {
+        "dt":"Workspace",
+        "filters":{
+            "name":"Request"
+        }
+    },
+    "Workflow State",
+    "Workflow Action Master"
+    
+]
 
 # include js, css files in header of web template
 # web_include_css = "/assets/stock/css/stock.css"
