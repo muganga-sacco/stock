@@ -196,7 +196,7 @@ class SalesOrder(SellingController):
         # super(SalesOrder, self).validate()
         self.validate_delivery_date()
         # self.validate_proj_cust()
-        self.validate_po()
+        # self.validate_po()
         self.validate_uom_is_integer("stock_uom", "stock_qty")
         self.validate_uom_is_integer("uom", "qty")
         self.validate_for_items()

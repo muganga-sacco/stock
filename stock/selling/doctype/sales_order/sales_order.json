@@ -222,6 +222,7 @@
    "collapsible": 1,
    "fieldname": "currency_and_price_list",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "hide_days": 1,
    "hide_seconds": 1,
    "label": "Currency and Price List",
@@ -241,6 +242,7 @@
    "width": "100px"
   },
   {
+   "default": "9",
    "description": "Rate at which customer's currency is converted to company's base currency",
    "fieldname": "conversion_rate",
    "fieldtype": "Float",
@@ -249,7 +251,6 @@
    "label": "Exchange Rate",
    "oldfieldname": "conversion_rate",
    "oldfieldtype": "Currency",
-   "precision": "9",
    "print_hide": 1,
    "reqd": 1,
    "width": "100px"
@@ -979,7 +980,7 @@
  "idx": 105,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-03-06 14:10:37.694586",
+ "modified": "2024-03-06 14:49:22.233642",
  "modified_by": "Administrator",
  "module": "Selling",
  "name": "Sales Order",
