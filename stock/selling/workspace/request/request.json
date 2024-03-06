@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"ow595dYDrI\",\"type\":\"onboarding\",\"data\":{\"onboarding_name\":\"Selling\",\"col\":12}},{\"id\":\"aW2i5R5GRP\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"1it3dCOnm6\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Quick Access</b></span>\",\"col\":12}},{\"id\":\"x7pLl-spS4\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Item\",\"col\":3}},{\"id\":\"SSGrXWmY-H\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Order\",\"col\":3}},{\"id\":\"-5J_yLxDaS\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Analytics\",\"col\":3}},{\"id\":\"6YEYpnIBKV\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Point of Sale\",\"col\":3}},{\"id\":\"mX-9DJSyT2\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Learn Sales Management\",\"col\":3}},{\"id\":\"oNjjNbnUHp\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"0BcePLg0g1\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports &amp; Masters</b></span>\",\"col\":12}},{\"id\":\"uze5dJ1ipL\",\"type\":\"card\",\"data\":{\"card_name\":\"Request\",\"col\":4}}]",
+ "content": "[{\"id\":\"1it3dCOnm6\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Quick Access</b></span>\",\"col\":12}},{\"id\":\"x7pLl-spS4\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Item\",\"col\":3}},{\"id\":\"SSGrXWmY-H\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Request\",\"col\":3}},{\"id\":\"-5J_yLxDaS\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Analytics\",\"col\":3}},{\"id\":\"6YEYpnIBKV\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Point of Sale\",\"col\":3}},{\"id\":\"oNjjNbnUHp\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"0BcePLg0g1\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports &amp; Masters</b></span>\",\"col\":12}},{\"id\":\"uze5dJ1ipL\",\"type\":\"card\",\"data\":{\"card_name\":\"Request\",\"col\":4}}]",
  "creation": "2020-01-28 11:49:12.092882",
  "custom_blocks": [],
  "docstatus": 0,
@@ -10,7 +10,7 @@
  "icon": "sell",
  "idx": 0,
  "is_hidden": 0,
- "label": "Selling",
+ "label": "Request",
  "links": [
   {
    "hidden": 0,
@@ -25,7 +25,7 @@
    "dependencies": "Item, Customer",
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Sales Order",
+   "label": "Request",
    "link_count": 0,
    "link_to": "Sales Order",
    "link_type": "DocType",
@@ -143,10 +143,10 @@
    "type": "Link"
   }
  ],
- "modified": "2024-03-06 13:30:59.549557",
+ "modified": "2024-03-06 14:01:08.686134",
  "modified_by": "Administrator",
  "module": "Selling",
- "name": "Selling",
+ "name": "Request",
  "number_cards": [],
  "owner": "Administrator",
  "parent_page": "",
@@ -157,11 +157,13 @@
  "sequence_id": 6.0,
  "shortcuts": [
   {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Learn Sales Management",
-   "type": "URL",
-   "url": "https://frappe.school/courses/sales-management-course?utm_source=in_app"
+   "color": "Yellow",
+   "doc_view": "",
+   "format": "{}  To Deliver",
+   "label": "Request",
+   "link_to": "Sales Order",
+   "stats_filter": "[[\"Sales Order\",\"status\",\"in\",[\"Completed\",null],false]]",
+   "type": "DocType"
   },
   {
    "label": "Point of Sale",
@@ -177,14 +179,6 @@
    "type": "DocType"
   },
   {
-   "color": "Yellow",
-   "format": "{}  To Deliver",
-   "label": "Sales Order",
-   "link_to": "Sales Order",
-   "stats_filter": "{\n    \"company\": [\"like\", '%' + frappe.defaults.get_global_default(\"company\") + '%'],\n    \"status\":[\"in\", [\"To Deliver\", \"To Deliver and Bill\"]]\n}",
-   "type": "DocType"
-  },
-  {
    "color": "Grey",
    "format": "{} Open",
    "label": "Sales Analytics",
@@ -193,5 +187,5 @@
    "type": "Report"
   }
  ],
- "title": "Selling"
+ "title": "Request"
 }
