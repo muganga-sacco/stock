@@ -1,0 +1,185 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Wiki Space",
+  "modified": "2024-03-06 12:08:19.237538",
+  "name": "Request",
+  "route": "Item Request",
+  "wiki_sidebars": [
+   {
+    "parent": "Request",
+    "parent_label": "Request",
+    "parentfield": "wiki_sidebars",
+    "parenttype": "Wiki Space",
+    "wiki_page": "Request"
+   },
+   {
+    "parent": "Request",
+    "parent_label": "Request",
+    "parentfield": "wiki_sidebars",
+    "parenttype": "Wiki Space",
+    "wiki_page": "Request Report"
+   }
+  ]
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Wiki Space",
+  "modified": "2024-03-06 12:03:29.067518",
+  "name": "Stock",
+  "route": "Stock",
+  "wiki_sidebars": [
+   {
+    "parent": "Stock",
+    "parent_label": "Stock",
+    "parentfield": "wiki_sidebars",
+    "parenttype": "Wiki Space",
+    "wiki_page": "Item"
+   },
+   {
+    "parent": "Stock",
+    "parent_label": "Stock",
+    "parentfield": "wiki_sidebars",
+    "parenttype": "Wiki Space",
+    "wiki_page": "Item Group"
+   },
+   {
+    "parent": "Stock",
+    "parent_label": "Stock",
+    "parentfield": "wiki_sidebars",
+    "parenttype": "Wiki Space",
+    "wiki_page": "Opening Stock"
+   },
+   {
+    "parent": "Stock",
+    "parent_label": "Stock",
+    "parentfield": "wiki_sidebars",
+    "parenttype": "Wiki Space",
+    "wiki_page": "Warehouse"
+   }
+  ]
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Wiki Space",
+  "modified": "2024-03-06 12:18:56.388243",
+  "name": "Muganga sacco stock",
+  "route": "Muganga sacco stock",
+  "wiki_sidebars": [
+   {
+    "parent": "Muganga sacco stock",
+    "parent_label": "Buying",
+    "parentfield": "wiki_sidebars",
+    "parenttype": "Wiki Space",
+    "wiki_page": "Request for Quotation"
+   },
+   {
+    "parent": "Muganga sacco stock",
+    "parent_label": "Buying",
+    "parentfield": "wiki_sidebars",
+    "parenttype": "Wiki Space",
+    "wiki_page": "Supplier"
+   },
+   {
+    "parent": "Muganga sacco stock",
+    "parent_label": "Buying",
+    "parentfield": "wiki_sidebars",
+    "parenttype": "Wiki Space",
+    "wiki_page": "Supplier Quotation"
+   },
+   {
+    "parent": "Muganga sacco stock",
+    "parent_label": "Buying",
+    "parentfield": "wiki_sidebars",
+    "parenttype": "Wiki Space",
+    "wiki_page": "Purchase Order"
+   },
+   {
+    "parent": "Muganga sacco stock",
+    "parent_label": "Request",
+    "parentfield": "wiki_sidebars",
+    "parenttype": "Wiki Space",
+    "wiki_page": "Request"
+   },
+   {
+    "parent": "Muganga sacco stock",
+    "parent_label": "Request",
+    "parentfield": "wiki_sidebars",
+    "parenttype": "Wiki Space",
+    "wiki_page": "Request Report"
+   },
+   {
+    "parent": "Muganga sacco stock",
+    "parent_label": "Stock",
+    "parentfield": "wiki_sidebars",
+    "parenttype": "Wiki Space",
+    "wiki_page": "Item"
+   },
+   {
+    "parent": "Muganga sacco stock",
+    "parent_label": "Stock",
+    "parentfield": "wiki_sidebars",
+    "parenttype": "Wiki Space",
+    "wiki_page": "Item Group"
+   },
+   {
+    "parent": "Muganga sacco stock",
+    "parent_label": "Stock",
+    "parentfield": "wiki_sidebars",
+    "parenttype": "Wiki Space",
+    "wiki_page": "Opening Stock"
+   },
+   {
+    "parent": "Muganga sacco stock",
+    "parent_label": "Stock",
+    "parentfield": "wiki_sidebars",
+    "parenttype": "Wiki Space",
+    "wiki_page": "Material Request"
+   },
+   {
+    "parent": "Muganga sacco stock",
+    "parent_label": "Stock",
+    "parentfield": "wiki_sidebars",
+    "parenttype": "Wiki Space",
+    "wiki_page": "Warehouse"
+   }
+  ]
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Wiki Space",
+  "modified": "2024-03-06 11:58:20.058891",
+  "name": "Buying",
+  "route": "Buying",
+  "wiki_sidebars": [
+   {
+    "parent": "Buying",
+    "parent_label": "Buying",
+    "parentfield": "wiki_sidebars",
+    "parenttype": "Wiki Space",
+    "wiki_page": "Request for Quotation"
+   },
+   {
+    "parent": "Buying",
+    "parent_label": "Buying",
+    "parentfield": "wiki_sidebars",
+    "parenttype": "Wiki Space",
+    "wiki_page": "Supplier"
+   },
+   {
+    "parent": "Buying",
+    "parent_label": "Buying",
+    "parentfield": "wiki_sidebars",
+    "parenttype": "Wiki Space",
+    "wiki_page": "Purchase Order"
+   },
+   {
+    "parent": "Buying",
+    "parent_label": "Buying",
+    "parentfield": "wiki_sidebars",
+    "parenttype": "Wiki Space",
+    "wiki_page": "Supplier Quotation"
+   }
+  ]
+ }
+]
