@@ -2744,7 +2744,7 @@ def update_child_qty_rate(
     parent.reload()
     parent.flags.ignore_validate_update_after_submit = True
     parent.set_qty_as_per_stock_uom()
-    parent.calculate_taxes_and_totals()
+    # parent.calculate_taxes_and_totals()
     parent.set_total_in_words()
     # if parent_doctype == "Sales Order":
     # 	make_packing_list(parent)
@@ -2753,10 +2753,10 @@ def update_child_qty_rate(
         parent.doctype, parent.company, parent.base_grand_total
     )
 
-    parent.set_payment_schedule()
+    # parent.set_payment_schedule()
     if parent_doctype == "Purchase Order":
         parent.validate_minimum_order_qty()
-        parent.validate_budget()
+        # parent.validate_budget()
         if parent.is_against_so():
             parent.update_status_updater()
     else:
@@ -2802,8 +2802,8 @@ def update_child_qty_rate(
     parent.reload()
     validate_workflow_conditions(parent)
 
-    parent.update_blanket_order()
-    parent.update_billing_percentage()
+    # parent.update_blanket_order()
+    # parent.update_billing_percentage()
     parent.set_status()
 
     # Cancel and Recreate Stock Reservation Entries.

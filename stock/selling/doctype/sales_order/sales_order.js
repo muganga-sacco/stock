@@ -52,9 +52,9 @@ frappe.ui.form.on("Sales Order", {
 	before_workflow_action: async (frm) => {
 		const workflowState = frm.doc.workflow_state;
 
-		console.log("<><><><><><><><><><>")
 	
 		if (
+			workflowState === "Pending Supervisor Approval" ||
 			workflowState === "Pending HR Approval" ||
 			workflowState === "Pending DAF Approval" ||
 			workflowState === "Approved"
@@ -608,12 +608,12 @@ stock.selling.SalesOrderController = class SalesOrderController extends stock.se
 						}
 					}
 
-					if (!doc.__onload || !doc.__onload.has_reserved_stock) {
-						// Don't show the `Reserve` button if the Sales Order has Picked Items.
-						if (flt(doc.per_picked, 2) < 100 && flt(doc.per_delivered, 2) < 100) {
-							this.frm.add_custom_button(__('Pick List'), () => this.create_pick_list(), __('Create'));
-						}
-					}
+					// if (!doc.__onload || !doc.__onload.has_reserved_stock) {
+					// 	// Don't show the `Reserve` button if the Sales Order has Picked Items.
+					// 	if (flt(doc.per_picked, 2) < 100 && flt(doc.per_delivered, 2) < 100) {
+					// 		this.frm.add_custom_button(__('Pick List'), () => this.create_pick_list(), __('Create'));
+					// 	}
+					// }
 
 					const order_is_a_sale = ["Sales", "Shopping Cart"].indexOf(doc.order_type) !== -1;
 					const order_is_maintenance = ["Maintenance"].indexOf(doc.order_type) !== -1;
@@ -623,35 +623,35 @@ stock.selling.SalesOrderController = class SalesOrderController extends stock.se
 					// delivery note
 					if(flt(doc.per_delivered, 2) < 100 && (order_is_a_sale || order_is_a_custom_sale) && allow_delivery) {
 						this.frm.add_custom_button(__('Delivery Note'), () => this.make_delivery_note_based_on_delivery_date(true), __('Create'));
-						this.frm.add_custom_button(__('Work Order'), () => this.make_work_order(), __('Create'));
+						// this.frm.add_custom_button(__('Work Order'), () => this.make_work_order(), __('Create'));
 					}
 
 					// sales invoice
-					if(flt(doc.per_billed, 2) < 100) {
-						this.frm.add_custom_button(__('Sales Invoice'), () => me.make_sales_invoice(), __('Create'));
-					}
+					// if(flt(doc.per_billed, 2) < 100) {
+					// 	this.frm.add_custom_button(__('Sales Invoice'), () => me.make_sales_invoice(), __('Create'));
+					// }
 
 					// material request
-					if(!doc.order_type || (order_is_a_sale || order_is_a_custom_sale) && flt(doc.per_delivered, 2) < 100) {
-						this.frm.add_custom_button(__('Material Request'), () => this.make_material_request(), __('Create'));
-						this.frm.add_custom_button(__('Request for Raw Materials'), () => this.make_raw_material_request(), __('Create'));
-					}
+					// if(!doc.order_type || (order_is_a_sale || order_is_a_custom_sale) && flt(doc.per_delivered, 2) < 100) {
+					// 	this.frm.add_custom_button(__('Material Request'), () => this.make_material_request(), __('Create'));
+					// 	this.frm.add_custom_button(__('Request for Raw Materials'), () => this.make_raw_material_request(), __('Create'));
+					// }
 
 					// Make Purchase Order
-					if (!this.frm.doc.is_internal_customer) {
-						this.frm.add_custom_button(__('Purchase Order'), () => this.make_purchase_order(), __('Create'));
-					}
+					// if (!this.frm.doc.is_internal_customer) {
+					// 	this.frm.add_custom_button(__('Purchase Order'), () => this.make_purchase_order(), __('Create'));
+					// }
 
-					// maintenance
-					if(flt(doc.per_delivered, 2) < 100 && (order_is_maintenance || order_is_a_custom_sale)) {
-						this.frm.add_custom_button(__('Maintenance Visit'), () => this.make_maintenance_visit(), __('Create'));
-						this.frm.add_custom_button(__('Maintenance Schedule'), () => this.make_maintenance_schedule(), __('Create'));
-					}
+					// // maintenance
+					// if(flt(doc.per_delivered, 2) < 100 && (order_is_maintenance || order_is_a_custom_sale)) {
+					// 	this.frm.add_custom_button(__('Maintenance Visit'), () => this.make_maintenance_visit(), __('Create'));
+					// 	this.frm.add_custom_button(__('Maintenance Schedule'), () => this.make_maintenance_schedule(), __('Create'));
+					// }
 
-					// project
-					if(flt(doc.per_delivered, 2) < 100) {
-							this.frm.add_custom_button(__('Project'), () => this.make_project(), __('Create'));
-					}
+					// // project
+					// if(flt(doc.per_delivered, 2) < 100) {
+					// 		this.frm.add_custom_button(__('Project'), () => this.make_project(), __('Create'));
+					// }
 
 					if (doc.docstatus === 1 && !doc.inter_company_order_reference) {
 						let me = this;
@@ -667,10 +667,10 @@ stock.selling.SalesOrderController = class SalesOrderController extends stock.se
 					}
 				}
 				// payment request
-				if(flt(doc.per_billed, precision('per_billed', doc)) < 100 + frappe.boot.sysdefaults.over_billing_allowance) {
-					this.frm.add_custom_button(__('Payment Request'), () => this.make_payment_request(), __('Create'));
-					this.frm.add_custom_button(__('Payment'), () => this.make_payment_entry(), __('Create'));
-				}
+				// if(flt(doc.per_billed, precision('per_billed', doc)) < 100 + frappe.boot.sysdefaults.over_billing_allowance) {
+				// 	this.frm.add_custom_button(__('Payment Request'), () => this.make_payment_request(), __('Create'));
+				// 	this.frm.add_custom_button(__('Payment'), () => this.make_payment_entry(), __('Create'));
+				// }
 				this.frm.page.set_inner_btn_group_as_primary(__('Create'));
 			}
 		}

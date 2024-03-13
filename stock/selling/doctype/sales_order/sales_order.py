@@ -219,16 +219,16 @@ class SalesOrder(SellingController):
 
         self.reset_default_field_value("set_warehouse", "items", "warehouse")
 
-    def validate_po(self):
-        # validate p.o date v/s delivery date
-        if self.po_date and not self.skip_delivery_note:
-            for d in self.get("items"):
-                if d.delivery_date and getdate(self.po_date) > getdate(d.delivery_date):
-                    frappe.throw(
-                        _(
-                            "Row #{0}: Expected Delivery Date cannot be before Purchase Order Date"
-                        ).format(d.idx)
-                    )
+    # def validate_po(self):
+    #     # validate p.o date v/s delivery date
+    #     if self.po_date and not self.skip_delivery_note:
+    #         for d in self.get("items"):
+    #             if d.delivery_date and getdate(self.po_date) > getdate(d.delivery_date):
+    #                 frappe.throw(
+    #                     _(
+    #                         "Row #{0}: Expected Delivery Date cannot be before Purchase Order Date"
+    #                     ).format(d.idx)
+    #                 )
 
         if self.po_no and self.customer and not self.skip_delivery_note:
             so = frappe.db.sql(
@@ -562,7 +562,7 @@ class SalesOrder(SellingController):
         pass
 
     def before_update_after_submit(self):
-        self.validate_po()
+        # self.validate_po()
         self.validate_drop_ship()
         self.validate_supplier_after_submit()
         self.validate_delivery_date()
