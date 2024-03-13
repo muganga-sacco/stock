@@ -373,7 +373,7 @@
    "type": "Link"
   }
  ],
- "modified": "2024-03-06 13:49:45.805383",
+ "modified": "2024-03-13 08:54:29.769791",
  "modified_by": "Administrator",
  "module": "Buying",
  "name": "Buying",
@@ -383,7 +383,17 @@
  "public": 1,
  "quick_lists": [],
  "restrict_to_domain": "",
- "roles": [],
+ "roles": [
+  {
+   "role": "HR Manager"
+  },
+  {
+   "role": "Stock Manager"
+  },
+  {
+   "role": "Stock User"
+  }
+ ],
  "sequence_id": 5.0,
  "shortcuts": [
   {

@@ -1,7 +1,7 @@
 {
  "charts": [],
  "content": "[{\"id\":\"1it3dCOnm6\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Quick Access</b></span>\",\"col\":12}},{\"id\":\"x7pLl-spS4\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Item\",\"col\":3}},{\"id\":\"SSGrXWmY-H\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Request\",\"col\":3}},{\"id\":\"-5J_yLxDaS\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Analytics\",\"col\":3}},{\"id\":\"6YEYpnIBKV\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Point of Sale\",\"col\":3}},{\"id\":\"oNjjNbnUHp\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"0BcePLg0g1\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports &amp; Masters</b></span>\",\"col\":12}},{\"id\":\"uze5dJ1ipL\",\"type\":\"card\",\"data\":{\"card_name\":\"Request\",\"col\":4}}]",
- "creation": "2020-01-28 11:49:12.092882",
+ "creation": "2024-03-06 16:05:41.105193",
  "custom_blocks": [],
  "docstatus": 0,
  "doctype": "Workspace",
@@ -143,17 +143,29 @@
    "type": "Link"
   }
  ],
- "modified": "2024-03-06 14:01:08.686134",
+ "modified": "2024-03-13 08:52:51.109175",
  "modified_by": "Administrator",
  "module": "Selling",
  "name": "Request",
  "number_cards": [],
- "owner": "Administrator",
  "parent_page": "",
  "public": 1,
  "quick_lists": [],
  "restrict_to_domain": "",
- "roles": [],
+ "roles": [
+  {
+   "role": "Requester"
+  },
+  {
+   "role": "DAF"
+  },
+  {
+   "role": "Supervisor"
+  },
+  {
+   "role": "Stock Manager"
+  }
+ ],
  "sequence_id": 6.0,
  "shortcuts": [
   {
