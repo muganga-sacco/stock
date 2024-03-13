@@ -27,13 +27,16 @@ fixtures = [
     {
         "dt":"Workspace",
         "filters":{
-            "name":"Request"
+            "name":"Request",
+            "name":"Buying",
+            "name":"Stock"
         }
     },
     "Workflow State",
     "Workflow Action Master",
     "Wiki Page",
-    "Wiki Space"    
+    "Wiki Space",
+    "Role Profile"    
 ]
 
 # include js, css files in header of web template

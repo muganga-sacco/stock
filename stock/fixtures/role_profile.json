@@ -1,0 +1,155 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "modified": "2024-03-04 15:26:57.439127",
+  "name": "HR",
+  "role_profile": "HR",
+  "roles": [
+   {
+    "parent": "HR",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "HR User"
+   },
+   {
+    "parent": "HR",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "HR Manager"
+   },
+   {
+    "parent": "HR",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Leave Approver"
+   },
+   {
+    "parent": "HR",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Expense Approver"
+   }
+  ]
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "modified": "2024-03-13 08:41:05.138858",
+  "name": "Requester",
+  "role_profile": "Requester",
+  "roles": [
+   {
+    "parent": "Requester",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Sales User"
+   },
+   {
+    "parent": "Requester",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Requester"
+   },
+   {
+    "parent": "Requester",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Sales Master Manager"
+   },
+   {
+    "parent": "Requester",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Sales Manager"
+   }
+  ]
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "modified": "2024-03-13 08:41:39.005947",
+  "name": "Supevisor",
+  "role_profile": "Supevisor",
+  "roles": [
+   {
+    "parent": "Supevisor",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Supervisor"
+   },
+   {
+    "parent": "Supevisor",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Sales User"
+   },
+   {
+    "parent": "Supevisor",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Sales Manager"
+   }
+  ]
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "modified": "2024-03-13 08:43:57.711954",
+  "name": "DAF",
+  "role_profile": "DAF",
+  "roles": [
+   {
+    "parent": "DAF",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "DAF"
+   },
+   {
+    "parent": "DAF",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Sales Manager"
+   },
+   {
+    "parent": "DAF",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Sales Master Manager"
+   },
+   {
+    "parent": "DAF",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Stock User"
+   },
+   {
+    "parent": "DAF",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Item Manager"
+   }
+  ]
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "modified": "2024-03-13 08:45:45.438685",
+  "name": "Stock Manager",
+  "role_profile": "Stock Manager",
+  "roles": [
+   {
+    "parent": "Stock Manager",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Stock Manager"
+   },
+   {
+    "parent": "Stock Manager",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Stock User"
+   }
+  ]
+ }
+]
