@@ -54,7 +54,6 @@
   "net_total",
   "tax_withholding_net_total",
   "base_tax_withholding_net_total",
-  "section_break_48",
   "raw_material_details",
   "set_reserve_warehouse",
   "supplied_items",
@@ -63,7 +62,6 @@
   "column_break_50",
   "incoterm",
   "named_place",
-  "section_break_52",
   "totals",
   "base_taxes_and_charges_added",
   "base_taxes_and_charges_deducted",
@@ -118,7 +116,6 @@
   "customer_contact_mobile",
   "customer_contact_email",
   "terms_tab",
-  "payment_schedule_section",
   "terms_section_break",
   "tc_name",
   "terms",
@@ -210,6 +207,7 @@
    "read_only": 1
   },
   {
+   "default": "Muganga Sacco",
    "fieldname": "company",
    "fieldtype": "Link",
    "in_standard_filter": 1,
@@ -218,6 +216,7 @@
    "oldfieldtype": "Link",
    "options": "Company",
    "print_hide": 1,
+   "read_only": 1,
    "remember_last_selected_value": 1,
    "reqd": 1
   },
@@ -496,12 +495,6 @@
    "reqd": 1
   },
   {
-   "collapsible": 1,
-   "fieldname": "section_break_48",
-   "fieldtype": "Section Break",
-   "label": "Pricing Rules"
-  },
-  {
    "collapsible_depends_on": "supplied_items",
    "fieldname": "raw_material_details",
    "fieldtype": "Section Break",
@@ -587,11 +580,6 @@
   {
    "fieldname": "column_break_50",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "section_break_52",
-   "fieldtype": "Section Break",
-   "hide_border": 1
   },
   {
    "collapsible": 1,
@@ -823,11 +811,6 @@
    "options": "party_account_currency",
    "print_hide": 1,
    "read_only": 1
-  },
-  {
-   "fieldname": "payment_schedule_section",
-   "fieldtype": "Section Break",
-   "label": "Payment Terms"
   },
   {
    "collapsible_depends_on": "terms",
@@ -1202,7 +1185,7 @@
  "idx": 105,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-02-01 23:28:33.074083",
+ "modified": "2024-04-29 13:10:11.956747",
  "modified_by": "Administrator",
  "module": "Buying",
  "name": "Purchase Order",

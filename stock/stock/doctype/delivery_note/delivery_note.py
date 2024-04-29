@@ -118,7 +118,7 @@ class DeliveryNote(SellingController):
 		shipping_address_name: DF.Link | None
 		shipping_rule: DF.Link | None
 		source: DF.Link | None
-		status: DF.Literal["", "Draft", "To Bill", "Completed", "Return Issued", "Cancelled", "Closed"]
+		status: DF.Literal["", "Draft", "Received", "Completed", "Return Issued", "Cancelled", "Closed"]
 		tax_category: DF.Link | None
 		tax_id: DF.Data | None
 		taxes: DF.Table[SalesTaxesandCharges]
@@ -386,7 +386,7 @@ class DeliveryNote(SellingController):
 		# )
 
 		# update delivered qty in sales order
-		self.update_prevdoc_status()
+		# self.update_prevdoc_status()
 		# self.update_billing_status()
 
 		self.update_stock_reservation_entries()

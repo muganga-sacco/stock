@@ -344,6 +344,7 @@
   },
   {
    "columns": 2,
+   "default": "1",
    "depends_on": "eval: doc.type != \"\"",
    "fieldname": "rate",
    "fieldtype": "Currency",
@@ -352,6 +353,7 @@
    "oldfieldname": "export_rate",
    "oldfieldtype": "Currency",
    "options": "currency",
+   "precision": "0",
    "print_width": "100px",
    "width": "100px"
   },
@@ -883,7 +885,7 @@
  "idx": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-03-01 15:42:28.593235",
+ "modified": "2024-04-29 15:14:34.347387",
  "modified_by": "Administrator",
  "module": "Selling",
  "name": "Sales Order Item",

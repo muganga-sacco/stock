@@ -94,7 +94,7 @@ def get_item_details(args, doc=None, for_validate=False, overwrite_warehouse=Tru
 
     get_party_item_code(args, item, out)
 
-    set_valuation_rate(out, args)
+    # set_valuation_rate(out, args)
 
     update_party_blanket_order(args, out)
 
@@ -107,7 +107,7 @@ def get_item_details(args, doc=None, for_validate=False, overwrite_warehouse=Tru
     ]:
         args.customer = None
 
-    out.update(get_price_list_rate(args, item))
+    # out.update(get_price_list_rate(args, item))
 
     args.customer = current_customer
 
@@ -1109,71 +1109,71 @@ def check_packing_list(price_list_rate_name, desired_qty, item_code):
     return flag
 
 
-def validate_conversion_rate(args, meta):
-    from stock.controllers.accounts_controller import validate_conversion_rate
+# def validate_conversion_rate(args, meta):
+#     from stock.controllers.accounts_controller import validate_conversion_rate
 
-    company_currency = frappe.get_cached_value(
-        "Company", args.company, "default_currency"
-    )
-    if not args.conversion_rate and args.currency == company_currency:
-        args.conversion_rate = 1.0
+#     company_currency = frappe.get_cached_value(
+#         "Company", args.company, "default_currency"
+#     )
+#     if not args.conversion_rate and args.currency == company_currency:
+#         args.conversion_rate = 1.0
 
-    if (
-        not args.ignore_conversion_rate
-        and args.conversion_rate == 1
-        and args.currency != company_currency
-    ):
-        args.conversion_rate = (
-            get_exchange_rate(
-                args.currency, company_currency, args.transaction_date, "for_buying"
-            )
-            or 1.0
-        )
+#     if (
+#         not args.ignore_conversion_rate
+#         and args.conversion_rate == 1
+#         and args.currency != company_currency
+#     ):
+#         args.conversion_rate = (
+#             get_exchange_rate(
+#                 args.currency, company_currency, args.transaction_date, "for_buying"
+#             )
+#             or 1.0
+#         )
 
-    # validate currency conversion rate
-    validate_conversion_rate(
-        args.currency,
-        args.conversion_rate,
-        meta.get_label("conversion_rate"),
-        args.company,
-    )
+#     # validate currency conversion rate
+#     validate_conversion_rate(
+#         args.currency,
+#         args.conversion_rate,
+#         meta.get_label("conversion_rate"),
+#         args.company,
+#     )
 
-    args.conversion_rate = flt(
-        args.conversion_rate,
-        get_field_precision(
-            meta.get_field("conversion_rate"), frappe._dict({"fields": args})
-        ),
-    )
+#     args.conversion_rate = flt(
+#         args.conversion_rate,
+#         get_field_precision(
+#             meta.get_field("conversion_rate"), frappe._dict({"fields": args})
+#         ),
+#     )
 
-    if args.price_list:
-        if (
-            not args.plc_conversion_rate
-            and args.price_list_currency
-            == frappe.db.get_value(
-                "Price List", args.price_list, "currency", cache=True
-            )
-        ):
-            args.plc_conversion_rate = 1.0
+#     if args.price_list:
+#         if (
+#             not args.plc_conversion_rate
+#             and args.price_list_currency
+#             == frappe.db.get_value(
+#                 "Price List", args.price_list, "currency", cache=True
+#             )
+#         ):
+#             args.plc_conversion_rate = 1.0
 
-        # validate price list currency conversion rate
-        if not args.get("price_list_currency"):
-            throw(_("Price List Currency not selected"))
-        else:
-            validate_conversion_rate(
-                args.price_list_currency,
-                args.plc_conversion_rate,
-                meta.get_label("plc_conversion_rate"),
-                args.company,
-            )
+#         # validate price list currency conversion rate
+#         if not args.get("price_list_currency"):
+#             throw(_("Price List Currency not selected"))
+#         else:
+#             validate_conversion_rate(
+#                 args.price_list_currency,
+#                 args.plc_conversion_rate,
+#                 meta.get_label("plc_conversion_rate"),
+#                 args.company,
+#             )
 
-            if meta.get_field("plc_conversion_rate"):
-                args.plc_conversion_rate = flt(
-                    args.plc_conversion_rate,
-                    get_field_precision(
-                        meta.get_field("plc_conversion_rate"),
-                        frappe._dict({"fields": args}),
-                    ),
-                )
+#             if meta.get_field("plc_conversion_rate"):
+#                 args.plc_conversion_rate = flt(
+#                     args.plc_conversion_rate,
+#                     get_field_precision(
+#                         meta.get_field("plc_conversion_rate"),
+#                         frappe._dict({"fields": args}),
+#                     ),
+#                 )
 
 
 def get_party_item_code(args, item_doc, out):
@@ -1503,21 +1503,21 @@ def get_valuation_rate(item_code, company, warehouse=None):
             as_dict=True,
         ) or {"valuation_rate": 0}
 
-    elif not item.get("is_stock_item"):
-        pi_item = frappe.qb.DocType("Purchase Invoice Item")
-        valuation_rate = (
-            frappe.qb.from_(pi_item)
-            .select(
-                (
-                    Sum(pi_item.base_net_amount)
-                    / Sum(pi_item.qty * pi_item.conversion_factor)
-                )
-            )
-            .where((pi_item.docstatus == 1) & (pi_item.item_code == item_code))
-        ).run()
+    # elif not item.get("is_stock_item"):
+    #     pi_item = frappe.qb.DocType("Purchase Invoice Item")
+    #     valuation_rate = (
+    #         frappe.qb.from_(pi_item)
+    #         .select(
+    #             (
+    #                 Sum(pi_item.base_net_amount)
+    #                 / Sum(pi_item.qty * pi_item.conversion_factor)
+    #             )
+    #         )
+    #         .where((pi_item.docstatus == 1) & (pi_item.item_code == item_code))
+    #     ).run()
 
-        if valuation_rate:
-            return {"valuation_rate": valuation_rate[0][0] or 0.0}
+    #     if valuation_rate:
+    #         return {"valuation_rate": valuation_rate[0][0] or 0.0}
     else:
         return {"valuation_rate": 0.0}
 

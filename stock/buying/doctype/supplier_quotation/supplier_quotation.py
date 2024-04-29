@@ -269,7 +269,7 @@ def make_purchase_invoice(source_name, target_doc=None):
 					"docstatus": ["=", 1],
 				},
 			},
-			"Supplier Quotation Item": {"doctype": "Purchase Invoice Item"},
+			# "Supplier Quotation Item": {"doctype": "Purchase Invoice Item"},
 			"Purchase Taxes and Charges": {"doctype": "Purchase Taxes and Charges"},
 		},
 		target_doc,

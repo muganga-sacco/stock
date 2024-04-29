@@ -3164,7 +3164,6 @@
         "Delivery Note Item",
         "Sales Invoice Item",
         "POS Invoice Item",
-        "Purchase Invoice Item",
         "Purchase Order Item",
         "Purchase Receipt Item"
       ]), cdt)
@@ -3451,7 +3450,6 @@
       var _a;
       let transaction_date = this.frm.doc.transaction_date || this.frm.doc.posting_date;
       let me = this;
-      this.set_dynamic_labels();
       let company_currency = this.get_company_currency();
       if (this.frm.doc.currency && this.frm.doc.currency !== company_currency && !((_a = this.frm.doc.__onload) == null ? void 0 : _a.load_after_mapping)) {
         this.get_exchange_rate(
@@ -3584,7 +3582,6 @@
     price_list_currency() {
       var _a;
       var me = this;
-      this.set_dynamic_labels();
       var company_currency = this.get_company_currency();
       if (this.frm.doc.price_list_currency !== company_currency && !((_a = this.frm.doc.__onload) == null ? void 0 : _a.load_after_mapping)) {
         this.get_exchange_rate(
@@ -3666,11 +3663,6 @@
           "purchase_order_item",
           "purchase_invoice_item",
           "purchase_receipt_item"
-        ],
-        "Purchase Invoice Item": [
-          "purchase_order_item",
-          "pr_detail",
-          "po_detail"
         ]
       };
       const mappped_fields = mapped_item_field_map[item.doctype] || [];
@@ -4097,7 +4089,6 @@
             "Sales Order Item",
             "Delivery Note Item",
             "Sales Invoice Item",
-            "Purchase Invoice Item",
             "Purchase Order Item",
             "Purchase Receipt Item"
           ]), d.doctype) {
@@ -5005,7 +4996,7 @@
     });
   };
 
-  // frappe-html:/Users/kalisakelly/frappe-bench/apps/stock/stock/public/js/templates/item_selector.html
+  // frappe-html:/Users/kalisakelly/frappe/apps/stock/stock/public/js/templates/item_selector.html
   frappe.templates["item_selector"] = `<div class="app-listing item-list image-view-container item-selector">
 {% for (var i=0; i < data.length; i++) { var item = data[i]; %}
 	{% if (i % 4 === 0) { %}<div class="image-view-row">{% } %}
@@ -5958,7 +5949,7 @@
     }
   ];
 
-  // frappe-html:/Users/kalisakelly/frappe-bench/apps/stock/stock/public/js/templates/item_quick_entry.html
+  // frappe-html:/Users/kalisakelly/frappe/apps/stock/stock/public/js/templates/item_quick_entry.html
   frappe.templates["item_quick_entry"] = `<div class="h6 uppercase" style="margin-top: 30px;">{{ __("Variant Attributes") }}</div>
 <div class="attributes hide-control">
 </div>
@@ -6948,7 +6939,7 @@
     }
   };
 
-  // frappe-html:/Users/kalisakelly/frappe-bench/apps/stock/stock/public/js/templates/call_link.html
+  // frappe-html:/Users/kalisakelly/frappe/apps/stock/stock/public/js/templates/call_link.html
   frappe.templates["call_link"] = `<div class="call-detail-wrapper">
 	<div class="head flex justify-between">
 		<div>
@@ -7228,7 +7219,7 @@
     }
   };
 
-  // frappe-html:/Users/kalisakelly/frappe-bench/apps/stock/stock/public/js/templates/crm_activities.html
+  // frappe-html:/Users/kalisakelly/frappe/apps/stock/stock/public/js/templates/crm_activities.html
   frappe.templates["crm_activities"] = `<div class="open-activities">
 	<div class="new-btn pb-3">
 		<span>
@@ -7406,7 +7397,7 @@
 }
 </style>`;
 
-  // frappe-html:/Users/kalisakelly/frappe-bench/apps/stock/stock/public/js/templates/crm_notes.html
+  // frappe-html:/Users/kalisakelly/frappe/apps/stock/stock/public/js/templates/crm_notes.html
   frappe.templates["crm_notes"] = `<div class="notes-section col-xs-12">
 	<div class="new-btn pb-3">
 		<button class="btn btn-sm small new-note-btn mr-1">
@@ -8650,4 +8641,4 @@
     ];
   }
 })();
-//# sourceMappingURL=stock.bundle.PFIUMK3N.js.map
+//# sourceMappingURL=stock.bundle.6YF45E6D.js.map

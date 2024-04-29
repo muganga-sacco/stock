@@ -459,7 +459,7 @@ stock.buying.PurchaseOrderController = class PurchaseOrderController extends sto
 					target: me.frm,
 					setters: {
 						supplier: me.frm.doc.supplier,
-						valid_till: undefined
+						// valid_till: undefined
 					},
 					get_query_filters: {
 						docstatus: 1,

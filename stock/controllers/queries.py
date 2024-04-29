@@ -808,23 +808,23 @@ def get_purchase_receipts(doctype, txt, searchfield, start, page_len, filters):
 	return frappe.db.sql(query, filters)
 
 
-@frappe.whitelist()
-@frappe.validate_and_sanitize_search_inputs
-def get_purchase_invoices(doctype, txt, searchfield, start, page_len, filters):
-	query = """
-		select pi.name
-		from `tabPurchase Invoice` pi, `tabPurchase Invoice Item` piitem
-		where pi.docstatus = 1 and piitem.parent = pi.name
-		and pi.name like {txt}""".format(
-		txt=frappe.db.escape("%{0}%".format(txt))
-	)
+# @frappe.whitelist()
+# @frappe.validate_and_sanitize_search_inputs
+# def get_purchase_invoices(doctype, txt, searchfield, start, page_len, filters):
+# 	query = """
+# 		select pi.name
+# 		from `tabPurchase Invoice` pi, `tabPurchase Invoice Item` piitem
+# 		where pi.docstatus = 1 and piitem.parent = pi.name
+# 		and pi.name like {txt}""".format(
+# 		txt=frappe.db.escape("%{0}%".format(txt))
+# 	)
 
-	if filters and filters.get("item_code"):
-		query += " and piitem.item_code = {item_code}".format(
-			item_code=frappe.db.escape(filters.get("item_code"))
-		)
+# 	if filters and filters.get("item_code"):
+# 		query += " and piitem.item_code = {item_code}".format(
+# 			item_code=frappe.db.escape(filters.get("item_code"))
+# 		)
 
-	return frappe.db.sql(query, filters)
+# 	return frappe.db.sql(query, filters)
 
 
 @frappe.whitelist()

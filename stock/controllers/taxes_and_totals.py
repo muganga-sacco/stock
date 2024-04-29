@@ -169,7 +169,7 @@ class calculate_taxes_and_totals(object):
 					"Delivery Note Item",
 					"Sales Invoice Item",
 					"POS Invoice Item",
-					"Purchase Invoice Item",
+					# "Purchase Invoice Item",
 					"Purchase Order Item",
 					"Purchase Receipt Item",
 				]:

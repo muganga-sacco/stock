@@ -731,7 +731,7 @@ stock.TransactionController = class TransactionController extends (
         'Delivery Note Item',
         'Sales Invoice Item',
         'POS Invoice Item',
-        'Purchase Invoice Item',
+        // 'Purchase Invoice Item',
         'Purchase Order Item',
         'Purchase Receipt Item',
       ]),
@@ -1175,7 +1175,7 @@ stock.TransactionController = class TransactionController extends (
       this.frm.doc.transaction_date || this.frm.doc.posting_date;
 
     let me = this;
-    this.set_dynamic_labels();
+    // this.set_dynamic_labels();
     let company_currency = this.get_company_currency();
     // Added `load_after_mapping` to determine if document is loading after mapping from another doc
     if (
@@ -1334,7 +1334,7 @@ stock.TransactionController = class TransactionController extends (
 
   price_list_currency() {
     var me = this;
-    this.set_dynamic_labels();
+    // this.set_dynamic_labels();
 
     var company_currency = this.get_company_currency();
     // Added `load_after_mapping` to determine if document is loading after mapping from another doc
@@ -1440,11 +1440,11 @@ stock.TransactionController = class TransactionController extends (
         'purchase_invoice_item',
         'purchase_receipt_item',
       ],
-      'Purchase Invoice Item': [
-        'purchase_order_item',
-        'pr_detail',
-        'po_detail',
-      ],
+      // 'Purchase Invoice Item': [
+      //   'purchase_order_item',
+      //   'pr_detail',
+      //   'po_detail',
+      // ],
     };
     const mappped_fields = mapped_item_field_map[item.doctype] || [];
 
@@ -2029,7 +2029,7 @@ stock.TransactionController = class TransactionController extends (
             'Sales Order Item',
             'Delivery Note Item',
             'Sales Invoice Item',
-            'Purchase Invoice Item',
+            // 'Purchase Invoice Item',
             'Purchase Order Item',
             'Purchase Receipt Item',
           ]),

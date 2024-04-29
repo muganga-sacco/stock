@@ -79,7 +79,7 @@ def set_stock_levels(row) -> None:
 		"ordered_qty": 0,
 		"received_qty": 0,
 	}
-	if row.doctype in ("Purchase Receipt Item", "Purchase Invoice Item"):
+	if row.doctype in ("Purchase Receipt Item"):
 		qty_data.pop("received_qty")
 
 	for field in qty_data:

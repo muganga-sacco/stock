@@ -28,11 +28,11 @@ class AssetCategory(Document):
 		finance_books: DF.Table[AssetFinanceBook]
 	# end: auto-generated types
 
-	def validate(self):
-		self.validate_finance_books()
-		self.validate_account_types()
-		self.validate_account_currency()
-		self.valide_cwip_account()
+	# def validate(self):
+	# 	self.validate_finance_books()
+	# 	self.validate_account_types()
+	# 	self.validate_account_currency()
+	# 	self.valide_cwip_account()
 
 	def validate_finance_books(self):
 		for d in self.finance_books:

@@ -169,10 +169,10 @@ class PurchaseOrder(BuyingController):
 			}
 		]
 
-	def onload(self):
-		supplier_tds = frappe.db.get_value("Supplier", self.supplier)
-		self.set_onload("supplier_tds", supplier_tds)
-		self.set_onload("can_update_items", self.can_update_items())
+	# def onload(self):
+	# 	supplier_tds = frappe.db.get_value("Supplier", self.supplier)
+	# 	self.set_onload("supplier_tds", supplier_tds)
+	# 	self.set_onload("can_update_items", self.can_update_items())
 
 	def validate(self):
 		super(PurchaseOrder, self).validate()
@@ -182,7 +182,7 @@ class PurchaseOrder(BuyingController):
 		# apply tax withholding only if checked and applicable
 		# self.set_tax_withholding()
 
-		self.validate_supplier()
+		# self.validate_supplier()
 		self.validate_schedule_date()
 		validate_for_items(self)
 		self.check_on_hold_or_closed_status()
@@ -716,17 +716,17 @@ def get_mapped_purchase_invoice(source_name, target_doc=None, ignore_permissions
 				"docstatus": ["=", 1],
 			},
 		},
-		"Purchase Order Item": {
-			"doctype": "Purchase Invoice Item",
-			"field_map": {
-				"name": "po_detail",
-				"parent": "purchase_order",
-				"wip_composite_asset": "wip_composite_asset",
-			},
-			"postprocess": update_item,
-			"condition": lambda doc: (doc.base_amount == 0 or abs(doc.billed_amt) < abs(doc.amount)),
-		},
-		"Purchase Taxes and Charges": {"doctype": "Purchase Taxes and Charges", "add_if_empty": True},
+		# "Purchase Order Item": {
+		# 	"doctype": "Purchase Invoice Item",
+		# 	"field_map": {
+		# 		"name": "po_detail",
+		# 		"parent": "purchase_order",
+		# 		"wip_composite_asset": "wip_composite_asset",
+		# 	},
+		# 	"postprocess": update_item,
+		# 	"condition": lambda doc: (doc.base_amount == 0 or abs(doc.billed_amt) < abs(doc.amount)),
+		# },
+		# "Purchase Taxes and Charges": {"doctype": "Purchase Taxes and Charges", "add_if_empty": True},
 	}
 
 	doc = get_mapped_doc(

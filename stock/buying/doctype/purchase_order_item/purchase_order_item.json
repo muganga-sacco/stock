@@ -305,6 +305,7 @@
   {
    "bold": 1,
    "columns": 2,
+   "default": "1.0",
    "fieldname": "rate",
    "fieldtype": "Currency",
    "in_list_view": 1,
@@ -850,7 +851,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-02-01 23:30:30.573981",
+ "modified": "2024-04-29 13:04:26.294125",
  "modified_by": "Administrator",
  "module": "Buying",
  "name": "Purchase Order Item",

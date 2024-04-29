@@ -140,13 +140,13 @@ class PurchaseReceipt(BuyingController):
 				"target_ref_field": "qty",
 				"source_dt": "Purchase Receipt Item",
 				"source_field": "received_qty",
-				"second_source_dt": "Purchase Invoice Item",
+				# "second_source_dt": "Purchase Invoice Item",
 				"second_source_field": "received_qty",
 				"second_join_field": "po_detail",
 				"percent_join_field": "purchase_order",
 				"overflow_type": "receipt",
-				"second_source_extra_cond": """ and exists(select name from `tabPurchase Invoice`
-				where name=`tabPurchase Invoice Item`.parent and update_stock = 1)""",
+				# "second_source_extra_cond": """ and exists(select name from `tabPurchase Invoice`
+				# where name=`tabPurchase Invoice Item`.parent and update_stock = 1)""",
 			},
 			{
 				"source_dt": "Purchase Receipt Item",
@@ -161,7 +161,7 @@ class PurchaseReceipt(BuyingController):
 			},
 			{
 				"source_dt": "Purchase Receipt Item",
-				"target_dt": "Purchase Invoice Item",
+				# "target_dt": "Purchase Invoice Item",
 				"join_field": "purchase_invoice_item",
 				"target_field": "received_qty",
 				"target_parent_dt": "Purchase Invoice",
@@ -192,13 +192,13 @@ class PurchaseReceipt(BuyingController):
 						"join_field": "purchase_order_item",
 						"target_field": "returned_qty",
 						"source_field": "-1 * qty",
-						"second_source_dt": "Purchase Invoice Item",
+						# "second_source_dt": "Purchase Invoice Item",
 						"second_source_field": "-1 * qty",
 						"second_join_field": "po_detail",
 						"extra_cond": """ and exists (select name from `tabPurchase Receipt`
 						where name=`tabPurchase Receipt Item`.parent and is_return=1)""",
-						"second_source_extra_cond": """ and exists (select name from `tabPurchase Invoice`
-						where name=`tabPurchase Invoice Item`.parent and is_return=1 and update_stock=1)""",
+						# "second_source_extra_cond": """ and exists (select name from `tabPurchase Invoice`
+						# where name=`tabPurchase Invoice Item`.parent and is_return=1 and update_stock=1)""",
 					},
 					{
 						"source_dt": "Purchase Receipt Item",
@@ -372,27 +372,27 @@ class PurchaseReceipt(BuyingController):
 		self.set_consumed_qty_in_subcontract_order()
 		self.reserve_stock_for_sales_order()
 
-	def check_next_docstatus(self):
-		submit_rv = frappe.db.sql(
-			"""select t1.name
-			from `tabPurchase Invoice` t1,`tabPurchase Invoice Item` t2
-			where t1.name = t2.parent and t2.purchase_receipt = %s and t1.docstatus = 1""",
-			(self.name),
-		)
-		if submit_rv:
-			frappe.throw(_("Purchase Invoice {0} is already submitted").format(self.submit_rv[0][0]))
+	# def check_next_docstatus(self):
+	# 	submit_rv = frappe.db.sql(
+	# 		"""select t1.name
+	# 		from `tabPurchase Invoice` t1,`tabPurchase Invoice Item` t2
+	# 		where t1.name = t2.parent and t2.purchase_receipt = %s and t1.docstatus = 1""",
+	# 		(self.name),
+	# 	)
+	# 	if submit_rv:
+	# 		frappe.throw(_("Purchase Invoice {0} is already submitted").format(self.submit_rv[0][0]))
 
 	def on_cancel(self):
 		super(PurchaseReceipt, self).on_cancel()
 
 		self.check_on_hold_or_closed_status()
 		# Check if Purchase Invoice has been submitted against current Purchase Order
-		submitted = frappe.db.sql(
-			"""select t1.name
-			from `tabPurchase Invoice` t1,`tabPurchase Invoice Item` t2
-			where t1.name = t2.parent and t2.purchase_receipt = %s and t1.docstatus = 1""",
-			self.name,
-		)
+		# submitted = frappe.db.sql(
+		# 	"""select t1.name
+		# 	from `tabPurchase Invoice` t1,`tabPurchase Invoice Item` t2
+		# 	where t1.name = t2.parent and t2.purchase_receipt = %s and t1.docstatus = 1""",
+		# 	self.name,
+		# )
 		if submitted:
 			frappe.throw(_("Purchase Invoice {0} is already submitted").format(submitted[0][0]))
 
@@ -785,7 +785,7 @@ def get_billed_amount_against_pr(pr_items):
 	if not pr_items:
 		return {}
 
-	purchase_invoice_item = frappe.qb.DocType("Purchase Invoice Item")
+	# purchase_invoice_item = frappe.qb.DocType("Purchase Invoice Item")
 
 	query = (
 		frappe.qb.from_(purchase_invoice_item)
@@ -797,25 +797,25 @@ def get_billed_amount_against_pr(pr_items):
 	return {d.pr_detail: flt(d.billed_amt) for d in query}
 
 
-def get_billed_amount_against_po(po_items):
-	# Get billed amount directly against Purchase Order
-	if not po_items:
-		return {}
+# def get_billed_amount_against_po(po_items):
+# 	# Get billed amount directly against Purchase Order
+# 	if not po_items:
+# 		return {}
 
-	purchase_invoice_item = frappe.qb.DocType("Purchase Invoice Item")
+# 	# purchase_invoice_item = frappe.qb.DocType("Purchase Invoice Item")
 
-	query = (
-		frappe.qb.from_(purchase_invoice_item)
-		.select(fn.Sum(purchase_invoice_item.amount).as_("billed_amt"), purchase_invoice_item.po_detail)
-		.where(
-			(purchase_invoice_item.po_detail.isin(po_items))
-			& (purchase_invoice_item.docstatus == 1)
-			& (purchase_invoice_item.pr_detail.isnull())
-		)
-		.groupby(purchase_invoice_item.po_detail)
-	).run(as_dict=1)
+# 	query = (
+# 		frappe.qb.from_(purchase_invoice_item)
+# 		.select(fn.Sum(purchase_invoice_item.amount).as_("billed_amt"), purchase_invoice_item.po_detail)
+# 		.where(
+# 			(purchase_invoice_item.po_detail.isin(po_items))
+# 			& (purchase_invoice_item.docstatus == 1)
+# 			& (purchase_invoice_item.pr_detail.isnull())
+# 		)
+# 		.groupby(purchase_invoice_item.po_detail)
+# 	).run(as_dict=1)
 
-	return {d.po_detail: flt(d.billed_amt) for d in query}
+# 	return {d.po_detail: flt(d.billed_amt) for d in query}
 
 
 def update_billing_percentage(pr_doc, update_modified=True, adjust_incoming_rate=False):
@@ -976,20 +976,20 @@ def make_purchase_invoice(source_name, target_doc=None, args=None):
 	return doclist
 
 
-def get_invoiced_qty_map(purchase_receipt):
-	"""returns a map: {pr_detail: invoiced_qty}"""
-	invoiced_qty_map = {}
+# def get_invoiced_qty_map(purchase_receipt):
+# 	"""returns a map: {pr_detail: invoiced_qty}"""
+# 	invoiced_qty_map = {}
 
-	for pr_detail, qty in frappe.db.sql(
-		"""select pr_detail, qty from `tabPurchase Invoice Item`
-		where purchase_receipt=%s and docstatus=1""",
-		purchase_receipt,
-	):
-		if not invoiced_qty_map.get(pr_detail):
-			invoiced_qty_map[pr_detail] = 0
-		invoiced_qty_map[pr_detail] += qty
+# 	for pr_detail, qty in frappe.db.sql(
+# 		"""select pr_detail, qty from `tabPurchase Invoice Item`
+# 		where purchase_receipt=%s and docstatus=1""",
+# 		purchase_receipt,
+# 	):
+# 		if not invoiced_qty_map.get(pr_detail):
+# 			invoiced_qty_map[pr_detail] = 0
+# 		invoiced_qty_map[pr_detail] += qty
 
-	return invoiced_qty_map
+# 	return invoiced_qty_map
 
 
 def get_returned_qty_map(purchase_receipt):

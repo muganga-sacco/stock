@@ -17,6 +17,7 @@
   "order_type",
   "column_break_7",
   "transaction_date",
+  "requester",
   "column_break1",
   "company",
   "skip_delivery_note",
@@ -101,9 +102,6 @@
   "company_address_display",
   "col_break46",
   "shipping_address",
-  "pricing_rule_details",
-  "taxes_section",
-  "section_break_40",
   "sec_tax_breakup",
   "other_charges_calculation",
   "section_break_43",
@@ -116,7 +114,6 @@
   "column_break_50",
   "additional_discount_percentage",
   "discount_amount",
-  "packing_list",
   "payment_schedule_section",
   "terms_section_break",
   "terms",
@@ -126,8 +123,6 @@
   "accounting_dimensions_section",
   "cost_center",
   "dimension_col_break",
-  "payment_terms_section",
-  "billing_address_column",
   "shipping_address_column",
   "column_break_93",
   "column_break_84",
@@ -225,6 +220,7 @@
    "width": "150px"
   },
   {
+   "default": "Muganga Sacco",
    "fieldname": "company",
    "fieldtype": "Link",
    "hide_days": 1,
@@ -235,6 +231,7 @@
    "oldfieldtype": "Link",
    "options": "Company",
    "print_hide": 1,
+   "read_only": 1,
    "remember_last_selected_value": 1,
    "reqd": 1,
    "width": "150px"
@@ -376,6 +373,7 @@
    "collapsible": 1,
    "fieldname": "currency_and_price_list",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "hide_days": 1,
    "hide_seconds": 1,
    "label": "Currency and Price List",
@@ -427,7 +425,7 @@
    "read_only": 1
   },
   {
-   "default": "0",
+   "default": "1",
    "fieldname": "ignore_pricing_rule",
    "fieldtype": "Check",
    "hide_days": 1,
@@ -445,6 +443,7 @@
    "label": "Items"
   },
   {
+   "default": "mugangasacco stock - MS",
    "fieldname": "set_warehouse",
    "fieldtype": "Link",
    "hide_days": 1,
@@ -481,13 +480,6 @@
    "oldfieldtype": "Table",
    "options": "Sales Order Item",
    "reqd": 1
-  },
-  {
-   "fieldname": "pricing_rule_details",
-   "fieldtype": "Section Break",
-   "hide_days": 1,
-   "hide_seconds": 1,
-   "label": "Pricing Rules"
   },
   {
    "fieldname": "section_break_31",
@@ -568,24 +560,8 @@
    "read_only": 1
   },
   {
-   "fieldname": "taxes_section",
-   "fieldtype": "Section Break",
-   "hide_days": 1,
-   "hide_seconds": 1,
-   "label": "Taxes",
-   "oldfieldtype": "Section Break",
-   "options": "fa fa-money"
-  },
-  {
    "fieldname": "column_break_38",
    "fieldtype": "Column Break",
-   "hide_days": 1,
-   "hide_seconds": 1
-  },
-  {
-   "fieldname": "section_break_40",
-   "fieldtype": "Section Break",
-   "hide_border": 1,
    "hide_days": 1,
    "hide_seconds": 1
   },
@@ -855,19 +831,6 @@
    "options": "party_account_currency",
    "print_hide": 1,
    "read_only": 1
-  },
-  {
-   "collapsible": 1,
-   "collapsible_depends_on": "packed_items",
-   "depends_on": "packed_items",
-   "fieldname": "packing_list",
-   "fieldtype": "Section Break",
-   "hide_days": 1,
-   "hide_seconds": 1,
-   "label": "Packing List",
-   "oldfieldtype": "Section Break",
-   "options": "fa fa-suitcase",
-   "print_hide": 1
   },
   {
    "fieldname": "payment_schedule_section",
@@ -1223,18 +1186,8 @@
    "show_dashboard": 1
   },
   {
-   "fieldname": "payment_terms_section",
-   "fieldtype": "Section Break",
-   "label": "Payment Terms"
-  },
-  {
    "fieldname": "column_break_116",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "billing_address_column",
-   "fieldtype": "Section Break",
-   "label": "Billing Address"
   },
   {
    "fieldname": "shipping_address_column",
@@ -1291,13 +1244,21 @@
    "no_copy": 1,
    "options": "Not Requested\nRequested\nPartially Paid\nFully Paid",
    "print_hide": 1
+  },
+  {
+   "default": "user",
+   "fieldname": "requester",
+   "fieldtype": "Link",
+   "label": "Requester",
+   "options": "User",
+   "read_only": 1
   }
  ],
  "icon": "fa fa-file-text",
  "idx": 105,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-03-13 15:04:42.402839",
+ "modified": "2024-04-29 15:20:31.753427",
  "modified_by": "Administrator",
  "module": "Selling",
  "name": "Sales Order",

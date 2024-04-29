@@ -12,7 +12,7 @@
  "is_hidden": 0,
  "label": "Request",
  "links": [],
- "modified": "2024-03-13 11:52:15.329502",
+ "modified": "2024-04-29 14:11:20.650600",
  "modified_by": "Administrator",
  "module": "Selling",
  "name": "Request",
@@ -40,10 +40,10 @@
   {
    "color": "Yellow",
    "doc_view": "",
-   "format": "{}  To Deliver",
+   "format": "{} ",
    "label": "Request",
    "link_to": "Sales Order",
-   "stats_filter": "[[\"Sales Order\",\"status\",\"in\",[\"Completed\",null],false]]",
+   "stats_filter": "[[\"Sales Order\",\"status\",\"=\",null,false]]",
    "type": "DocType"
   },
   {

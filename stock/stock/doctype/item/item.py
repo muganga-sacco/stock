@@ -975,7 +975,7 @@ class Item(Document):
 			"Sales Invoice Item",
 			"POS Invoice Item",
 			"Purchase Receipt Item",
-			"Purchase Invoice Item",
+			# "Purchase Invoice Item",
 			"Stock Entry Detail",
 			"Stock Reconciliation Item",
 		]
@@ -1006,7 +1006,7 @@ class Item(Document):
 					return linked_doc.update({"doctype": doctype})
 
 			elif doctype in (
-				"Purchase Invoice Item",
+				# "Purchase Invoice Item",
 				"Sales Invoice Item",
 			):
 				# If Invoice has Stock impact, only then consider it.

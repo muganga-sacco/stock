@@ -27,7 +27,6 @@
   "cost_center",
   "column_break_18",
   "dimension_col_break",
-  "custom_dimensions_section",
   "currency_and_price_list",
   "currency",
   "conversion_rate",
@@ -57,7 +56,6 @@
   "column_break_43",
   "column_break_39",
   "named_place",
-  "section_break_41",
   "section_break_44",
   "base_total_taxes_and_charges",
   "column_break_47",
@@ -83,7 +81,6 @@
   "other_charges_calculation",
   "packing_list",
   "product_bundle_help",
-  "pricing_rule_details",
   "address_and_contact_tab",
   "contact_info",
   "customer_address",
@@ -130,7 +127,6 @@
   "column_break7",
   "commission_rate",
   "total_commission",
-  "section_break1",
   "subscription_section",
   "auto_repeat",
   "printing_details",
@@ -175,13 +171,15 @@
   },
   {
    "fieldname": "customer",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "in_global_search": 1,
    "in_standard_filter": 1,
    "label": "Customer",
    "oldfieldname": "customer",
    "oldfieldtype": "Link",
+   "options": "User",
    "print_hide": 1,
+   "read_only": 1,
    "search_index": 1
   },
   {
@@ -508,11 +506,6 @@
    "reqd": 1
   },
   {
-   "fieldname": "pricing_rule_details",
-   "fieldtype": "Section Break",
-   "label": "Pricing Rules"
-  },
-  {
    "collapsible": 1,
    "collapsible_depends_on": "packed_items",
    "depends_on": "packed_items",
@@ -597,11 +590,6 @@
   {
    "fieldname": "column_break_39",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "section_break_41",
-   "fieldtype": "Section Break",
-   "hide_border": 1
   },
   {
    "collapsible": 1,
@@ -954,7 +942,7 @@
    "no_copy": 1,
    "oldfieldname": "status",
    "oldfieldtype": "Select",
-   "options": "\nDraft\nTo Bill\nCompleted\nReturn Issued\nCancelled\nClosed",
+   "options": "\nDraft\nReceived\nCompleted\nReturn Issued\nCancelled\nClosed",
    "print_hide": 1,
    "print_width": "150px",
    "read_only": 1,
@@ -1051,14 +1039,6 @@
    "oldfieldname": "total_commission",
    "oldfieldtype": "Currency",
    "options": "Company:company:default_currency",
-   "print_hide": 1
-  },
-  {
-   "collapsible": 1,
-   "collapsible_depends_on": "sales_team",
-   "fieldname": "section_break1",
-   "fieldtype": "Section Break",
-   "label": "Sales Team",
    "print_hide": 1
   },
   {
@@ -1199,10 +1179,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "custom_dimensions_section",
-   "fieldtype": "Section Break"
-  },
-  {
    "fieldname": "shipping_address_section",
    "fieldtype": "Section Break",
    "label": "Shipping Address"
@@ -1245,7 +1221,7 @@
  "idx": 146,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-02-21 15:48:45.098983",
+ "modified": "2024-04-29 15:01:01.720268",
  "modified_by": "Administrator",
  "module": "stock",
  "name": "Delivery Note",

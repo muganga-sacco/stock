@@ -141,18 +141,18 @@ frappe.ui.form.on('Asset', {
 
 		frm.trigger("toggle_reference_doc");
 
-		if (frm.doc.docstatus == 0) {
-			frm.toggle_reqd("finance_books", frm.doc.calculate_depreciation);
+		// if (frm.doc.docstatus == 0) {
+		// 	frm.toggle_reqd("finance_books", frm.doc.calculate_depreciation);
 
-			if (frm.doc.is_composite_asset && !frm.doc.capitalized_in) {
-				$('.primary-action').prop('hidden', true);
-				$('.form-message').text('Capitalize this asset to confirm');
+		// 	if (frm.doc.is_composite_asset && !frm.doc.capitalized_in) {
+		// 		$('.primary-action').prop('hidden', true);
+		// 		$('.form-message').text('Capitalize this asset to confirm');
 
-				frm.add_custom_button(__("Capitalize Asset"), function() {
-					frm.trigger("create_asset_capitalization");
-				});
-			}
-		}
+		// 		frm.add_custom_button(__("Capitalize Asset"), function() {
+		// 			frm.trigger("create_asset_capitalization");
+		// 		});
+		// 	}
+		// }
 	},
 
 	set_depr_posting_failure_alert: function (frm) {

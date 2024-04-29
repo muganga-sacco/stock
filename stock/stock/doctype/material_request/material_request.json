@@ -39,8 +39,6 @@
   "letter_head",
   "column_break_31",
   "select_print_heading",
-  "reference",
-  "column_break_35",
   "connections_tab"
  ],
  "fields": [
@@ -100,6 +98,7 @@
    "label": "Required By"
   },
   {
+   "default": "Muganga Sacco",
    "fieldname": "company",
    "fieldtype": "Link",
    "in_standard_filter": 1,
@@ -109,6 +108,7 @@
    "options": "Company",
    "print_hide": 1,
    "print_width": "150px",
+   "read_only": 1,
    "remember_last_selected_value": 1,
    "reqd": 1,
    "search_index": 1,
@@ -245,12 +245,6 @@
    "oldfieldtype": "Text Editor"
   },
   {
-   "collapsible": 1,
-   "fieldname": "reference",
-   "fieldtype": "Section Break",
-   "label": "Reference"
-  },
-  {
    "fieldname": "warehouse_section",
    "fieldtype": "Section Break",
    "hide_border": 1,
@@ -317,10 +311,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "column_break_35",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "column_break_13",
    "fieldtype": "Column Break"
   }
@@ -329,7 +319,7 @@
  "idx": 70,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-02-06 11:47:00.424752",
+ "modified": "2024-04-29 10:41:20.264769",
  "modified_by": "Administrator",
  "module": "stock",
  "name": "Material Request",

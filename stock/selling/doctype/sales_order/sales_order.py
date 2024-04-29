@@ -1121,7 +1121,7 @@ def make_delivery_note(source_name, target_doc=None, kwargs=None):
                     item.idx = idx + 1
 
     # Should be called after mapping items.
-    set_missing_values(so, target_doc)
+    # set_missing_values(so, target_doc)
 
     return target_doc
 

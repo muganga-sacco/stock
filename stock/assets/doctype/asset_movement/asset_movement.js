@@ -28,7 +28,7 @@ frappe.ui.form.on('Asset Movement', {
 		frm.set_query("reference_doctype", () => {
 			return {
 				filters: {
-					name: ["in", ["Purchase Receipt", "Purchase Invoice"]]
+					name: ["in", ["Purchase Receipt"]]
 				}
 			};
 		}),
