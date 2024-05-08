@@ -1029,7 +1029,8 @@ def make_delivery_note(source_name, target_doc=None, kwargs=None):
             target.set_new_name()
 
         # make_packing_list(target)
-
+        
+        
     def condition(doc):
         if doc.name in sre_details:
             del sre_details[doc.name]
@@ -1070,6 +1071,17 @@ def make_delivery_note(source_name, target_doc=None, kwargs=None):
             "condition": condition,
             "postprocess": update_item,
         }
+        # print("&&&&&&&&&&&&")
+        # mapper["Sales Order "] = {
+        #     "doctype": "Delivery Note",
+        #     "field_map": {
+        #         "requester": "requester",
+        #         "name": "so_detail",
+        #         "parent": "against_sales_order",
+        #     },
+        #     "condition": condition,
+        #     "postprocess": update_item,
+        # }
 
     so = frappe.get_doc("Sales Order", source_name)
     target_doc = get_mapped_doc("Sales Order", so.name, mapper, target_doc)

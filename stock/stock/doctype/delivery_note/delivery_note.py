@@ -386,7 +386,7 @@ class DeliveryNote(SellingController):
 		# )
 
 		# update delivered qty in sales order
-		# self.update_prevdoc_status()
+		self.update_prevdoc_status()
 		# self.update_billing_status()
 
 		self.update_stock_reservation_entries()

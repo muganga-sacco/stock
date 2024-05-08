@@ -973,6 +973,7 @@ stock.selling.SalesOrderController = class SalesOrderController extends stock.se
 			args: {
 				delivery_dates,
 				for_reserved_stock: for_reserved_stock
+				
 			},
 			freeze: true,
 			freeze_message: __("Creating Delivery Note ...")

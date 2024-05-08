@@ -12,7 +12,7 @@
   "item_code",
   "item_name",
   "col_break1",
-  "customer_item_code",
+  "requester",
   "section_break_6",
   "description",
   "brand",
@@ -138,14 +138,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "customer_item_code",
-   "fieldtype": "Data",
-   "hidden": 1,
-   "label": "Customer's Item Code",
-   "print_hide": 1,
-   "read_only": 1
-  },
-  {
    "collapsible": 1,
    "fieldname": "section_break_6",
    "fieldtype": "Section Break",
@@ -211,12 +203,12 @@
   },
   {
    "depends_on": "eval:doc.uom === doc.stock_uom",
+   "fetch_from": "item_code.weight_uom",
    "fieldname": "uom",
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "UOM",
-   "options": "UOM",
-   "reqd": 1
+   "options": "UOM"
   },
   {
    "depends_on": "eval:doc.uom != doc.stock_uom",
@@ -833,13 +825,23 @@
    "options": "Batch",
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "fetch_from": "against_sales_order.requester",
+   "fieldname": "requester",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Requester",
+   "options": "User",
+   "print_hide": 1,
+   "read_only": 1
   }
  ],
  "idx": 1,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-04-29 14:13:46.665147",
+ "modified": "2024-05-08 11:51:41.766007",
  "modified_by": "Administrator",
  "module": "stock",
  "name": "Delivery Note Item",
