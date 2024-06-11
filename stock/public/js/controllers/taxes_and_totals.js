@@ -108,22 +108,22 @@ stock.taxes_and_totals = class TaxesAndTotals extends stock.payments {
 		this._cleanup();
 	}
 
-	validate_conversion_rate() {
-		this.frm.doc.conversion_rate = flt(this.frm.doc.conversion_rate, (cur_frm) ? precision("conversion_rate") : 9);
-		var conversion_rate_label = frappe.meta.get_label(this.frm.doc.doctype, "conversion_rate",
-			this.frm.doc.name);
-		var company_currency = this.get_company_currency();
+	// validate_conversion_rate() {
+	// 	this.frm.doc.conversion_rate = flt(this.frm.doc.conversion_rate, (cur_frm) ? precision("conversion_rate") : 9);
+	// 	var conversion_rate_label = frappe.meta.get_label(this.frm.doc.doctype, "conversion_rate",
+	// 		this.frm.doc.name);
+	// 	// var company_currency = this.get_company_currency();
 
-		if(!this.frm.doc.conversion_rate) {
-			if(this.frm.doc.currency == company_currency) {
-				this.frm.set_value("conversion_rate", 1);
-			} else {
-				const subs =  [conversion_rate_label, this.frm.doc.currency, company_currency];
-				const err_message = __('{0} is mandatory. Maybe Currency Exchange record is not created for {1} to {2}', subs);
-				frappe.throw(err_message);
-			}
-		}
-	}
+	// 	if(!this.frm.doc.conversion_rate) {
+	// 		if(this.frm.doc.currency == company_currency) {
+	// 			this.frm.set_value("conversion_rate", 1);
+	// 		} else {
+	// 			const subs =  [conversion_rate_label, this.frm.doc.currency, company_currency];
+	// 			const err_message = __('{0} is mandatory. Maybe Currency Exchange record is not created for {1} to {2}', subs);
+	// 			frappe.throw(err_message);
+	// 		}
+	// 	}
+	// }
 
 	calculate_item_values() {
 		var me = this;

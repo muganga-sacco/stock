@@ -1919,24 +1919,6 @@
       this.calculate_totals();
       this._cleanup();
     }
-    validate_conversion_rate() {
-      this.frm.doc.conversion_rate = flt(this.frm.doc.conversion_rate, cur_frm ? precision("conversion_rate") : 9);
-      var conversion_rate_label = frappe.meta.get_label(
-        this.frm.doc.doctype,
-        "conversion_rate",
-        this.frm.doc.name
-      );
-      var company_currency = this.get_company_currency();
-      if (!this.frm.doc.conversion_rate) {
-        if (this.frm.doc.currency == company_currency) {
-          this.frm.set_value("conversion_rate", 1);
-        } else {
-          const subs = [conversion_rate_label, this.frm.doc.currency, company_currency];
-          const err_message = __("{0} is mandatory. Maybe Currency Exchange record is not created for {1} to {2}", subs);
-          frappe.throw(err_message);
-        }
-      }
-    }
     calculate_item_values() {
       var me = this;
       if (!this.discount_amount_applied) {
@@ -3446,32 +3428,6 @@
     contact_person() {
       stock.utils.get_contact_details(this.frm);
     }
-    currency() {
-      var _a;
-      let transaction_date = this.frm.doc.transaction_date || this.frm.doc.posting_date;
-      let me = this;
-      let company_currency = this.get_company_currency();
-      if (this.frm.doc.currency && this.frm.doc.currency !== company_currency && !((_a = this.frm.doc.__onload) == null ? void 0 : _a.load_after_mapping)) {
-        this.get_exchange_rate(
-          transaction_date,
-          this.frm.doc.currency,
-          company_currency,
-          function(exchange_rate) {
-            if (exchange_rate != me.frm.doc.conversion_rate) {
-              me.set_margin_amount_based_on_currency(exchange_rate);
-              me.set_actual_charges_based_on_currency(exchange_rate);
-              me.frm.set_value("conversion_rate", exchange_rate);
-            }
-          }
-        );
-      } else {
-        if (this.frm.doc.currency === this.get_company_currency()) {
-          this.frm.set_value("conversion_rate", 1);
-        } else {
-          this.conversion_rate();
-        }
-      }
-    }
     conversion_rate() {
       var _a;
       const me = this.frm;
@@ -3578,23 +3534,6 @@
           callback(flt(r.message));
         }
       });
-    }
-    price_list_currency() {
-      var _a;
-      var me = this;
-      var company_currency = this.get_company_currency();
-      if (this.frm.doc.price_list_currency !== company_currency && !((_a = this.frm.doc.__onload) == null ? void 0 : _a.load_after_mapping)) {
-        this.get_exchange_rate(
-          this.frm.doc.posting_date,
-          this.frm.doc.price_list_currency,
-          company_currency,
-          function(exchange_rate) {
-            me.frm.set_value("plc_conversion_rate", exchange_rate);
-          }
-        );
-      } else {
-        this.plc_conversion_rate();
-      }
     }
     plc_conversion_rate() {
       if (this.frm.doc.price_list_currency === this.get_company_currency()) {
@@ -8641,4 +8580,4 @@
     ];
   }
 })();
-//# sourceMappingURL=stock.bundle.6YF45E6D.js.map
+//# sourceMappingURL=stock.bundle.YD3HC5UB.js.map
