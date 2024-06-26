@@ -396,6 +396,7 @@
    "width": "100px"
   },
   {
+   "default": "1",
    "description": "Rate at which customer's currency is converted to company's base currency",
    "fieldname": "conversion_rate",
    "fieldtype": "Float",
@@ -1264,7 +1265,7 @@
  "idx": 105,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-05-08 12:24:06.946896",
+ "modified": "2024-06-26 14:15:39.525575",
  "modified_by": "Administrator",
  "module": "Selling",
  "name": "Sales Order",
