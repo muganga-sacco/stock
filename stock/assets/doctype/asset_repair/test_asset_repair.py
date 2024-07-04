@@ -268,7 +268,7 @@ def num_of_depreciations(asset):
 
 
 def create_asset_repair(**args):
-	from stock.accounts.doctype.purchase_invoice.test_purchase_invoice import make_purchase_invoice
+	# from stock.accounts.doctype.purchase_invoice.test_purchase_invoice import make_purchase_invoice
 	from stock.stock.doctype.warehouse.test_warehouse import create_warehouse
 
 	args = frappe._dict(args)
@@ -345,18 +345,18 @@ def create_asset_repair(**args):
 			)
 			stock_entry.submit()
 
-		if args.capitalize_repair_cost:
-			asset_repair.capitalize_repair_cost = 1
-			asset_repair.repair_cost = 1000
-			if asset.calculate_depreciation:
-				asset_repair.increase_in_asset_life = 12
-			pi = make_purchase_invoice(
-				company=asset.company,
-				expense_account=frappe.db.get_value("Company", asset.company, "default_expense_account"),
-				cost_center=asset_repair.cost_center,
-				warehouse=asset_repair.warehouse,
-			)
-			asset_repair.purchase_invoice = pi.name
+		# if args.capitalize_repair_cost:
+		# 	asset_repair.capitalize_repair_cost = 1
+		# 	asset_repair.repair_cost = 1000
+		# 	if asset.calculate_depreciation:
+		# 		asset_repair.increase_in_asset_life = 12
+		# 	pi = make_purchase_invoice(
+		# 		company=asset.company,
+		# 		expense_account=frappe.db.get_value("Company", asset.company, "default_expense_account"),
+		# 		cost_center=asset_repair.cost_center,
+		# 		warehouse=asset_repair.warehouse,
+		# 	)
+		# 	asset_repair.purchase_invoice = pi.name
 
 		asset_repair.submit()
 	return asset_repair

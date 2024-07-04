@@ -253,7 +253,7 @@
    "type": "Link"
   }
  ],
- "modified": "2024-03-13 10:31:45.613767",
+ "modified": "2024-07-03 10:09:18.090415",
  "modified_by": "Administrator",
  "module": "Buying",
  "name": "Buying",
@@ -272,6 +272,12 @@
   },
   {
    "role": "Stock User"
+  },
+  {
+   "role": "DAF"
+  },
+  {
+   "role": "Sales Manager"
   }
  ],
  "sequence_id": 5.0,

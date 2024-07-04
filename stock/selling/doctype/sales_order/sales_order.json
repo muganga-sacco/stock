@@ -1265,7 +1265,7 @@
  "idx": 105,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-06-26 14:15:39.525575",
+ "modified": "2024-07-03 09:30:24.931412",
  "modified_by": "Administrator",
  "module": "Selling",
  "name": "Sales Order",
@@ -1282,22 +1282,6 @@
    "read": 1,
    "report": 1,
    "role": "Sales User",
-   "share": 1,
-   "submit": 1,
-   "write": 1
-  },
-  {
-   "amend": 1,
-   "cancel": 1,
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "import": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Sales Manager",
    "share": 1,
    "submit": 1,
    "write": 1
@@ -1328,31 +1312,12 @@
    "role": "Stock User"
   },
   {
-   "permlevel": 1,
-   "read": 1,
-   "role": "Sales Manager",
-   "write": 1
-  },
-  {
-   "delete": 1,
    "email": 1,
    "export": 1,
    "print": 1,
    "read": 1,
    "report": 1,
    "role": "DAF",
-   "share": 1,
-   "submit": 1,
-   "write": 1
-  },
-  {
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Requester",
    "select": 1,
    "share": 1,
    "submit": 1,
@@ -1366,8 +1331,33 @@
    "print": 1,
    "read": 1,
    "report": 1,
+   "role": "Requester",
+   "select": 1,
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
    "role": "Supervisor",
    "select": 1,
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales Manager",
    "share": 1,
    "write": 1
   }

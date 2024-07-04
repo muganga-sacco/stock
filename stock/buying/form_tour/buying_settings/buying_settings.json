@@ -49,7 +49,7 @@
    "title": "Default Buying Price List"
   },
   {
-   "description": "If this option is configured \"Yes\", stock will prevent you from creating a Purchase Invoice or a Purchase Receipt directly without creating a Purchase Order first.",
+   "description": "If this option is configured \"Yes\", ERPNext will prevent you from creating a Purchase Invoice or a Purchase Receipt directly without creating a Purchase Order first.",
    "field": "",
    "fieldname": "po_required",
    "fieldtype": "Select",
@@ -61,7 +61,7 @@
    "title": "Purchase Order Required"
   },
   {
-   "description": "If this option is configured \"Yes\", stock will prevent you from creating a Purchase Invoice without creating a Purchase Receipt first.",
+   "description": "If this option is configured \"Yes\", ERPNext will prevent you from creating a Purchase Invoice without creating a Purchase Receipt first.",
    "field": "",
    "fieldname": "pr_required",
    "fieldtype": "Select",

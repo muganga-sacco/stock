@@ -1911,7 +1911,6 @@
       this.frm._items = is_quotation ? this.filtered_items() : this.frm.doc.items;
       this.validate_conversion_rate();
       this.calculate_item_values();
-      this.initialize_taxes();
       this.determine_exclusive_rate();
       this.calculate_net_total();
       this.calculate_taxes();
@@ -1948,33 +1947,6 @@
       var me = this;
       $.each(fields, function(i, f) {
         doc["base_" + f] = flt(flt(doc[f], precision(f, doc)) * me.frm.doc.conversion_rate, precision("base_" + f, doc));
-      });
-    }
-    initialize_taxes() {
-      var me = this;
-      $.each(this.frm.doc["taxes"] || [], function(i, tax) {
-        if (!tax.dont_recompute_tax) {
-          tax.item_wise_tax_detail = {};
-        }
-        var tax_fields = [
-          "total",
-          "tax_amount_after_discount_amount",
-          "tax_amount_for_current_item",
-          "grand_total_for_current_item",
-          "tax_fraction_for_current_item",
-          "grand_total_fraction_for_current_item"
-        ];
-        if (cstr(tax.charge_type) != "Actual" && !(me.discount_amount_applied && me.frm.doc.apply_discount_on == "Grand Total")) {
-          tax_fields.push("tax_amount");
-        }
-        $.each(tax_fields, function(i2, fieldname) {
-          tax[fieldname] = 0;
-        });
-        if (!this.discount_amount_applied) {
-          stock.accounts.taxes.validate_taxes_and_charges(tax.doctype, tax.name);
-          stock.accounts.taxes.validate_inclusive_tax(tax);
-        }
-        frappe.model.round_floats_in(tax);
       });
     }
     fetch_round_off_accounts() {
@@ -6199,172 +6171,6 @@
   });
   window.CallPopup = CallPopup;
 
-  // ../stock/stock/public/js/utils/ledger_preview.js
-  frappe.provide("stock.accounts");
-  stock.accounts.ledger_preview = {
-    show_stock_ledger_preview(frm) {
-      let me = this;
-      if (!frm.is_new() && frm.doc.docstatus == 0) {
-        frm.add_custom_button(__("Stock Ledger"), function() {
-          frappe.call({
-            "type": "GET",
-            "method": "stock.controllers.stock_controller.show_stock_ledger_preview",
-            "args": {
-              "company": frm.doc.company,
-              "doctype": frm.doc.doctype,
-              "docname": frm.doc.name
-            },
-            "callback": function(response) {
-              me.make_dialog("Stock Ledger Preview", "stock_ledger_preview_html", response.message.sl_columns, response.message.sl_data);
-            }
-          });
-        }, __("Preview"));
-      }
-    },
-    make_dialog(label, fieldname, columns, data) {
-      let me = this;
-      let dialog = new frappe.ui.Dialog({
-        "size": "extra-large",
-        "title": __(label),
-        "fields": [
-          {
-            "fieldtype": "HTML",
-            "fieldname": fieldname
-          }
-        ]
-      });
-      setTimeout(function() {
-        me.get_datatable(columns, data, dialog.get_field(fieldname).wrapper);
-      }, 200);
-      dialog.show();
-    },
-    get_datatable(columns, data, wrapper) {
-      const datatable_options = {
-        columns,
-        data,
-        dynamicRowHeight: true,
-        checkboxColumn: false,
-        inlineFilters: true
-      };
-      new frappe.DataTable(
-        wrapper,
-        datatable_options
-      );
-    }
-  };
-
-  // ../stock/stock/public/js/utils/unreconcile.js
-  frappe.provide("stock.accounts");
-  stock.accounts.unreconcile_payment = {
-    add_unreconcile_btn(frm) {
-      if (frm.doc.docstatus == 1) {
-        if (frm.doc.doctype == "Journal Entry" && frm.doc.voucher_type != "Journal Entry" || !["Purchase Invoice", "Sales Invoice", "Journal Entry", "Payment Entry"].includes(frm.doc.doctype)) {
-          return;
-        }
-        frappe.call({
-          "method": "stock.accounts.doctype.unreconcile_payment.unreconcile_payment.doc_has_references",
-          "args": {
-            "doctype": frm.doc.doctype,
-            "docname": frm.doc.name
-          },
-          callback: function(r) {
-            if (r.message) {
-              frm.add_custom_button(__("UnReconcile"), function() {
-                stock.accounts.unreconcile_payment.build_unreconcile_dialog(frm);
-              }, __("Actions"));
-            }
-          }
-        });
-      }
-    },
-    build_selection_map(frm, selections) {
-      let selection_map = [];
-      if (["Sales Invoice", "Purchase Invoice"].includes(frm.doc.doctype)) {
-        selection_map = selections.map(function(elem) {
-          return {
-            company: elem.company,
-            voucher_type: elem.voucher_type,
-            voucher_no: elem.voucher_no,
-            against_voucher_type: frm.doc.doctype,
-            against_voucher_no: frm.doc.name
-          };
-        });
-      } else if (["Payment Entry", "Journal Entry"].includes(frm.doc.doctype)) {
-        selection_map = selections.map(function(elem) {
-          return {
-            company: elem.company,
-            voucher_type: frm.doc.doctype,
-            voucher_no: frm.doc.name,
-            against_voucher_type: elem.voucher_type,
-            against_voucher_no: elem.voucher_no
-          };
-        });
-      }
-      return selection_map;
-    },
-    build_unreconcile_dialog(frm) {
-      if (["Sales Invoice", "Purchase Invoice", "Payment Entry", "Journal Entry"].includes(frm.doc.doctype)) {
-        let child_table_fields = [
-          { label: __("Voucher Type"), fieldname: "voucher_type", fieldtype: "Dynamic Link", options: "DocType", in_list_view: 1, read_only: 1 },
-          { label: __("Voucher No"), fieldname: "voucher_no", fieldtype: "Link", options: "voucher_type", in_list_view: 1, read_only: 1 },
-          { label: __("Allocated Amount"), fieldname: "allocated_amount", fieldtype: "Currency", in_list_view: 1, read_only: 1, options: "account_currency" },
-          { label: __("Currency"), fieldname: "account_currency", fieldtype: "Currency", read_only: 1 }
-        ];
-        let unreconcile_dialog_fields = [
-          {
-            label: __("Allocations"),
-            fieldname: "allocations",
-            fieldtype: "Table",
-            read_only: 1,
-            fields: child_table_fields
-          }
-        ];
-        frappe.call({
-          "method": "stock.accounts.doctype.unreconcile_payment.unreconcile_payment.get_linked_payments_for_doc",
-          "args": {
-            "company": frm.doc.company,
-            "doctype": frm.doc.doctype,
-            "docname": frm.doc.name
-          },
-          callback: function(r) {
-            if (r.message) {
-              unreconcile_dialog_fields[0].data = r.message;
-              unreconcile_dialog_fields[0].get_data = function() {
-                return r.message;
-              };
-              let d = new frappe.ui.Dialog({
-                title: "UnReconcile Allocations",
-                fields: unreconcile_dialog_fields,
-                size: "large",
-                cannot_add_rows: true,
-                primary_action_label: "UnReconcile",
-                primary_action(values) {
-                  let selected_allocations = values.allocations.filter((x) => x.__checked);
-                  if (selected_allocations.length > 0) {
-                    let selection_map = stock.accounts.unreconcile_payment.build_selection_map(frm, selected_allocations);
-                    stock.accounts.unreconcile_payment.create_unreconcile_docs(selection_map);
-                    d.hide();
-                  } else {
-                    frappe.msgprint("No Selection");
-                  }
-                }
-              });
-              d.show();
-            }
-          }
-        });
-      }
-    },
-    create_unreconcile_docs(selection_map) {
-      frappe.call({
-        "method": "stock.accounts.doctype.unreconcile_payment.unreconcile_payment.create_unreconcile_doc_for_selection",
-        "args": {
-          "selections": selection_map
-        }
-      });
-    }
-  };
-
   // ../stock/stock/public/js/utils/barcode_scanner.js
   stock.utils.BarcodeScanner = class BarcodeScanner {
     constructor(opts) {
@@ -8580,4 +8386,4 @@
     ];
   }
 })();
-//# sourceMappingURL=stock.bundle.YD3HC5UB.js.map
+//# sourceMappingURL=stock.bundle.P55CSDW7.js.map

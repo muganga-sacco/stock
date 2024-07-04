@@ -22,7 +22,10 @@ class SupplierQuotation(BuyingController):
 	if TYPE_CHECKING:
 		from frappe.types import DF
 
-		
+		# from stock.accounts.doctype.pricing_rule_detail.pricing_rule_detail import PricingRuleDetail
+		# from stock.accounts.doctype.purchase_taxes_and_charges.purchase_taxes_and_charges import (
+		# 	PurchaseTaxesandCharges,
+		# )
 		from stock.buying.doctype.supplier_quotation_item.supplier_quotation_item import (
 			SupplierQuotationItem,
 		)
@@ -68,7 +71,7 @@ class SupplierQuotation(BuyingController):
 		naming_series: DF.Literal["PUR-SQTN-.YYYY.-"]
 		net_total: DF.Currency
 		opportunity: DF.Link | None
-		other_charges_calculation: DF.LongText | None
+		other_charges_calculation: DF.TextEditor | None
 		plc_conversion_rate: DF.Float
 		price_list_currency: DF.Link | None
 		pricing_rules: DF.Table[PricingRuleDetail]
@@ -101,7 +104,7 @@ class SupplierQuotation(BuyingController):
 	# end: auto-generated types
 
 	def validate(self):
-		super(SupplierQuotation, self).validate()
+		super().validate()
 
 		if not self.status:
 			self.status = "Draft"
@@ -127,7 +130,7 @@ class SupplierQuotation(BuyingController):
 		pass
 
 	def validate_with_previous_doc(self):
-		super(SupplierQuotation, self).validate_with_previous_doc(
+		super().validate_with_previous_doc(
 			{
 				"Material Request": {
 					"ref_dn_field": "prevdoc_docname",
@@ -269,7 +272,7 @@ def make_purchase_invoice(source_name, target_doc=None):
 					"docstatus": ["=", 1],
 				},
 			},
-			# "Supplier Quotation Item": {"doctype": "Purchase Invoice Item"},
+			"Supplier Quotation Item": {"doctype": "Purchase Invoice Item"},
 			"Purchase Taxes and Charges": {"doctype": "Purchase Taxes and Charges"},
 		},
 		target_doc,

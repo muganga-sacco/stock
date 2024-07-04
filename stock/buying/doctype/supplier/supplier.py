@@ -11,7 +11,10 @@ from frappe.contacts.address_and_contact import (
 )
 from frappe.model.naming import set_name_by_naming_series, set_name_from_naming_options
 
-
+# from stock.accounts.party import (
+# 	get_dashboard_info,
+# 	validate_party_accounts,
+# )
 from stock.controllers.website_list_for_contact import add_role_for_portal_user
 from stock.utilities.transaction_base import TransactionBase
 
@@ -25,11 +28,16 @@ class Supplier(TransactionBase):
 	if TYPE_CHECKING:
 		from frappe.types import DF
 
-		
+		# from stock.accounts.doctype.allowed_to_transact_with.allowed_to_transact_with import (
+		# 	AllowedToTransactWith,
+		# )
+		# from stock.accounts.doctype.party_account.party_account import PartyAccount
 		from stock.utilities.doctype.portal_user.portal_user import PortalUser
 
+		accounts: DF.Table[PartyAccount]
 		allow_purchase_invoice_creation_without_purchase_order: DF.Check
 		allow_purchase_invoice_creation_without_purchase_receipt: DF.Check
+		companies: DF.Table[AllowedToTransactWith]
 		country: DF.Link | None
 		default_bank_account: DF.Link | None
 		default_currency: DF.Link | None
@@ -66,10 +74,10 @@ class Supplier(TransactionBase):
 		website: DF.Data | None
 	# end: auto-generated types
 
-	# def onload(self):
-	# 	"""Load address and contacts in `__onload`"""
-	# 	load_address_and_contact(self)
-	# 	self.load_dashboard_info()
+	def onload(self):
+		"""Load address and contacts in `__onload`"""
+		load_address_and_contact(self)
+		# self.load_dashboard_info()
 
 	def before_save(self):
 		if not self.on_hold:
@@ -78,6 +86,9 @@ class Supplier(TransactionBase):
 		elif self.on_hold and not self.hold_type:
 			self.hold_type = "All"
 
+	# def load_dashboard_info(self):
+	# 	info = get_dashboard_info(self.doctype, self.name)
+	# 	self.set_onload("dashboard_info", info)
 
 	def autoname(self):
 		supp_master_name = frappe.defaults.get_global_default("supp_master_name")
@@ -114,9 +125,7 @@ class Supplier(TransactionBase):
 			return
 
 		user_doc.add_roles("Supplier")
-		frappe.msgprint(
-			_("Added Supplier Role to User {0}.").format(frappe.bold(user_doc.name)), alert=True
-		)
+		frappe.msgprint(_("Added Supplier Role to User {0}.").format(frappe.bold(user_doc.name)), alert=True)
 
 	def validate(self):
 		self.flags.is_new_doc = self.is_new()
@@ -126,8 +135,9 @@ class Supplier(TransactionBase):
 			if not self.naming_series:
 				msgprint(_("Series is mandatory"), raise_exception=1)
 
+		# validate_party_accounts(self)
 		self.validate_internal_supplier()
-		self.add_role_for_user()
+		# self.add_role_for_user()
 
 	@frappe.whitelist()
 	def get_supplier_group_details(self):
@@ -217,6 +227,6 @@ def get_supplier_primary_contact(doctype, txt, searchfield, start, page_len, fil
 		.where(
 			(dynamic_link.link_name == supplier)
 			& (dynamic_link.link_doctype == "Supplier")
-			& (contact.name.like("%{0}%".format(txt)))
+			& (contact.name.like(f"%{txt}%"))
 		)
 	).run(as_dict=False)

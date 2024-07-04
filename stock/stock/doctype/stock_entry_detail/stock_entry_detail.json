@@ -313,7 +313,7 @@
   },
   {
    "default": ":Company",
-   "depends_on": "eval:cint(erpnext.is_perpetual_inventory_enabled(parent.company))",
+   "depends_on": "eval:cint(stock.is_perpetual_inventory_enabled(parent.company))",
    "fieldname": "cost_center",
    "fieldtype": "Link",
    "label": "Cost Center",

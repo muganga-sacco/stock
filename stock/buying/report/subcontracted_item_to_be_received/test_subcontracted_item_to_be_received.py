@@ -1,5 +1,5 @@
 # Python bytecode 2.7 (62211)
-# Embedded file name: /Users/anuragmishra/frappe-develop/apps/stock/stock/buying/report/subcontracted_item_to_be_received/test_subcontracted_item_to_be_received.py
+# Embedded file name: /Users/anuragmishra/frappe-develop/apps/erpnext/erpnext/buying/report/subcontracted_item_to_be_received/test_subcontracted_item_to_be_received.py
 # Compiled at: 2019-05-06 09:51:46
 # Decompiled by https://python-decompiler.com
 
@@ -62,7 +62,9 @@ class TestSubcontractedItemToBeReceived(FrappeTestCase):
 					"from_date": frappe.utils.get_datetime(
 						frappe.utils.add_to_date(sco.transaction_date, days=-10)
 					),
-					"to_date": frappe.utils.get_datetime(frappe.utils.add_to_date(sco.transaction_date, days=10)),
+					"to_date": frappe.utils.get_datetime(
+						frappe.utils.add_to_date(sco.transaction_date, days=10)
+					),
 				}
 			)
 		)

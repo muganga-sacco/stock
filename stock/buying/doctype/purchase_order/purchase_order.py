@@ -10,10 +10,20 @@ from frappe.desk.notifications import clear_doctype_notifications
 from frappe.model.mapper import get_mapped_doc
 from frappe.utils import cint, cstr, flt, get_link_to_form
 
-
+# from stock.accounts.doctype.sales_invoice.sales_invoice import (
+# 	unlink_inter_company_doc,
+# 	update_linked_doc,
+# 	validate_inter_company_party,
+# )
+# from stock.accounts.doctype.tax_withholding_category.tax_withholding_category import (
+# 	get_party_tax_withholding_details,
+# )
+# from stock.accounts.party import get_party_account, get_party_account_currency
 from stock.buying.utils import check_on_hold_or_closed_status, validate_for_items
 from stock.controllers.buying_controller import BuyingController
-
+# from stock.manufacturing.doctype.blanket_order.blanket_order import (
+# 	validate_against_blanket_order,
+# )
 from stock.stock.doctype.item_group.item_group import get_item_group_defaults
 from stock.stock.doctype.item.item import get_item_defaults, get_last_purchase_details
 from stock.stock.stock_balance import get_ordered_qty, update_bin_qty
@@ -34,7 +44,11 @@ class PurchaseOrder(BuyingController):
 	if TYPE_CHECKING:
 		from frappe.types import DF
 
-		
+		# from stock.accounts.doctype.payment_schedule.payment_schedule import PaymentSchedule
+		# from stock.accounts.doctype.pricing_rule_detail.pricing_rule_detail import PricingRuleDetail
+		# from stock.accounts.doctype.purchase_taxes_and_charges.purchase_taxes_and_charges import (
+		# 	PurchaseTaxesandCharges,
+		# )
 		from stock.buying.doctype.purchase_order_item.purchase_order_item import PurchaseOrderItem
 		from stock.buying.doctype.purchase_order_item_supplied.purchase_order_item_supplied import (
 			PurchaseOrderItemSupplied,
@@ -43,6 +57,7 @@ class PurchaseOrder(BuyingController):
 		additional_discount_percentage: DF.Float
 		address_display: DF.SmallText | None
 		advance_paid: DF.Currency
+		advance_payment_status: DF.Literal["Not Initiated", "Initiated", "Partially Paid", "Fully Paid"]
 		amended_from: DF.Link | None
 		apply_discount_on: DF.Literal["", "Grand Total", "Net Total"]
 		apply_tds: DF.Check
@@ -95,7 +110,7 @@ class PurchaseOrder(BuyingController):
 		net_total: DF.Currency
 		order_confirmation_date: DF.Date | None
 		order_confirmation_no: DF.Data | None
-		other_charges_calculation: DF.LongText | None
+		other_charges_calculation: DF.TextEditor | None
 		party_account_currency: DF.Link | None
 		payment_schedule: DF.Table[PaymentSchedule]
 		payment_terms_template: DF.Link | None
@@ -154,7 +169,7 @@ class PurchaseOrder(BuyingController):
 	# end: auto-generated types
 
 	def __init__(self, *args, **kwargs):
-		super(PurchaseOrder, self).__init__(*args, **kwargs)
+		super().__init__(*args, **kwargs)
 		self.status_updater = [
 			{
 				"source_dt": "Purchase Order Item",
@@ -169,30 +184,31 @@ class PurchaseOrder(BuyingController):
 			}
 		]
 
-	# def onload(self):
-	# 	supplier_tds = frappe.db.get_value("Supplier", self.supplier)
-	# 	self.set_onload("supplier_tds", supplier_tds)
-	# 	self.set_onload("can_update_items", self.can_update_items())
+	def onload(self):
+		supplier_tds = frappe.db.get_value("Supplier", self.supplier, "tax_withholding_category")
+		self.set_onload("supplier_tds", supplier_tds)
+		self.set_onload("can_update_items", self.can_update_items())
 
 	def validate(self):
-		super(PurchaseOrder, self).validate()
+		super().validate()
 
 		self.set_status()
 
 		# apply tax withholding only if checked and applicable
-		# self.set_tax_withholding()
+		self.set_tax_withholding()
 
-		# self.validate_supplier()
+		self.validate_supplier()
 		self.validate_schedule_date()
-		validate_for_items(self)
+		# validate_for_items(self)
 		self.check_on_hold_or_closed_status()
 
 		self.validate_uom_is_integer("uom", "qty")
 		self.validate_uom_is_integer("stock_uom", "stock_qty")
 
-		# self.validate_with_previous_doc()
+		self.validate_with_previous_doc()
 		self.validate_for_subcontracting()
 		self.validate_minimum_order_qty()
+		# validate_against_blanket_order(self)
 
 		if self.is_old_subcontracting_flow:
 			self.validate_bom_for_subcontracting_items()
@@ -200,7 +216,9 @@ class PurchaseOrder(BuyingController):
 
 		self.validate_fg_item_for_subcontracting()
 		self.set_received_qty_for_drop_ship_items()
-		
+		# validate_inter_company_party(
+		# 	self.doctype, self.supplier, self.company, self.inter_company_order_reference
+		# )
 		self.reset_default_field_value("set_warehouse", "items", "warehouse")
 
 	def validate_with_previous_doc(self):
@@ -208,7 +226,7 @@ class PurchaseOrder(BuyingController):
 		if self.is_subcontracted:
 			mri_compare_fields = [["project", "="]]
 
-		super(PurchaseOrder, self).validate_with_previous_doc(
+		super().validate_with_previous_doc(
 			{
 				"Supplier Quotation": {
 					"ref_dn_field": "supplier_quotation",
@@ -217,6 +235,7 @@ class PurchaseOrder(BuyingController):
 				"Supplier Quotation Item": {
 					"ref_dn_field": "supplier_quotation_item",
 					"compare_fields": [
+						["project", "="],
 						["item_code", "="],
 						["uom", "="],
 						["conversion_factor", "="],
@@ -240,7 +259,35 @@ class PurchaseOrder(BuyingController):
 				[["Supplier Quotation", "supplier_quotation", "supplier_quotation_item"]]
 			)
 
-	
+	# def set_tax_withholding(self):
+	# 	if not self.apply_tds:
+	# 		return
+
+	# 	tax_withholding_details = get_party_tax_withholding_details(self, self.tax_withholding_category)
+
+	# 	if not tax_withholding_details:
+	# 		return
+
+	# 	accounts = []
+	# 	for d in self.taxes:
+	# 		if d.account_head == tax_withholding_details.get("account_head"):
+	# 			d.update(tax_withholding_details)
+	# 		accounts.append(d.account_head)
+
+	# 	if not accounts or tax_withholding_details.get("account_head") not in accounts:
+	# 		self.append("taxes", tax_withholding_details)
+
+	# 	to_remove = [
+	# 		d
+	# 		for d in self.taxes
+	# 		if not d.tax_amount and d.account_head == tax_withholding_details.get("account_head")
+	# 	]
+
+	# 	for d in to_remove:
+	# 		self.remove(d)
+
+	# 	# calculate totals again after applying TDS
+	# 	self.calculate_taxes_and_totals()
 
 	def validate_supplier(self):
 		prevent_po = frappe.db.get_value("Supplier", self.supplier, "prevent_pos")
@@ -264,6 +311,7 @@ class PurchaseOrder(BuyingController):
 				indicator="orange",
 			)
 
+		# self.party_account_currency = get_party_account_currency("Supplier", self.supplier, self.company)
 
 	def validate_minimum_order_qty(self):
 		if not self.get("items"):
@@ -273,9 +321,7 @@ class PurchaseOrder(BuyingController):
 		itemwise_min_order_qty = frappe._dict(
 			frappe.db.sql(
 				"""select name, min_order_qty
-			from tabItem where name in ({0})""".format(
-					", ".join(["%s"] * len(items))
-				),
+			from tabItem where name in ({})""".format(", ".join(["%s"] * len(items))),
 				items,
 			)
 		)
@@ -321,7 +367,9 @@ class PurchaseOrder(BuyingController):
 							)
 						elif not frappe.get_value("Item", item.fg_item, "default_bom"):
 							frappe.throw(
-								_("Row #{0}: Default BOM not found for FG Item {1}").format(item.idx, item.fg_item)
+								_("Row #{0}: Default BOM not found for FG Item {1}").format(
+									item.idx, item.fg_item
+								)
 							)
 					if not item.fg_item_qty:
 						frappe.throw(_("Row #{0}: Finished Good Item Qty can not be zero").format(item.idx))
@@ -355,8 +403,9 @@ class PurchaseOrder(BuyingController):
 					d.rate = d.base_rate / conversion_rate
 					d.last_purchase_rate = d.rate
 				else:
-
-					item_last_purchase_rate = frappe.get_cached_value("Item", d.item_code, "last_purchase_rate")
+					item_last_purchase_rate = frappe.get_cached_value(
+						"Item", d.item_code, "last_purchase_rate"
+					)
 					if item_last_purchase_rate:
 						d.base_price_list_rate = (
 							d.base_rate
@@ -391,7 +440,7 @@ class PurchaseOrder(BuyingController):
 
 	def check_modified_date(self):
 		mod_db = frappe.db.sql("select modified from `tabPurchase Order` where name = %s", self.name)
-		date_diff = frappe.db.sql("select '%s' - '%s' " % (mod_db[0][0], cstr(self.modified)))
+		date_diff = frappe.db.sql(f"select '{mod_db[0][0]}' - '{cstr(self.modified)}' ")
 
 		if date_diff and date_diff[0][0]:
 			msgprint(
@@ -406,11 +455,12 @@ class PurchaseOrder(BuyingController):
 		self.update_ordered_qty()
 		self.update_reserved_qty_for_subcontract()
 		self.update_subcontracting_order_status()
+		self.update_blanket_order()
 		self.notify_update()
 		clear_doctype_notifications(self)
 
 	def on_submit(self):
-		# super(PurchaseOrder, self).on_submit()
+		super().on_submit()
 
 		if self.is_against_so():
 			self.update_status_updater()
@@ -420,20 +470,22 @@ class PurchaseOrder(BuyingController):
 			self.update_requested_qty()
 
 		self.update_ordered_qty()
-		# self.validate_budget()
+		self.validate_budget()
 		self.update_reserved_qty_for_subcontract()
 
 		frappe.get_doc("Authorization Control").validate_approving_authority(
 			self.doctype, self.company, self.base_grand_total
 		)
 
+		self.update_blanket_order()
 
+		# update_linked_doc(self.doctype, self.name, self.inter_company_order_reference)
 
 		self.auto_create_subcontracting_order()
 
 	def on_cancel(self):
 		self.ignore_linked_doctypes = ("GL Entry", "Payment Ledger Entry")
-		super(PurchaseOrder, self).on_cancel()
+		super().on_cancel()
 
 		if self.is_against_so():
 			self.update_status_updater()
@@ -455,7 +507,9 @@ class PurchaseOrder(BuyingController):
 
 		self.update_ordered_qty()
 
+		self.update_blanket_order()
 
+		# unlink_inter_company_doc(self.doctype, self.name, self.inter_company_order_reference)
 
 	def on_update(self):
 		pass
@@ -558,6 +612,20 @@ class PurchaseOrder(BuyingController):
 
 		return result
 
+	def update_ordered_qty_in_so_for_removed_items(self, removed_items):
+		"""
+		Updates ordered_qty in linked SO when item rows are removed using Update Items
+		"""
+		if not self.is_against_so():
+			return
+		for item in removed_items:
+			prev_ordered_qty = frappe.get_cached_value(
+				"Sales Order Item", item.get("sales_order_item"), "ordered_qty"
+			)
+			frappe.db.set_value(
+				"Sales Order Item", item.get("sales_order_item"), "ordered_qty", prev_ordered_qty - item.qty
+			)
+
 	def auto_create_subcontracting_order(self):
 		if self.is_subcontracted and not self.is_old_subcontracting_flow:
 			if frappe.db.get_single_value("Buying Settings", "auto_create_subcontracting_order"):
@@ -575,6 +643,7 @@ class PurchaseOrder(BuyingController):
 				update_sco_status(sco, "Closed" if self.status == "Closed" else None)
 
 
+@frappe.request_cache
 def item_last_purchase_rate(name, conversion_rate, item_code, conversion_factor=1.0):
 	"""get last purchase rate for an item"""
 
@@ -602,11 +671,14 @@ def close_or_unclose_purchase_orders(names, status):
 		po = frappe.get_doc("Purchase Order", name)
 		if po.docstatus == 1:
 			if status == "Closed":
-				if po.status not in ("Cancelled", "Closed") and (po.per_received < 100 or po.per_billed < 100):
+				if po.status not in ("Cancelled", "Closed") and (
+					po.per_received < 100 or po.per_billed < 100
+				):
 					po.update_status(status)
 			else:
 				if po.status == "Closed":
 					po.update_status("Draft")
+			po.update_blanket_order()
 
 	frappe.local.message_log = []
 
@@ -687,6 +759,7 @@ def get_mapped_purchase_invoice(source_name, target_doc=None, ignore_permissions
 			target.set_advances()
 
 		target.set_payment_schedule()
+		# target.credit_to = get_party_account("Supplier", source.supplier, source.company)
 
 	def update_item(obj, target, source_parent):
 		target.amount = flt(obj.amount) - flt(obj.billed_amt)
@@ -716,17 +789,17 @@ def get_mapped_purchase_invoice(source_name, target_doc=None, ignore_permissions
 				"docstatus": ["=", 1],
 			},
 		},
-		# "Purchase Order Item": {
-		# 	"doctype": "Purchase Invoice Item",
-		# 	"field_map": {
-		# 		"name": "po_detail",
-		# 		"parent": "purchase_order",
-		# 		"wip_composite_asset": "wip_composite_asset",
-		# 	},
-		# 	"postprocess": update_item,
-		# 	"condition": lambda doc: (doc.base_amount == 0 or abs(doc.billed_amt) < abs(doc.amount)),
-		# },
-		# "Purchase Taxes and Charges": {"doctype": "Purchase Taxes and Charges", "add_if_empty": True},
+		"Purchase Order Item": {
+			"doctype": "Purchase Invoice Item",
+			"field_map": {
+				"name": "po_detail",
+				"parent": "purchase_order",
+				"wip_composite_asset": "wip_composite_asset",
+			},
+			"postprocess": update_item,
+			"condition": lambda doc: (doc.base_amount == 0 or abs(doc.billed_amt) < abs(doc.amount)),
+		},
+		"Purchase Taxes and Charges": {"doctype": "Purchase Taxes and Charges", "add_if_empty": True},
 	}
 
 	doc = get_mapped_doc(
@@ -763,13 +836,15 @@ def update_status(status, name):
 	po.update_delivered_qty_in_sales_order()
 
 
+# @frappe.whitelist()
+# def make_inter_company_sales_order(source_name, target_doc=None):
+# 	from stock.accounts.doctype.sales_invoice.sales_invoice import make_inter_company_transaction
 
+# 	return make_inter_company_transaction("Purchase Order", source_name, target_doc)
 
 
 @frappe.whitelist()
-def make_subcontracting_order(
-	source_name, target_doc=None, save=False, submit=False, notify=False
-):
+def make_subcontracting_order(source_name, target_doc=None, save=False, submit=False, notify=False):
 	target_doc = get_mapped_subcontracting_order(source_name, target_doc)
 
 	if (save or submit) and frappe.has_permission(target_doc.doctype, "create"):
@@ -794,7 +869,6 @@ def make_subcontracting_order(
 
 
 def get_mapped_subcontracting_order(source_name, target_doc=None):
-
 	if target_doc and isinstance(target_doc, str):
 		target_doc = json.loads(target_doc)
 		for key in ["service_items", "items", "supplied_items"]:
@@ -828,12 +902,12 @@ def get_mapped_subcontracting_order(source_name, target_doc=None):
 	)
 
 	target_doc.populate_items_table()
+	source_doc = frappe.get_doc("Purchase Order", source_name)
 
 	if target_doc.set_warehouse:
 		for item in target_doc.items:
 			item.warehouse = target_doc.set_warehouse
 	else:
-		source_doc = frappe.get_doc("Purchase Order", source_name)
 		if source_doc.set_warehouse:
 			for item in target_doc.items:
 				item.warehouse = source_doc.set_warehouse

@@ -28,6 +28,7 @@
   "accounting_dimensions_section",
   "cost_center",
   "dimension_col_break",
+  "project",
   "currency_and_price_list",
   "currency",
   "conversion_rate",
@@ -54,14 +55,21 @@
   "net_total",
   "tax_withholding_net_total",
   "base_tax_withholding_net_total",
+  "section_break_48",
+  "pricing_rules",
   "raw_material_details",
   "set_reserve_warehouse",
   "supplied_items",
   "taxes_section",
+  "tax_category",
+  "taxes_and_charges",
   "column_break_53",
+  "shipping_rule",
   "column_break_50",
   "incoterm",
   "named_place",
+  "section_break_52",
+  "taxes",
   "totals",
   "base_taxes_and_charges_added",
   "base_taxes_and_charges_deducted",
@@ -116,6 +124,9 @@
   "customer_contact_mobile",
   "customer_contact_email",
   "terms_tab",
+  "payment_schedule_section",
+  "payment_terms_template",
+  "payment_schedule",
   "terms_section_break",
   "tc_name",
   "terms",
@@ -207,7 +218,6 @@
    "read_only": 1
   },
   {
-   "default": "Muganga Sacco",
    "fieldname": "company",
    "fieldtype": "Link",
    "in_standard_filter": 1,
@@ -216,7 +226,6 @@
    "oldfieldtype": "Link",
    "options": "Company",
    "print_hide": 1,
-   "read_only": 1,
    "remember_last_selected_value": 1,
    "reqd": 1
   },
@@ -278,7 +287,7 @@
   },
   {
    "fieldname": "customer",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "label": "Customer",
    "options": "Customer",
    "read_only": 1
@@ -297,7 +306,7 @@
   },
   {
    "fieldname": "customer_contact_person",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "label": "Customer Contact",
    "options": "Contact"
   },
@@ -337,7 +346,7 @@
   },
   {
    "fieldname": "contact_person",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "label": "Supplier Contact",
    "options": "Contact",
    "print_hide": 1
@@ -495,6 +504,19 @@
    "reqd": 1
   },
   {
+   "collapsible": 1,
+   "fieldname": "section_break_48",
+   "fieldtype": "Section Break",
+   "label": "Pricing Rules"
+  },
+  {
+   "fieldname": "pricing_rules",
+   "fieldtype": "Table",
+   "label": "Purchase Order Pricing Rule",
+   "options": "Pricing Rule Detail",
+   "read_only": 1
+  },
+  {
    "collapsible_depends_on": "supplied_items",
    "fieldname": "raw_material_details",
    "fieldtype": "Section Break",
@@ -578,8 +600,37 @@
    "options": "fa fa-money"
   },
   {
+   "fieldname": "taxes_and_charges",
+   "fieldtype": "Data",
+   "label": "Purchase Taxes and Charges Template",
+   "oldfieldname": "purchase_other_charges",
+   "oldfieldtype": "Data",
+   "options": "Purchase Taxes and Charges Template",
+   "print_hide": 1
+  },
+  {
    "fieldname": "column_break_50",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "shipping_rule",
+   "fieldtype": "Data",
+   "label": "Shipping Rule",
+   "options": "Shipping Rule",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "section_break_52",
+   "fieldtype": "Section Break",
+   "hide_border": 1
+  },
+  {
+   "fieldname": "taxes",
+   "fieldtype": "Table",
+   "label": "Purchase Taxes and Charges",
+   "oldfieldname": "purchase_tax_details",
+   "oldfieldtype": "Table",
+   "options": "Purchase Taxes and Charges"
   },
   {
    "collapsible": 1,
@@ -589,7 +640,7 @@
   },
   {
    "fieldname": "other_charges_calculation",
-   "fieldtype": "Long Text",
+   "fieldtype": "Text Editor",
    "label": "Taxes and Charges Calculation",
    "no_copy": 1,
    "oldfieldtype": "HTML",
@@ -813,6 +864,25 @@
    "read_only": 1
   },
   {
+   "fieldname": "payment_schedule_section",
+   "fieldtype": "Section Break",
+   "label": "Payment Terms"
+  },
+  {
+   "fieldname": "payment_terms_template",
+   "fieldtype": "Data",
+   "label": "Payment Terms Template",
+   "options": "Payment Terms Template"
+  },
+  {
+   "fieldname": "payment_schedule",
+   "fieldtype": "Table",
+   "label": "Payment Schedule",
+   "no_copy": 1,
+   "options": "Payment Schedule",
+   "print_hide": 1
+  },
+  {
    "collapsible_depends_on": "terms",
    "fieldname": "terms_section_break",
    "fieldtype": "Section Break",
@@ -822,10 +892,10 @@
   },
   {
    "fieldname": "tc_name",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "label": "Terms",
    "oldfieldname": "tc_name",
-   "oldfieldtype": "Link",
+   "oldfieldtype": "Data",
    "options": "Terms and Conditions",
    "print_hide": 1
   },
@@ -864,7 +934,7 @@
   },
   {
    "fieldname": "party_account_currency",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "hidden": 1,
    "label": "Party Account Currency",
    "no_copy": 1,
@@ -874,7 +944,7 @@
   },
   {
    "fieldname": "inter_company_order_reference",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "label": "Inter Company Order Reference",
    "options": "Sales Order",
    "read_only": 1
@@ -996,6 +1066,12 @@
    "label": "Update Auto Repeat Reference"
   },
   {
+   "fieldname": "tax_category",
+   "fieldtype": "Data",
+   "label": "Tax Category",
+   "options": "Tax Category"
+  },
+  {
    "depends_on": "supplied_items",
    "fieldname": "set_reserve_warehouse",
    "fieldtype": "Link",
@@ -1014,7 +1090,7 @@
   },
   {
    "fieldname": "billing_address",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "label": "Company Billing Address",
    "options": "Address"
   },
@@ -1056,6 +1132,7 @@
    "fieldtype": "Check",
    "label": "Apply Tax Withholding Amount"
   },
+  
   {
    "collapsible": 1,
    "fieldname": "accounting_dimensions_section",
@@ -1071,6 +1148,12 @@
   {
    "fieldname": "dimension_col_break",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Data",
+   "label": "Project",
+   "options": "Project"
   },
   {
    "default": "0",
@@ -1185,7 +1268,7 @@
  "idx": 105,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-04-29 13:10:11.956747",
+ "modified": "2024-03-20 16:03:31.611808",
  "modified_by": "Administrator",
  "module": "Buying",
  "name": "Purchase Order",

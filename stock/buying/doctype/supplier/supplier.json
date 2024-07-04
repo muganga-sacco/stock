@@ -25,6 +25,7 @@
   "is_internal_supplier",
   "represents_company",
   "column_break_16",
+  "companies",
   "column_break2",
   "supplier_details",
   "column_break_30",
@@ -49,6 +50,7 @@
   "email_id",
   "accounting_tab",
   "default_accounts_section",
+  "accounts",
   "settings_tab",
   "allow_purchase_invoice_creation_without_purchase_order",
   "allow_purchase_invoice_creation_without_purchase_receipt",
@@ -84,7 +86,6 @@
    "fieldname": "supplier_name",
    "fieldtype": "Data",
    "in_global_search": 1,
-   "in_list_view": 1,
    "label": "Supplier Name",
    "no_copy": 1,
    "oldfieldname": "supplier_name",
@@ -135,11 +136,11 @@
    "fieldtype": "Column Break",
    "width": "50%"
   },
+  
   {
    "default": "Company",
    "fieldname": "supplier_type",
    "fieldtype": "Select",
-   "in_list_view": 1,
    "label": "Supplier Type",
    "options": "Company\nIndividual\nProprietorship\nPartnership",
    "reqd": 1
@@ -189,6 +190,7 @@
    "label": "Prevent POs",
    "read_only": 1
   },
+  
   {
    "fieldname": "default_currency",
    "fieldtype": "Link",
@@ -208,6 +210,7 @@
    "label": "Price List",
    "options": "Price List"
   },
+  
   {
    "default": "0",
    "fieldname": "on_hold",
@@ -353,7 +356,7 @@
   {
    "fieldname": "contact_and_address_tab",
    "fieldtype": "Tab Break",
-   "label": "Contact & Address"
+   "label": "Address & Contact"
   },
   {
    "fieldname": "accounting_tab",
@@ -408,12 +411,6 @@
    "label": "Portal Users"
   },
   {
-   "fieldname": "portal_users",
-   "fieldtype": "Table",
-   "label": "Supplier Portal Users",
-   "options": "Portal User"
-  },
-  {
    "fieldname": "column_break_1mqv",
    "fieldtype": "Column Break"
   },
@@ -425,8 +422,14 @@
  "icon": "fa fa-user",
  "idx": 370,
  "image_field": "image",
- "links": [],
- "modified": "2024-03-01 14:49:01.475187",
+ "links": [
+  {
+   "group": "Allowed Items",
+   "link_doctype": "Party Specific Item",
+   "link_fieldname": "party"
+  }
+ ],
+ "modified": "2024-05-08 18:02:57.342931",
  "modified_by": "Administrator",
  "module": "Buying",
  "name": "Supplier",
@@ -485,7 +488,7 @@
   }
  ],
  "quick_entry": 1,
- "search_fields": "supplier_name",
+ "search_fields": "",
  "show_name_in_global_search": 1,
  "sort_field": "modified",
  "sort_order": "ASC",

@@ -99,7 +99,7 @@ stock.taxes_and_totals = class TaxesAndTotals extends stock.payments {
 
 		this.validate_conversion_rate();
 		this.calculate_item_values();
-		this.initialize_taxes();
+		// this.initialize_taxes();
 		this.determine_exclusive_rate();
 		this.calculate_net_total();
 		this.calculate_taxes();
@@ -165,31 +165,31 @@ stock.taxes_and_totals = class TaxesAndTotals extends stock.payments {
 		});
 	}
 
-	initialize_taxes() {
-		var me = this;
+	// initialize_taxes() {
+	// 	var me = this;
 
-		$.each(this.frm.doc["taxes"] || [], function(i, tax) {
-			if (!tax.dont_recompute_tax) {
-				tax.item_wise_tax_detail = {};
-			}
-			var tax_fields = ["total", "tax_amount_after_discount_amount",
-				"tax_amount_for_current_item", "grand_total_for_current_item",
-				"tax_fraction_for_current_item", "grand_total_fraction_for_current_item"];
+	// 	$.each(this.frm.doc["taxes"] || [], function(i, tax) {
+	// 		if (!tax.dont_recompute_tax) {
+	// 			tax.item_wise_tax_detail = {};
+	// 		}
+	// 		var tax_fields = ["total", "tax_amount_after_discount_amount",
+	// 			"tax_amount_for_current_item", "grand_total_for_current_item",
+	// 			"tax_fraction_for_current_item", "grand_total_fraction_for_current_item"];
 
-			if (cstr(tax.charge_type) != "Actual" &&
-				!(me.discount_amount_applied && me.frm.doc.apply_discount_on=="Grand Total")) {
-				tax_fields.push("tax_amount");
-			}
+	// 		if (cstr(tax.charge_type) != "Actual" &&
+	// 			!(me.discount_amount_applied && me.frm.doc.apply_discount_on=="Grand Total")) {
+	// 			tax_fields.push("tax_amount");
+	// 		}
 
-			$.each(tax_fields, function(i, fieldname) { tax[fieldname] = 0.0; });
+	// 		$.each(tax_fields, function(i, fieldname) { tax[fieldname] = 0.0; });
 
-			if (!this.discount_amount_applied) {
-				stock.accounts.taxes.validate_taxes_and_charges(tax.doctype, tax.name);
-				stock.accounts.taxes.validate_inclusive_tax(tax);
-			}
-			frappe.model.round_floats_in(tax);
-		});
-	}
+	// 		if (!this.discount_amount_applied) {
+	// 			stock.accounts.taxes.validate_taxes_and_charges(tax.doctype, tax.name);
+	// 			stock.accounts.taxes.validate_inclusive_tax(tax);
+	// 		}
+	// 		frappe.model.round_floats_in(tax);
+	// 	});
+	// }
 
 	fetch_round_off_accounts() {
 		let me = this;

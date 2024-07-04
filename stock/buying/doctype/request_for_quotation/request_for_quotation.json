@@ -38,7 +38,8 @@
   "printing_settings",
   "select_print_heading",
   "letter_head",
-  "more_info"
+  "more_info",
+  "opportunity"
  ],
  "fields": [
   {
@@ -209,6 +210,14 @@
    "print_hide": 1
   },
   {
+   "fieldname": "opportunity",
+   "fieldtype": "Link",
+   "label": "Opportunity",
+   "options": "Opportunity",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
@@ -303,7 +312,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-02-11 17:42:23.480916",
+ "modified": "2023-11-06 12:45:28.898706",
  "modified_by": "Administrator",
  "module": "Buying",
  "name": "Request for Quotation",
