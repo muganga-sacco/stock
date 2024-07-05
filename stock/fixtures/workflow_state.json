@@ -12,6 +12,33 @@
   "docstatus": 0,
   "doctype": "Workflow State",
   "icon": "",
+  "modified": "2024-03-04 08:53:22.166609",
+  "name": "Approved By HR",
+  "style": "",
+  "workflow_state_name": "Approved By HR"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2024-03-04 08:53:41.184868",
+  "name": "Rejected By HR",
+  "style": "",
+  "workflow_state_name": "Rejected By HR"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2024-03-04 08:53:06.040842",
+  "name": "Pending HR Approval",
+  "style": "",
+  "workflow_state_name": "Pending HR Approval"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
   "modified": "2024-03-04 08:51:41.484181",
   "name": "Approved By Supervisor",
   "style": "",
@@ -21,19 +48,19 @@
   "docstatus": 0,
   "doctype": "Workflow State",
   "icon": "",
-  "modified": "2024-03-04 08:53:22.166609",
-  "name": "Approved By HR",
+  "modified": "2024-06-27 14:42:17.106256",
+  "name": "Approved By Administration",
   "style": "",
-  "workflow_state_name": "Approved By HR"
+  "workflow_state_name": "Approved By Administration"
  },
  {
   "docstatus": 0,
   "doctype": "Workflow State",
-  "icon": "remove",
-  "modified": "2024-03-01 15:59:39.312025",
-  "name": "Rejected",
-  "style": "Danger",
-  "workflow_state_name": "Rejected"
+  "icon": "",
+  "modified": "2024-06-27 14:44:11.209126",
+  "name": "Approved By Accountant",
+  "style": "",
+  "workflow_state_name": "Approved By Accountant"
  },
  {
   "docstatus": 0,
@@ -48,19 +75,28 @@
   "docstatus": 0,
   "doctype": "Workflow State",
   "icon": "",
-  "modified": "2024-03-04 08:53:41.184868",
-  "name": "Rejected By HR",
+  "modified": "2024-06-27 14:44:35.180365",
+  "name": "Rejected By Accountant",
   "style": "",
-  "workflow_state_name": "Rejected By HR"
+  "workflow_state_name": "Rejected By Accountant"
  },
  {
   "docstatus": 0,
   "doctype": "Workflow State",
-  "icon": "ok-sign",
-  "modified": "2024-03-01 15:59:39.309968",
-  "name": "Approved",
-  "style": "Success",
-  "workflow_state_name": "Approved"
+  "icon": "",
+  "modified": "2024-06-27 14:42:36.301646",
+  "name": "Rejected By Administration",
+  "style": "",
+  "workflow_state_name": "Rejected By Administration"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "remove",
+  "modified": "2024-03-01 15:59:39.312025",
+  "name": "Rejected",
+  "style": "Danger",
+  "workflow_state_name": "Rejected"
  },
  {
   "docstatus": 0,
@@ -75,10 +111,28 @@
   "docstatus": 0,
   "doctype": "Workflow State",
   "icon": "",
-  "modified": "2024-03-04 08:47:01.837054",
-  "name": "Draft",
+  "modified": "2024-06-27 14:43:41.043443",
+  "name": "Pending Accountant Approval",
   "style": "",
-  "workflow_state_name": "Draft"
+  "workflow_state_name": "Pending Accountant Approval"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "ok-sign",
+  "modified": "2024-03-01 15:59:39.309968",
+  "name": "Approved",
+  "style": "Success",
+  "workflow_state_name": "Approved"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2024-03-04 08:51:01.235975",
+  "name": "Pending Supervisor Approval",
+  "style": "",
+  "workflow_state_name": "Pending Supervisor Approval"
  },
  {
   "docstatus": 0,
@@ -102,18 +156,18 @@
   "docstatus": 0,
   "doctype": "Workflow State",
   "icon": "",
-  "modified": "2024-03-04 08:51:01.235975",
-  "name": "Pending Supervisor Approval",
+  "modified": "2024-07-03 09:47:34.885679",
+  "name": "Pending Administration Approval",
   "style": "",
-  "workflow_state_name": "Pending Supervisor Approval"
+  "workflow_state_name": "Pending Administration Approval"
  },
  {
   "docstatus": 0,
   "doctype": "Workflow State",
   "icon": "",
-  "modified": "2024-03-04 08:53:06.040842",
-  "name": "Pending HR Approval",
+  "modified": "2024-03-04 08:47:01.837054",
+  "name": "Draft",
   "style": "",
-  "workflow_state_name": "Pending HR Approval"
+  "workflow_state_name": "Draft"
  }
 ]

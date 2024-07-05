@@ -1024,7 +1024,7 @@
     "type": "Link"
    }
   ],
-  "modified": "2024-03-13 09:05:10.808660",
+  "modified": "2024-07-03 10:08:47.140159",
   "module": "stock",
   "name": "Stock",
   "number_cards": [
@@ -1072,6 +1072,12 @@
     "parentfield": "roles",
     "parenttype": "Workspace",
     "role": "HR Manager"
+   },
+   {
+    "parent": "Stock",
+    "parentfield": "roles",
+    "parenttype": "Workspace",
+    "role": "DAF"
    }
   ],
   "sequence_id": 7.0,
