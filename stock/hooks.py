@@ -36,7 +36,8 @@ fixtures = [
     "Workflow Action Master",
     "Wiki Page",
     "Wiki Space",
-    "Role Profile"    
+    "Role Profile" ,
+    "Role"   
 ]
 
 # include js, css files in header of web template
