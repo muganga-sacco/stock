@@ -2,7 +2,7 @@
  {
   "docstatus": 0,
   "doctype": "Role Profile",
-  "modified": "2024-03-04 15:26:57.439127",
+  "modified": "2024-07-03 09:21:58.468703",
   "name": "HR",
   "role_profile": "HR",
   "roles": [
@@ -29,73 +29,64 @@
     "parentfield": "roles",
     "parenttype": "Role Profile",
     "role": "Expense Approver"
+   },
+   {
+    "parent": "HR",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Employee"
+   },
+   {
+    "parent": "HR",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Employee Self Service"
    }
   ]
  },
  {
   "docstatus": 0,
   "doctype": "Role Profile",
-  "modified": "2024-03-13 08:41:05.138858",
-  "name": "Requester",
-  "role_profile": "Requester",
+  "modified": "2024-07-03 09:19:12.156845",
+  "name": "Stock Manager",
+  "role_profile": "Stock Manager",
   "roles": [
    {
-    "parent": "Requester",
+    "parent": "Stock Manager",
     "parentfield": "roles",
     "parenttype": "Role Profile",
-    "role": "Sales User"
+    "role": "Stock Manager"
    },
    {
-    "parent": "Requester",
+    "parent": "Stock Manager",
     "parentfield": "roles",
     "parenttype": "Role Profile",
-    "role": "Requester"
+    "role": "Stock User"
    },
    {
-    "parent": "Requester",
+    "parent": "Stock Manager",
     "parentfield": "roles",
     "parenttype": "Role Profile",
-    "role": "Sales Master Manager"
+    "role": "Employee"
    },
    {
-    "parent": "Requester",
+    "parent": "Stock Manager",
     "parentfield": "roles",
     "parenttype": "Role Profile",
-    "role": "Sales Manager"
+    "role": "Employee Self Service"
+   },
+   {
+    "parent": "Stock Manager",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "HR User"
    }
   ]
  },
  {
   "docstatus": 0,
   "doctype": "Role Profile",
-  "modified": "2024-03-13 08:41:39.005947",
-  "name": "Supevisor",
-  "role_profile": "Supevisor",
-  "roles": [
-   {
-    "parent": "Supevisor",
-    "parentfield": "roles",
-    "parenttype": "Role Profile",
-    "role": "Supervisor"
-   },
-   {
-    "parent": "Supevisor",
-    "parentfield": "roles",
-    "parenttype": "Role Profile",
-    "role": "Sales User"
-   },
-   {
-    "parent": "Supevisor",
-    "parentfield": "roles",
-    "parenttype": "Role Profile",
-    "role": "Sales Manager"
-   }
-  ]
- },
- {
-  "docstatus": 0,
-  "doctype": "Role Profile",
-  "modified": "2024-03-13 08:43:57.711954",
+  "modified": "2024-07-03 09:09:32.738713",
   "name": "DAF",
   "role_profile": "DAF",
   "roles": [
@@ -128,27 +119,180 @@
     "parentfield": "roles",
     "parenttype": "Role Profile",
     "role": "Item Manager"
+   },
+   {
+    "parent": "DAF",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "HR User"
+   },
+   {
+    "parent": "DAF",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "HR Manager"
+   },
+   {
+    "parent": "DAF",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Employee Self Service"
+   },
+   {
+    "parent": "DAF",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Employee"
    }
   ]
  },
  {
   "docstatus": 0,
   "doctype": "Role Profile",
-  "modified": "2024-03-13 08:45:45.438685",
-  "name": "Stock Manager",
-  "role_profile": "Stock Manager",
+  "modified": "2024-07-03 09:23:15.085372",
+  "name": "Administration officer",
+  "role_profile": "Administration officer",
   "roles": [
    {
-    "parent": "Stock Manager",
+    "parent": "Administration officer",
     "parentfield": "roles",
     "parenttype": "Role Profile",
-    "role": "Stock Manager"
+    "role": "Employee"
    },
    {
-    "parent": "Stock Manager",
+    "parent": "Administration officer",
     "parentfield": "roles",
     "parenttype": "Role Profile",
-    "role": "Stock User"
+    "role": "Employee Self Service"
+   },
+   {
+    "parent": "Administration officer",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Sales Manager"
+   },
+   {
+    "parent": "Administration officer",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Sales User"
+   },
+   {
+    "parent": "Administration officer",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "HR User"
+   }
+  ]
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "modified": "2024-07-03 09:33:12.434841",
+  "name": "Accountant",
+  "role_profile": "Accountant",
+  "roles": [
+   {
+    "parent": "Accountant",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Employee"
+   },
+   {
+    "parent": "Accountant",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Employee Self Service"
+   },
+   {
+    "parent": "Accountant",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "HR User"
+   },
+   {
+    "parent": "Accountant",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Sales Manager"
+   }
+  ]
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "modified": "2024-07-03 11:05:48.463769",
+  "name": "Requester",
+  "role_profile": "Requester",
+  "roles": [
+   {
+    "parent": "Requester",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Sales User"
+   },
+   {
+    "parent": "Requester",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Requester"
+   },
+   {
+    "parent": "Requester",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Employee"
+   },
+   {
+    "parent": "Requester",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Employee Self Service"
+   }
+  ]
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "modified": "2024-07-03 09:19:30.030491",
+  "name": "Supevisor",
+  "role_profile": "Supevisor",
+  "roles": [
+   {
+    "parent": "Supevisor",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Supervisor"
+   },
+   {
+    "parent": "Supevisor",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Sales User"
+   },
+   {
+    "parent": "Supevisor",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Sales Manager"
+   },
+   {
+    "parent": "Supevisor",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Employee"
+   },
+   {
+    "parent": "Supevisor",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Employee Self Service"
+   },
+   {
+    "parent": "Supevisor",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "HR User"
    }
   ]
  }

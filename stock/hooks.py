@@ -34,8 +34,6 @@ fixtures = [
     },
     "Workflow State",
     "Workflow Action Master",
-    "Wiki Page",
-    "Wiki Space",
     "Role Profile" ,
     "Role"   
 ]
