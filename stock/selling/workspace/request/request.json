@@ -12,7 +12,7 @@
  "is_hidden": 0,
  "label": "Request",
  "links": [],
- "modified": "2024-07-03 13:46:33.932718",
+ "modified": "2024-07-08 16:32:36.928690",
  "modified_by": "Administrator",
  "module": "Selling",
  "name": "Request",
@@ -69,6 +69,9 @@
   },
   {
    "role": "Stock Manager"
+  },
+  {
+   "role": "Employee"
   }
  ],
  "sequence_id": 6.0,
