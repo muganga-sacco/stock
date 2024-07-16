@@ -2330,37 +2330,37 @@ stock.TransactionController = class TransactionController extends (
     });
   }
 
-  validate_company_and_party() {
-    var me = this;
-    var valid = true;
+  // validate_company_and_party() {
+  //   var me = this;
+  //   var valid = true;
 
-    if (frappe.flags.ignore_company_party_validation) {
-      return valid;
-    }
+  //   if (frappe.flags.ignore_company_party_validation) {
+  //     return valid;
+  //   }
 
-    $.each(['company', 'customer'], function (i, fieldname) {
-      if (
-        frappe.meta.has_field(me.frm.doc.doctype, fieldname) &&
-        !['Purchase Order', 'Purchase Invoice'].includes(me.frm.doc.doctype)
-      ) {
-        if (!me.frm.doc[fieldname]) {
-          frappe.msgprint(
-            __('Please specify') +
-              ': ' +
-              frappe.meta.get_label(
-                me.frm.doc.doctype,
-                fieldname,
-                me.frm.doc.name
-              ) +
-              '. ' +
-              __('It is needed to fetch Item Details.')
-          );
-          valid = false;
-        }
-      }
-    });
-    return valid;
-  }
+  //   $.each(['company', 'customer'], function (i, fieldname) {
+  //     if (
+  //       frappe.meta.has_field(me.frm.doc.doctype, fieldname) &&
+  //       !['Purchase Order', 'Purchase Invoice'].includes(me.frm.doc.doctype)
+  //     ) {
+  //       if (!me.frm.doc[fieldname]) {
+  //         frappe.msgprint(
+  //           __('Please specify') +
+  //             ': ' +
+  //             frappe.meta.get_label(
+  //               me.frm.doc.doctype,
+  //               fieldname,
+  //               me.frm.doc.name
+  //             ) +
+  //             '. ' +
+  //             __('It is needed to fetch Item Details.')
+  //         );
+  //         valid = false;
+  //       }
+  //     }
+  //   });
+  //   return valid;
+  // }
 
   get_terms() {
     var me = this;

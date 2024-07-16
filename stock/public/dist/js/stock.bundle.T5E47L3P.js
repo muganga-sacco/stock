@@ -4228,28 +4228,28 @@
         );
       });
     }
-    validate_company_and_party() {
-      var me = this;
-      var valid = true;
-      if (frappe.flags.ignore_company_party_validation) {
-        return valid;
-      }
-      $.each(["company", "customer"], function(i, fieldname) {
-        if (frappe.meta.has_field(me.frm.doc.doctype, fieldname) && !["Purchase Order", "Purchase Invoice"].includes(me.frm.doc.doctype)) {
-          if (!me.frm.doc[fieldname]) {
-            frappe.msgprint(
-              __("Please specify") + ": " + frappe.meta.get_label(
-                me.frm.doc.doctype,
-                fieldname,
-                me.frm.doc.name
-              ) + ". " + __("It is needed to fetch Item Details.")
-            );
-            valid = false;
-          }
-        }
-      });
-      return valid;
-    }
+    // validate_company_and_party() {
+    //   var me = this;
+    //   var valid = true;
+    //   if (frappe.flags.ignore_company_party_validation) {
+    //     return valid;
+    //   }
+    //   $.each(["company", "customer"], function(i, fieldname) {
+    //     if (frappe.meta.has_field(me.frm.doc.doctype, fieldname) && !["Purchase Order", "Purchase Invoice"].includes(me.frm.doc.doctype)) {
+    //       if (!me.frm.doc[fieldname]) {
+    //         frappe.msgprint(
+    //           __("Please specify") + ": " + frappe.meta.get_label(
+    //             me.frm.doc.doctype,
+    //             fieldname,
+    //             me.frm.doc.name
+    //           ) + ". " + __("It is needed to fetch Item Details.")
+    //         );
+    //         valid = false;
+    //       }
+    //     }
+    //   });
+    //   return valid;
+    // }
     get_terms() {
       var me = this;
       stock.utils.get_terms(this.frm.doc.tc_name, this.frm.doc, function(r) {
@@ -4907,7 +4907,7 @@
     });
   };
 
-  // frappe-html:/Users/kalisakelly/frappe/apps/stock/stock/public/js/templates/item_selector.html
+  // frappe-html:/Users/abizeyimanavictor/msacco-frappe/apps/stock/stock/public/js/templates/item_selector.html
   frappe.templates["item_selector"] = `<div class="app-listing item-list image-view-container item-selector">
 {% for (var i=0; i < data.length; i++) { var item = data[i]; %}
 	{% if (i % 4 === 0) { %}<div class="image-view-row">{% } %}
@@ -5860,7 +5860,7 @@
     }
   ];
 
-  // frappe-html:/Users/kalisakelly/frappe/apps/stock/stock/public/js/templates/item_quick_entry.html
+  // frappe-html:/Users/abizeyimanavictor/msacco-frappe/apps/stock/stock/public/js/templates/item_quick_entry.html
   frappe.templates["item_quick_entry"] = `<div class="h6 uppercase" style="margin-top: 30px;">{{ __("Variant Attributes") }}</div>
 <div class="attributes hide-control">
 </div>
@@ -6684,7 +6684,7 @@
     }
   };
 
-  // frappe-html:/Users/kalisakelly/frappe/apps/stock/stock/public/js/templates/call_link.html
+  // frappe-html:/Users/abizeyimanavictor/msacco-frappe/apps/stock/stock/public/js/templates/call_link.html
   frappe.templates["call_link"] = `<div class="call-detail-wrapper">
 	<div class="head flex justify-between">
 		<div>
@@ -6964,7 +6964,7 @@
     }
   };
 
-  // frappe-html:/Users/kalisakelly/frappe/apps/stock/stock/public/js/templates/crm_activities.html
+  // frappe-html:/Users/abizeyimanavictor/msacco-frappe/apps/stock/stock/public/js/templates/crm_activities.html
   frappe.templates["crm_activities"] = `<div class="open-activities">
 	<div class="new-btn pb-3">
 		<span>
@@ -7142,7 +7142,7 @@
 }
 </style>`;
 
-  // frappe-html:/Users/kalisakelly/frappe/apps/stock/stock/public/js/templates/crm_notes.html
+  // frappe-html:/Users/abizeyimanavictor/msacco-frappe/apps/stock/stock/public/js/templates/crm_notes.html
   frappe.templates["crm_notes"] = `<div class="notes-section col-xs-12">
 	<div class="new-btn pb-3">
 		<button class="btn btn-sm small new-note-btn mr-1">
@@ -8386,4 +8386,4 @@
     ];
   }
 })();
-//# sourceMappingURL=stock.bundle.P55CSDW7.js.map
+//# sourceMappingURL=stock.bundle.T5E47L3P.js.map

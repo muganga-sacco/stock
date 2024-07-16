@@ -891,8 +891,8 @@ def get_price_list_rate(args, item_doc, out=None):
             pl_details = get_price_list_currency_and_exchange_rate(args)
             args.update(pl_details)
 
-        if meta.get_field("currency"):
-            validate_conversion_rate(args, meta)
+        # if meta.get_field("currency"):
+        #     validate_conversion_rate(args, meta)
 
         price_list_rate = get_price_list_rate_for(args, item_doc.name)
 
