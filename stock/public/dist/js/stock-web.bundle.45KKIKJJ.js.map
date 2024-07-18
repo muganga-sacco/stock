@@ -2,6 +2,6 @@
   "version": 3,
   "sources": ["../../../../../apps/stock/stock/public/js/website_utils.js"],
   "sourcesContent": ["// Copyright (c) 2015, Frappe Technologies Pvt. Ltd. and Contributors\n// License: GNU General Public License v3. See license.txt\n\nif(!window.stock) window.stock = {};\n\nstock.subscribe_to_newsletter = function(opts, btn) {\n\treturn frappe.call({\n\t\ttype: \"POST\",\n\t\tmethod: \"frappe.email.doctype.newsletter.newsletter.subscribe\",\n\t\tbtn: btn,\n\t\targs: {\"email\": opts.email},\n\t\tcallback: opts.callback\n\t});\n}\n"],
-  "mappings": "MAGI,OAAO,QAAO,OAAO,MAAQ,CAAC,GAElC,MAAM,wBAA0B,SAASA,EAAMC,EAAK,CACnD,OAAO,OAAO,KAAK,CAClB,KAAM,OACN,OAAQ,uDACR,IAAKA,EACL,KAAM,CAAC,MAASD,EAAK,KAAK,EAC1B,SAAUA,EAAK,QAChB,CAAC,CACF",
-  "names": ["opts", "btn"]
+  "mappings": ";;AAGA,MAAG,CAAC,OAAO;AAAO,WAAO,QAAQ,CAAC;AAElC,QAAM,0BAA0B,SAAS,MAAM,KAAK;AACnD,WAAO,OAAO,KAAK;AAAA,MAClB,MAAM;AAAA,MACN,QAAQ;AAAA,MACR;AAAA,MACA,MAAM,EAAC,SAAS,KAAK,MAAK;AAAA,MAC1B,UAAU,KAAK;AAAA,IAChB,CAAC;AAAA,EACF;",
+  "names": []
 }
