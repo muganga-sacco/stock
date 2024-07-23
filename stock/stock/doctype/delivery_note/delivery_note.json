@@ -532,12 +532,14 @@
   {
    "fieldname": "section_break_31",
    "fieldtype": "Section Break",
-   "hidden": 1
+   "hidden": 1,
+   "print_hide": 1
   },
   {
    "fieldname": "total_qty",
    "fieldtype": "Float",
    "label": "Total Quantity",
+   "print_hide": 1,
    "read_only": 1
   },
   {
@@ -569,6 +571,7 @@
    "fieldtype": "Currency",
    "label": "Total",
    "options": "currency",
+   "print_hide": 1,
    "read_only": 1
   },
   {
@@ -753,6 +756,7 @@
    "oldfieldname": "grand_total_export",
    "oldfieldtype": "Currency",
    "options": "currency",
+   "print_hide": 1,
    "print_width": "150px",
    "read_only": 1,
    "width": "150px"
@@ -776,6 +780,7 @@
    "oldfieldname": "rounded_total_export",
    "oldfieldtype": "Currency",
    "options": "currency",
+   "print_hide": 1,
    "print_width": "150px",
    "read_only": 1,
    "width": "150px"
@@ -1133,7 +1138,8 @@
   {
    "fieldname": "amount_eligible_for_commission",
    "fieldtype": "Currency",
-   "label": "Amount Eligible for Commission",
+   "label": "Amount eligible for commission",
+   "print_hide": 1,
    "read_only": 1
   },
   {
@@ -1247,7 +1253,7 @@
  "idx": 146,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-07-18 11:27:42.837024",
+ "modified": "2024-07-23 16:35:45.937012",
  "modified_by": "Administrator",
  "module": "stock",
  "name": "Delivery Note",

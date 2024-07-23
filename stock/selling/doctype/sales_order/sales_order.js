@@ -55,8 +55,9 @@ frappe.ui.form.on("Sales Order", {
 	
 		if (
 			workflowState === "Pending Supervisor Approval" ||
-			workflowState === "Pending HR Approval" ||
-			workflowState === "Pending DAF Approval" ||
+			workflowState === "Pending Administration Approval" ||
+      workflowState === "Pending DAF Approval" ||
+      workflowState === "Pending Accountant Approval" ||
 			workflowState === "Approved"
 		) {
 			let dialog = new frappe.ui.Dialog({

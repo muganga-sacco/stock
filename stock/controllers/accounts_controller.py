@@ -29,10 +29,10 @@ from frappe.utils import (
 import stock
 
 from stock.buying.utils import update_last_purchase_rate
-from stock.controllers.print_settings import (
-    set_print_templates_for_item_table,
-    set_print_templates_for_taxes,
-)
+# from stock.controllers.print_settings import (
+#     set_print_templates_for_item_table,
+#     set_print_templates_for_taxes,
+# )
 from stock.controllers.sales_and_purchase_return import validate_return
 from stock.exceptions import InvalidCurrency
 
@@ -487,8 +487,8 @@ class AccountsController(TransactionBase):
             else:
                 df.set("print_hide", 1)
 
-        set_print_templates_for_item_table(self, settings)
-        set_print_templates_for_taxes(self, settings)
+        # set_print_templates_for_item_table(self, settings)
+        # set_print_templates_for_taxes(self, settings)
 
     def calculate_paid_amount(self):
         if hasattr(self, "is_pos") or hasattr(self, "is_paid"):

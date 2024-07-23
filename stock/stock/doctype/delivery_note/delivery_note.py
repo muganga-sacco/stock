@@ -208,25 +208,25 @@ class DeliveryNote(SellingController):
 	# 	if self.docstatus == 0:
 	# 		self.set_onload("has_unpacked_items", self.has_unpacked_items())
 
-	def before_print(self, settings=None):
-		def toggle_print_hide(meta, fieldname):
-			df = meta.get_field(fieldname)
-			if self.get("print_without_amount"):
-				df.set("__print_hide", 1)
-			else:
-				df.delete_key("__print_hide")
+	# def before_print(self, settings=None):
+	# 	def toggle_print_hide(meta, fieldname):
+	# 		df = meta.get_field(fieldname)
+	# 		if self.get("print_without_amount"):
+	# 			df.set("__print_hide", 1)
+	# 		else:
+	# 			df.delete_key("__print_hide")
 
-		item_meta = frappe.get_meta("Delivery Note Item")
-		print_hide_fields = {
-			"parent": ["grand_total", "rounded_total", "in_words", "currency", "total", "taxes"],
-			"items": ["rate", "amount", "discount_amount", "price_list_rate", "discount_percentage"],
-		}
+	# 	item_meta = frappe.get_meta("Delivery Note Item")
+	# 	print_hide_fields = {
+	# 		"parent": ["grand_total", "rounded_total", "in_words", "currency", "total", "taxes"],
+	# 		"items": ["rate", "amount", "discount_amount", "price_list_rate", "discount_percentage"],
+	# 	}
 
-		for key, fieldname in print_hide_fields.items():
-			for f in fieldname:
-				toggle_print_hide(self.meta if key == "parent" else item_meta, f)
+	# 	for key, fieldname in print_hide_fields.items():
+	# 		for f in fieldname:
+	# 			toggle_print_hide(self.meta if key == "parent" else item_meta, f)
 
-		super(DeliveryNote, self).before_print(settings)
+	# 	super(DeliveryNote, self).before_print(settings)
 
 	def set_actual_qty(self):
 		for d in self.get("items"):
@@ -758,20 +758,20 @@ def update_billed_amount_based_on_so(so_detail, update_modified=True):
 	from frappe.query_builder.functions import Sum
 
 	# Billed against Sales Order directly
-	# si_item = frappe.qb.DocType("Sales Invoice Item").as_("si_item")
-	# sum_amount = Sum(si_item.amount).as_("amount")
+	si_item = frappe.qb.DocType("Sales Invoice Item").as_("si_item")
+	sum_amount = Sum(si_item.amount).as_("amount")
 
-	# billed_against_so = (
-	# 	frappe.qb.from_(si_item)
-	# 	.select(sum_amount)
-	# 	.where(
-	# 		(si_item.so_detail == so_detail)
-	# 		& ((si_item.dn_detail.isnull()) | (si_item.dn_detail == ""))
-	# 		& (si_item.docstatus == 1)
-	# 	)
-	# 	.run()
-	# )
-	# billed_against_so = billed_against_so and billed_against_so[0][0] or 0
+	billed_against_so = (
+		frappe.qb.from_(si_item)
+		.select(sum_amount)
+		.where(
+			(si_item.so_detail == so_detail)
+			& ((si_item.dn_detail.isnull()) | (si_item.dn_detail == ""))
+			& (si_item.docstatus == 1)
+		)
+		.run()
+	)
+	billed_against_so = billed_against_so and billed_against_so[0][0] or 0
 
 	# Get all Delivery Note Item rows against the Sales Order Item row
 	dn = frappe.qb.DocType("Delivery Note").as_("dn")

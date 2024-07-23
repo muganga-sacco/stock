@@ -1,5 +1,5 @@
 (() => {
-  // frappe-html:/Users/abizeyimanavictor/msacco-frappe/apps/stock/stock/stock/dashboard/item_dashboard.html
+  // frappe-html:/Users/abizeyimanavictor/frappe-bench/apps/stock/stock/stock/dashboard/item_dashboard.html
   frappe.templates["item_dashboard"] = `<div class="stock-levels">
 	<div class="result">
 	</div>
@@ -9,7 +9,7 @@
 </div>
 `;
 
-  // frappe-html:/Users/abizeyimanavictor/msacco-frappe/apps/stock/stock/stock/dashboard/item_dashboard_list.html
+  // frappe-html:/Users/abizeyimanavictor/frappe-bench/apps/stock/stock/stock/dashboard/item_dashboard_list.html
   frappe.templates["item_dashboard_list"] = `{% for d in data %}
 	<div class="dashboard-list-item">
 		<div class="row">
@@ -343,7 +343,7 @@
     });
   };
 
-  // frappe-html:/Users/abizeyimanavictor/msacco-frappe/apps/stock/stock/stock/page/warehouse_capacity_summary/warehouse_capacity_summary.html
+  // frappe-html:/Users/abizeyimanavictor/frappe-bench/apps/stock/stock/stock/page/warehouse_capacity_summary/warehouse_capacity_summary.html
   frappe.templates["warehouse_capacity_summary"] = `{% for d in data %}
 	<div class="dashboard-list-item" style="padding: 7px 15px;">
 		<div class="row">
@@ -389,7 +389,7 @@
 {% endfor %}
 `;
 
-  // frappe-html:/Users/abizeyimanavictor/msacco-frappe/apps/stock/stock/stock/page/warehouse_capacity_summary/warehouse_capacity_summary_header.html
+  // frappe-html:/Users/abizeyimanavictor/frappe-bench/apps/stock/stock/stock/page/warehouse_capacity_summary/warehouse_capacity_summary_header.html
   frappe.templates["warehouse_capacity_summary_header"] = `<div class="dashboard-list-item" style="padding: 12px 15px;">
 	<div class="row">
 		<div class="col-sm-2 text-muted" style="margin-top: 8px;">
@@ -411,4 +411,4 @@
 </div>
 `;
 })();
-//# sourceMappingURL=item-dashboard.bundle.UVO5D74G.js.map
+//# sourceMappingURL=item-dashboard.bundle.FCTU5MVT.js.map

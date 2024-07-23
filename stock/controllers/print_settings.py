@@ -23,20 +23,20 @@ def set_print_templates_for_item_table(doc, settings):
 		doc.flags.format_columns = format_columns
 
 
-def set_print_templates_for_taxes(doc, settings):
-	doc.flags.show_inclusive_tax_in_print = doc.is_inclusive_tax()
-	doc.print_templates.update(
-		{
-			"total": "templates/print_formats/includes/total.html",
-		}
-	)
+# def set_print_templates_for_taxes(doc, settings):
+# 	# doc.flags.show_inclusive_tax_in_print = doc.is_inclusive_tax()
+# 	doc.print_templates.update(
+# 		{
+# 			"total": "templates/print_formats/includes/total.html",
+# 		}
+# 	)
 
-	if not doc.should_show_taxes_as_table_in_print():
-		doc.print_templates.update(
-			{
-				"taxes": "templates/print_formats/includes/taxes.html",
-			}
-		)
+# 	if not doc.should_show_taxes_as_table_in_print():
+# 		doc.print_templates.update(
+# 			{
+# 				"taxes": "templates/print_formats/includes/taxes.html",
+# 			}
+# 		)
 
 
 def format_columns(display_columns, compact_fields):
