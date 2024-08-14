@@ -296,9 +296,9 @@ stock.stock.StockReconciliation = class StockReconciliation extends stock.stock.
 
 		this.setup_posting_date_time_check();
 
-		if (me.frm.doc.company && stock.is_perpetual_inventory_enabled(me.frm.doc.company)) {
-			this.frm.add_fetch("company", "cost_center", "cost_center");
-		}
+		// if (me.frm.doc.company && stock.is_perpetual_inventory_enabled(me.frm.doc.company)) {
+		// 	this.frm.add_fetch("company", "cost_center", "cost_center");
+		// }
 		// this.frm.fields_dict["expense_account"].get_query = function() {
 		// 	if(stock.is_perpetual_inventory_enabled(me.frm.doc.company)) {
 		// 		return {

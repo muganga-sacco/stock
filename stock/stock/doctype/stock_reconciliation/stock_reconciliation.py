@@ -61,10 +61,10 @@ class StockReconciliation(StockController):
 		self.head_row = ["Item Code", "Warehouse", "Quantity", "Valuation Rate"]
 
 	def validate(self):
-		if not self.expense_account:
-			self.expense_account = frappe.get_cached_value(
-				"Company", self.company, "stock_adjustment_account"
-			)
+		# if not self.expense_account:
+		# 	self.expense_account = frappe.get_cached_value(
+		# 		"Company", self.company, "stock_adjustment_account"
+		# 	)
 		if not self.cost_center:
 			self.cost_center = frappe.get_cached_value("Company", self.company, "cost_center")
 		self.validate_posting_time()
@@ -72,7 +72,7 @@ class StockReconciliation(StockController):
 		self.set_new_serial_and_batch_bundle()
 		self.remove_items_with_no_change()
 		self.validate_data()
-		self.validate_expense_account()
+		# self.validate_expense_account()
 		self.validate_customer_provided_item()
 		self.set_zero_value_for_customer_provided_items()
 		self.clean_serial_nos()
@@ -99,8 +99,8 @@ class StockReconciliation(StockController):
 
 	def on_submit(self):
 		self.update_stock_ledger()
-		self.make_gl_entries()
-		self.repost_future_sle_and_gle()
+		# self.make_gl_entries()
+		# self.repost_future_sle_and_gle()
 
 	def on_cancel(self):
 		self.validate_reserved_stock()
@@ -110,9 +110,9 @@ class StockReconciliation(StockController):
 			"Repost Item Valuation",
 			"Serial and Batch Bundle",
 		)
-		self.make_sle_on_cancel()
-		self.make_gl_entries_on_cancel()
-		self.repost_future_sle_and_gle()
+		# self.make_sle_on_cancel()
+		# self.make_gl_entries_on_cancel()
+		# self.repost_future_sle_and_gle()
 		self.delete_auto_created_batches()
 
 	def set_current_serial_and_batch_bundle(self, voucher_detail_no=None, save=False) -> None:
@@ -699,22 +699,22 @@ class StockReconciliation(StockController):
 			warehouse_account, self.expense_account, self.cost_center
 		)
 
-	def validate_expense_account(self):
-		if not cint(stock.is_perpetual_inventory_enabled(self.company)):
-			return
+	# def validate_expense_account(self):
+	# 	if not cint(stock.is_perpetual_inventory_enabled(self.company)):
+	# 		return
 
-		if not self.expense_account:
-			frappe.throw(_("Please enter Expense Account"))
-		elif self.purpose == "Opening Stock" or not frappe.db.sql(
-			"""select name from `tabStock Ledger Entry` limit 1"""
-		):
-			if frappe.db.get_value("Account", self.expense_account, "report_type") == "Profit and Loss":
-				frappe.throw(
-					_(
-						"Difference Account must be a Asset/Liability type account, since this Stock Reconciliation is an Opening Entry"
-					),
-					OpeningEntryAccountError,
-				)
+	# 	if not self.expense_account:
+	# 		frappe.throw(_("Please enter Expense Account"))
+	# 	elif self.purpose == "Opening Stock" or not frappe.db.sql(
+	# 		"""select name from `tabStock Ledger Entry` limit 1"""
+	# 	):
+	# 		if frappe.db.get_value("Account", self.expense_account, "report_type") == "Profit and Loss":
+	# 			frappe.throw(
+	# 				_(
+	# 					"Difference Account must be a Asset/Liability type account, since this Stock Reconciliation is an Opening Entry"
+	# 				),
+	# 				OpeningEntryAccountError,
+	# 			)
 
 	def set_zero_value_for_customer_provided_items(self):
 		changed_any_values = False
