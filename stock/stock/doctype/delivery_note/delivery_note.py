@@ -17,6 +17,7 @@ from stock.stock.doctype.serial_no.serial_no import get_delivery_note_serial_no
 form_grid_templates = {"items": "templates/form_grid/item_grid.html"}
 
 
+
 class DeliveryNote(SellingController):
 	# begin: auto-generated types
 	# This code is auto-generated. Do not modify anything in this block.
@@ -261,10 +262,10 @@ class DeliveryNote(SellingController):
 		self.validate_uom_is_integer("uom", "qty")
 		self.validate_with_previous_doc()
 		self.set_serial_and_batch_bundle_from_pick_list()
+		self.calculate_price()
 
-		# from stock.stock.doctype.packed_item.packed_item import make_packing_list
-
-		# make_packing_list(self)
+		
+		
 		# self.update_current_stock()
 
 		if not self.installation_status:
@@ -272,7 +273,9 @@ class DeliveryNote(SellingController):
 
 		self.validate_against_stock_reservation_entries()
 		self.reset_default_field_value("set_warehouse", "items", "warehouse")
-
+		
+	
+	
 	def validate_with_previous_doc(self):
 		super().validate_with_previous_doc(
 			{
@@ -320,6 +323,15 @@ class DeliveryNote(SellingController):
 					["Sales Invoice", "against_sales_invoice", "si_detail"],
 				]
 			)
+	
+
+	def calculate_price(self):
+		total_price=0
+		for item in self.items:
+			total_price += item.rate * item.qty
+
+		self.total_price= str(total_price) + " Frw"
+		return total_price
 
 	def set_serial_and_batch_bundle_from_pick_list(self):
 		from stock.stock.serial_batch_bundle import SerialBatchCreation
@@ -352,9 +364,7 @@ class DeliveryNote(SellingController):
 
 					item.serial_and_batch_bundle = cls_obj.serial_and_batch_bundle
 
-	# def validate_references(self):
-	# 	self.validate_sales_order_references()
-	# 	self.validate_sales_invoice_references()
+	
 
 	def validate_sales_order_references(self):
 		err_msg = ""
@@ -417,7 +427,7 @@ class DeliveryNote(SellingController):
 				frappe.throw(
 					_("Customer {0} does not belong to project {1}").format(self.customer, self.project)
 				)
-
+	
 	def validate_warehouse(self):
 		super().validate_warehouse()
 
@@ -1404,3 +1414,5 @@ def make_inter_company_transaction(doctype, source_name, target_doc=None):
 	)
 
 	return doclist
+
+	

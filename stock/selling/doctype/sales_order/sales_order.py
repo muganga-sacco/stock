@@ -204,6 +204,7 @@ class SalesOrder(SellingController):
         self.validate_drop_ship()
         self.validate_reserved_stock()
         self.validate_serial_no_based_delivery()
+        self.calculate_total_price()
 
         # from stock.stock.doctype.packed_item.packed_item import make_packing_list
 
@@ -276,6 +277,17 @@ class SalesOrder(SellingController):
                 (d.item_code, d.warehouse),
             )
             d.projected_qty = tot_avail_qty and flt(tot_avail_qty[0][0]) or 0
+    
+    def calculate_total_price(self):
+        total_price = 0
+        for item in self.items:
+            total_price += item.rate * item.qty
+
+        self.total_price= str(total_price) + " Frw"
+        
+        return total_price
+    
+
 
     def product_bundle_has_stock_item(self, product_bundle):
         """Returns true if product bundle has stock item"""
@@ -1849,3 +1861,5 @@ def get_work_order_items(sales_order, for_raw_material_request=0):
                     )
 
         return items
+    
+

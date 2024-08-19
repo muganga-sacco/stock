@@ -44,6 +44,7 @@
   "set_target_warehouse",
   "section_break_30",
   "items",
+  "total_price",
   "description",
   "section_break_31",
   "total_qty",
@@ -1253,13 +1254,18 @@
    "fieldname": "description",
    "fieldtype": "Long Text",
    "label": "Description"
+  },
+  {
+   "fieldname": "total_price",
+   "fieldtype": "Data",
+   "label": "Total price"
   }
  ],
  "icon": "fa fa-truck",
  "idx": 146,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-07-31 13:10:49.889119",
+ "modified": "2024-08-19 17:02:24.828915",
  "modified_by": "Administrator",
  "module": "stock",
  "name": "Delivery Note",

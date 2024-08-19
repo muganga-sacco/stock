@@ -35,6 +35,7 @@
   "reserve_stock",
   "items_section",
   "items",
+  "total_price",
   "section_break_31",
   "total_qty",
   "total_net_weight",
@@ -1259,13 +1260,18 @@
    "label": "Requester",
    "options": "User",
    "read_only": 1
+  },
+  {
+   "fieldname": "total_price",
+   "fieldtype": "Data",
+   "label": "Total price"
   }
  ],
  "icon": "fa fa-file-text",
  "idx": 105,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-07-16 01:05:52.377001",
+ "modified": "2024-08-19 14:34:15.875955",
  "modified_by": "Administrator",
  "module": "Selling",
  "name": "Sales Order",
