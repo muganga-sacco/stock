@@ -42,7 +42,7 @@
    "fieldname": "time",
    "fieldtype": "Datetime",
    "in_list_view": 1,
-   "label": "Expected Return Time",
+   "label": "Expected Departure Time",
    "reqd": 1
   },
   {
@@ -68,7 +68,6 @@
    "fieldtype": "Long Text",
    "in_list_view": 1,
    "label": "Purpose ",
-   "not_nullable": 1,
    "reqd": 1
   },
   {
@@ -82,7 +81,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-07-10 11:19:04.147909",
+ "modified": "2024-08-30 16:38:14.436117",
  "modified_by": "Administrator",
  "module": "stock",
  "name": "Vehicle Request",
@@ -107,6 +106,7 @@
    "delete": 1,
    "email": 1,
    "export": 1,
+   "if_owner": 1,
    "print": 1,
    "read": 1,
    "report": 1,

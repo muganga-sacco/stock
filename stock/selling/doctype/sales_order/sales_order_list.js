@@ -1,6 +1,13 @@
+    var user = frappe.session.user;
+    var full_name = frappe.session.user_fullname;
+    var email = frappe.session.user_email;
+
+
 frappe.listview_settings['Sales Order'] = {
 	add_fields: ["base_grand_total", "customer_name", "currency", "delivery_date",
-		"per_delivered", "per_billed", "status", "order_type", "name", "skip_delivery_note"],
+    "per_delivered", "per_billed", "status", "order_type", "name", "skip_delivery_note"],
+  
+ 
 	get_indicator: function (doc) {
 		if (doc.status === "Closed") {
 			// Closed
@@ -38,7 +45,12 @@ frappe.listview_settings['Sales Order'] = {
 		}
 	},
 	onload: function(listview) {
-		var method = "stock.selling.doctype.sales_order.sales_order.close_or_unclose_sales_orders";
+    var method = "stock.selling.doctype.sales_order.sales_order.close_or_unclose_sales_orders";
+
+    console.log(email)
+
+    listview.page.add_action_item(assigned,click,bulk_assignment(email));
+
 
 		listview.page.add_menu_item(__("Close"), function() {
 			listview.call_for_selected_items(method, {"status": "Closed"});
