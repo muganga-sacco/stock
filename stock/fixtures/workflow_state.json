@@ -2,6 +2,33 @@
  {
   "docstatus": 0,
   "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2024-09-03 17:46:35.458198",
+  "name": "Approved By DAF",
+  "style": "",
+  "workflow_state_name": "Approved By DAF"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2024-09-03 17:46:57.241129",
+  "name": "Rejected By DAF",
+  "style": "",
+  "workflow_state_name": "Rejected By DAF"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2024-09-03 17:48:00.894740",
+  "name": "Pending DG approval",
+  "style": "",
+  "workflow_state_name": "Pending DG approval"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
   "icon": "question-sign",
   "modified": "2024-03-01 15:59:39.307672",
   "name": "Pending",

@@ -55,6 +55,7 @@
    "label": "Approved Requests",
    "quick_list_filter": "[[\"Sales Order\",\"workflow_state\",\"=\",\"Approved\",false]]"
   }
+  
  ],
  "restrict_to_domain": "",
  "roles": [
