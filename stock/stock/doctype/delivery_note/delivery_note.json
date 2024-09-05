@@ -1248,6 +1248,8 @@
   {
    "fieldname": "requester",
    "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_preview": 1,
    "label": "Requester"
   },
   {
@@ -1258,6 +1260,8 @@
   {
    "fieldname": "total_price",
    "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_preview": 1,
    "label": "Total price"
   }
  ],
@@ -1265,7 +1269,7 @@
  "idx": 146,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-08-19 17:02:24.828915",
+ "modified": "2024-09-05 13:29:03.989956",
  "modified_by": "Administrator",
  "module": "stock",
  "name": "Delivery Note",
