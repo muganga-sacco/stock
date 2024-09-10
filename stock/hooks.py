@@ -28,13 +28,10 @@ fixtures = [
         "dt":"Workspace",
         "filters":{
             "name":"Request",
-            "name":"Buying",
-            "name":"Stock"
         }
     },
     "Workflow State",
     "Workflow Action Master",
-    "Role Profile" ,
     "Role"   
 ]
 
@@ -54,7 +51,7 @@ fixtures = [
 
 # include js in doctype views
 # doctype_js = {"doctype" : "public/js/doctype.js"}
-# doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
+# bedoctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
 

@@ -9,7 +9,10 @@ frappe.ui.form.on("Vehicle Request", {
     if (
       workflowState === "Pending Administration Approval" ||
       workflowState === "Pending DAF Approval" ||
-      workflowState === "Approved"
+      workflowState === "Approved"||
+      workflowState === "Rejected By Administration" ||
+      workflowState === "Rejected" ||
+
     ) {
 
       let dialog = new frappe.ui.Dialog({
