@@ -3,27 +3,27 @@
   "docstatus": 0,
   "doctype": "Workflow State",
   "icon": "",
-  "modified": "2024-09-03 17:46:35.458198",
+  "modified": "2024-09-20 14:37:41.343697",
   "name": "Approved By DAF",
-  "style": "",
+  "style": "Success",
   "workflow_state_name": "Approved By DAF"
  },
  {
   "docstatus": 0,
   "doctype": "Workflow State",
   "icon": "",
-  "modified": "2024-09-03 17:46:57.241129",
+  "modified": "2024-09-20 14:37:30.969440",
   "name": "Rejected By DAF",
-  "style": "",
+  "style": "Danger",
   "workflow_state_name": "Rejected By DAF"
  },
  {
   "docstatus": 0,
   "doctype": "Workflow State",
   "icon": "",
-  "modified": "2024-09-03 17:48:00.894740",
+  "modified": "2024-09-20 14:37:23.868414",
   "name": "Pending DG approval",
-  "style": "",
+  "style": "Info",
   "workflow_state_name": "Pending DG approval"
  },
  {
@@ -39,9 +39,9 @@
   "docstatus": 0,
   "doctype": "Workflow State",
   "icon": "",
-  "modified": "2024-03-04 08:53:22.166609",
+  "modified": "2024-09-20 14:39:27.572293",
   "name": "Approved By HR",
-  "style": "",
+  "style": "Success",
   "workflow_state_name": "Approved By HR"
  },
  {
@@ -57,27 +57,27 @@
   "docstatus": 0,
   "doctype": "Workflow State",
   "icon": "",
-  "modified": "2024-03-04 08:53:06.040842",
+  "modified": "2024-09-20 14:39:00.490533",
   "name": "Pending HR Approval",
-  "style": "",
+  "style": "Info",
   "workflow_state_name": "Pending HR Approval"
  },
  {
   "docstatus": 0,
   "doctype": "Workflow State",
   "icon": "",
-  "modified": "2024-03-04 08:51:41.484181",
+  "modified": "2024-09-20 14:38:42.677034",
   "name": "Approved By Supervisor",
-  "style": "",
+  "style": "Success",
   "workflow_state_name": "Approved By Supervisor"
  },
  {
   "docstatus": 0,
   "doctype": "Workflow State",
   "icon": "",
-  "modified": "2024-06-27 14:42:17.106256",
+  "modified": "2024-09-20 14:39:44.153160",
   "name": "Approved By Administration",
-  "style": "",
+  "style": "Success",
   "workflow_state_name": "Approved By Administration"
  },
  {
@@ -129,18 +129,18 @@
   "docstatus": 0,
   "doctype": "Workflow State",
   "icon": "",
-  "modified": "2024-03-04 08:52:11.355905",
+  "modified": "2024-09-20 14:38:51.242930",
   "name": "Returned For Correction",
-  "style": "",
+  "style": "Inverse",
   "workflow_state_name": "Returned For Correction"
  },
  {
   "docstatus": 0,
   "doctype": "Workflow State",
   "icon": "",
-  "modified": "2024-06-27 14:43:41.043443",
+  "modified": "2024-09-20 14:40:51.365086",
   "name": "Pending Accountant Approval",
-  "style": "",
+  "style": "Info",
   "workflow_state_name": "Pending Accountant Approval"
  },
  {
@@ -156,45 +156,45 @@
   "docstatus": 0,
   "doctype": "Workflow State",
   "icon": "",
-  "modified": "2024-03-04 08:51:01.235975",
+  "modified": "2024-09-20 14:38:31.664413",
   "name": "Pending Supervisor Approval",
-  "style": "",
+  "style": "Info",
   "workflow_state_name": "Pending Supervisor Approval"
  },
  {
   "docstatus": 0,
   "doctype": "Workflow State",
   "icon": "",
-  "modified": "2024-03-04 08:49:58.743307",
+  "modified": "2024-09-20 14:38:20.188676",
   "name": "Pending Submission",
-  "style": "",
+  "style": "Info",
   "workflow_state_name": "Pending Submission"
  },
  {
   "docstatus": 0,
   "doctype": "Workflow State",
   "icon": "",
-  "modified": "2024-03-04 08:54:10.476210",
+  "modified": "2024-09-20 14:39:09.972586",
   "name": "Pending DAF Approval",
-  "style": "",
+  "style": "Info",
   "workflow_state_name": "Pending DAF Approval"
  },
  {
   "docstatus": 0,
   "doctype": "Workflow State",
   "icon": "",
-  "modified": "2024-07-03 09:47:34.885679",
+  "modified": "2024-09-20 14:40:24.565204",
   "name": "Pending Administration Approval",
-  "style": "",
+  "style": "Info",
   "workflow_state_name": "Pending Administration Approval"
  },
  {
   "docstatus": 0,
   "doctype": "Workflow State",
   "icon": "",
-  "modified": "2024-03-04 08:47:01.837054",
+  "modified": "2024-09-20 14:38:01.495040",
   "name": "Draft",
-  "style": "",
+  "style": "Primary",
   "workflow_state_name": "Draft"
  }
 ]

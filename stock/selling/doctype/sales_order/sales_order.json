@@ -2,7 +2,7 @@
  "actions": [],
  "allow_auto_repeat": 1,
  "allow_import": 1,
- "autoname": "naming_series:",
+ "autoname": "REQ-.###",
  "creation": "2013-06-18 12:39:59",
  "doctype": "DocType",
  "document_type": "Document",
@@ -36,6 +36,7 @@
   "items_section",
   "items",
   "total_price",
+  "assign_to",
   "section_break_31",
   "total_qty",
   "total_net_weight",
@@ -1265,17 +1266,24 @@
    "fieldname": "total_price",
    "fieldtype": "Data",
    "label": "Total price"
+  },
+  {
+   "fieldname": "assign_to",
+   "fieldtype": "Link",
+   "label": "Assign To",
+   "options": "User",
+   "reqd": 1
   }
  ],
  "icon": "fa fa-file-text",
  "idx": 105,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-08-19 14:34:15.875955",
+ "modified": "2024-09-20 12:40:53.863700",
  "modified_by": "Administrator",
  "module": "Selling",
  "name": "Sales Order",
- "naming_rule": "By \"Naming Series\" field",
+ "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [
   {

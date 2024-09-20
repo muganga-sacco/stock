@@ -46,8 +46,19 @@ frappe.ui.form.on("Sales Order", {
 		});
 
 		frm.set_df_property('packed_items', 'cannot_add_rows', true);
-		frm.set_df_property('packed_items', 'cannot_delete_rows', true);
-	},
+    frm.set_df_property('packed_items', 'cannot_delete_rows', true);
+    
+    frm.set_query("assign_to", function () { 
+      return {
+        
+          filters: {
+              "role_profile_name": "Supevisor"  // Filter for users with the Supervisor role
+          }
+      };
+  });
+  },
+  
+
 
 	before_workflow_action: async (frm) => {
 		const workflowState = frm.doc.workflow_state;
@@ -117,7 +128,8 @@ frappe.ui.form.on("Sales Order", {
 		}
 	},
 
-	refresh: function(frm) {
+  refresh: function (frm) {
+    
 		if(frm.doc.docstatus === 1) {
 			if (frm.doc.status !== 'Closed' && flt(frm.doc.per_delivered, 2) < 100 && flt(frm.doc.per_billed, 2) < 100) {
 				frm.add_custom_button(__('Update Items'), () => {

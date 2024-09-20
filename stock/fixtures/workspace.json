@@ -1,7 +1,7 @@
 [
  {
   "charts": [],
-  "content": "[{\"id\":\"1it3dCOnm6\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Quick Access</b></span>\",\"col\":12}},{\"id\":\"SSGrXWmY-H\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"My Requests\",\"col\":4}},{\"id\":\"mArWxjPtll\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Pending Supervisor Approval\",\"col\":4}},{\"id\":\"J1YGHnVDtK\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Pending accountant Approval\",\"col\":4}},{\"id\":\"O23uCQTRc6\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Pending Administration Approval\",\"col\":4}},{\"id\":\"6Zb_i9BC5V\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Pending DAF Approval\",\"col\":4}},{\"id\":\"OUA3GsEvWO\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Approved Requests\",\"col\":4}},{\"id\":\"vBtlEaK7sD\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Available Items\",\"col\":4}},{\"id\":\"CHWEgkozuB\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Vehicle request\",\"col\":4}}]",
+  "content": "[{\"id\":\"1it3dCOnm6\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Quick Access</b></span>\",\"col\":12}},{\"id\":\"SSGrXWmY-H\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Requests\",\"col\":4}},{\"id\":\"lyfOOrGYMt\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Vehicle request\",\"col\":3}},{\"id\":\"mArWxjPtll\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Pending Supervisor Approval\",\"col\":4}},{\"id\":\"J1YGHnVDtK\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Pending accountant Approval\",\"col\":4}},{\"id\":\"O23uCQTRc6\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Pending Administration Approval\",\"col\":4}},{\"id\":\"6Zb_i9BC5V\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Pending DAF Approval\",\"col\":4}},{\"id\":\"OUA3GsEvWO\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Approved Requests\",\"col\":4}},{\"id\":\"vBtlEaK7sD\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Available Items\",\"col\":4}},{\"id\":\"S3TSJ1lRQI\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"ALL vehicle request\",\"col\":3}}]",
   "custom_blocks": [],
   "docstatus": 0,
   "doctype": "Workspace",
@@ -12,7 +12,7 @@
   "is_hidden": 0,
   "label": "Request",
   "links": [],
-  "modified": "2024-09-02 16:50:12.625258",
+  "modified": "2024-09-20 14:24:10.813795",
   "module": "Selling",
   "name": "Request",
   "number_cards": [],
@@ -42,14 +42,6 @@
     "parentfield": "quick_lists",
     "parenttype": "Workspace",
     "quick_list_filter": "[[\"Sales Order\",\"workflow_state\",\"=\",\"Pending Accountant Approval\",false]]"
-   },
-   {
-    "document_type": "Vehicle Request",
-    "label": "Vehicle request",
-    "parent": "Request",
-    "parentfield": "quick_lists",
-    "parenttype": "Workspace",
-    "quick_list_filter": "[]"
    },
    {
     "document_type": "Sales Order",
@@ -113,17 +105,49 @@
   "shortcuts": [
    {
     "color": "Yellow",
-    "doc_view": "",
+    "doc_view": "New",
     "format": "{} ",
     "icon": null,
     "kanban_board": null,
-    "label": "My Requests",
+    "label": "Requests",
     "link_to": "Sales Order",
     "parent": "Request",
     "parentfield": "shortcuts",
     "parenttype": "Workspace",
     "restrict_to_domain": null,
-    "stats_filter": "[[\"Sales Order\",\"status\",\"=\",null,false]]",
+    "stats_filter": "[]",
+    "type": "DocType",
+    "url": null
+   },
+   {
+    "color": "Pink",
+    "doc_view": "List",
+    "format": null,
+    "icon": null,
+    "kanban_board": null,
+    "label": "ALL vehicle request",
+    "link_to": "Vehicle Request",
+    "parent": "Request",
+    "parentfield": "shortcuts",
+    "parenttype": "Workspace",
+    "restrict_to_domain": null,
+    "stats_filter": "[]",
+    "type": "DocType",
+    "url": null
+   },
+   {
+    "color": "Grey",
+    "doc_view": "New",
+    "format": null,
+    "icon": null,
+    "kanban_board": null,
+    "label": "Vehicle request",
+    "link_to": "Vehicle Request",
+    "parent": "Request",
+    "parentfield": "shortcuts",
+    "parenttype": "Workspace",
+    "restrict_to_domain": null,
+    "stats_filter": "[]",
     "type": "DocType",
     "url": null
    }

@@ -363,7 +363,7 @@
   "doctype": "Workflow",
   "document_type": "Sales Order",
   "is_active": 1,
-  "modified": "2024-08-19 18:01:46.547031",
+  "modified": "2024-09-20 14:35:09.985670",
   "name": "Request",
   "override_status": 0,
   "send_email_alert": 0,

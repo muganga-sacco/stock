@@ -1,7 +1,7 @@
 {
  "charts": [],
- "content": "[{\"id\":\"1it3dCOnm6\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Quick Access</b></span>\",\"col\":12}},{\"id\":\"SSGrXWmY-H\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"My Requests\",\"col\":4}},{\"id\":\"mArWxjPtll\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Pending Supervisor Approval\",\"col\":4}},{\"id\":\"J1YGHnVDtK\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Pending accountant Approval\",\"col\":4}},{\"id\":\"O23uCQTRc6\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Pending Administration Approval\",\"col\":4}},{\"id\":\"6Zb_i9BC5V\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Pending DAF Approval\",\"col\":4}},{\"id\":\"OUA3GsEvWO\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Approved Requests\",\"col\":4}},{\"id\":\"vBtlEaK7sD\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Available Items\",\"col\":4}},{\"id\":\"CHWEgkozuB\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Vehicle request\",\"col\":4}}]",
- "creation": "2024-03-06 16:05:41.105193",
+ "content": "[{\"id\":\"1it3dCOnm6\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Quick Access</b></span>\",\"col\":12}},{\"id\":\"SSGrXWmY-H\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Requests\",\"col\":4}},{\"id\":\"lyfOOrGYMt\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Vehicle request\",\"col\":3}},{\"id\":\"mArWxjPtll\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Pending Supervisor Approval\",\"col\":4}},{\"id\":\"J1YGHnVDtK\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Pending accountant Approval\",\"col\":4}},{\"id\":\"O23uCQTRc6\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Pending Administration Approval\",\"col\":4}},{\"id\":\"6Zb_i9BC5V\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Pending DAF Approval\",\"col\":4}},{\"id\":\"OUA3GsEvWO\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Approved Requests\",\"col\":4}},{\"id\":\"vBtlEaK7sD\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Available Items\",\"col\":4}},{\"id\":\"S3TSJ1lRQI\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"ALL vehicle request\",\"col\":3}}]",
+ "creation": "2024-09-16 14:27:56.506460",
  "custom_blocks": [],
  "docstatus": 0,
  "doctype": "Workspace",
@@ -12,11 +12,12 @@
  "is_hidden": 0,
  "label": "Request",
  "links": [],
- "modified": "2024-07-08 16:32:36.928690",
+ "modified": "2024-09-20 14:24:10.813795",
  "modified_by": "Administrator",
  "module": "Selling",
  "name": "Request",
  "number_cards": [],
+ "owner": "Administrator",
  "parent_page": "",
  "public": 1,
  "quick_lists": [
@@ -36,11 +37,6 @@
    "quick_list_filter": "[[\"Sales Order\",\"workflow_state\",\"=\",\"Pending Accountant Approval\",false]]"
   },
   {
-   "document_type": "Vehicle Request",
-   "label": "Vehicle request",
-   "quick_list_filter": "[]"
-  },
-  {
    "document_type": "Sales Order",
    "label": "Pending Administration Approval",
    "quick_list_filter": "[[\"Sales Order\",\"workflow_state\",\"=\",\"Pending Administration Approval\",false]]"
@@ -55,7 +51,6 @@
    "label": "Approved Requests",
    "quick_list_filter": "[[\"Sales Order\",\"workflow_state\",\"=\",\"Approved\",false]]"
   }
-  
  ],
  "restrict_to_domain": "",
  "roles": [
@@ -66,24 +61,40 @@
    "role": "DAF"
   },
   {
-   "role": "Supervisor"
-  },
-  {
    "role": "Stock Manager"
   },
   {
-   "role": "Employee"
+   "role": "Sales Manager"
+  },
+  {
+   "role": "Procurement officer"
   }
  ],
  "sequence_id": 6.0,
  "shortcuts": [
   {
    "color": "Yellow",
-   "doc_view": "",
+   "doc_view": "New",
    "format": "{} ",
-   "label": "My Requests",
+   "label": "Requests",
    "link_to": "Sales Order",
-   "stats_filter": "[[\"Sales Order\",\"status\",\"=\",null,false]]",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Pink",
+   "doc_view": "List",
+   "label": "ALL vehicle request",
+   "link_to": "Vehicle Request",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "New",
+   "label": "Vehicle request",
+   "link_to": "Vehicle Request",
+   "stats_filter": "[]",
    "type": "DocType"
   }
  ],
