@@ -550,7 +550,7 @@ class SalesOrder(SellingController):
 				else:
 					frappe.throw(f"Error sending notification to supervisor: {supervisor_email}")
 		
-       
+	   
 
 
 
@@ -1802,6 +1802,7 @@ def create_pick_list(source_name, target_doc=None):
 	return doc
 
 def send_notification_supervisor(user_email, notification):
+	url = notification.get_url()	
 	"""Send a notification email to the assigned supervisor"""
 	subject = f"New Stock Request waiting your review from  {notification.requester}"
 	message = f"""
@@ -1813,7 +1814,7 @@ def send_notification_supervisor(user_email, notification):
 			<p>Details: <strong>{notification.name}</strong>.</p>
 			<p>Please click the button below to view the request</p>
 			<p>
-				<a href="https://online.mugangasacco.rw/app/request" style="display: inline-block; padding: 10px 20px; margin: 10px 0; background-color: #007BFF; color: white; text-decoration: none; border-radius: 5px;">View Task</a>
+				<a href="{url}" style="display: inline-block; padding: 10px 20px; margin: 10px 0; background-color: #007BFF; color: white; text-decoration: none; border-radius: 5px;">View Request</a>
 			</p>
 			<p>Thank you!</p>
 			<p>Best regards,
