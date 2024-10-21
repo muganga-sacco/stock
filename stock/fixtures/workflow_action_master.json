@@ -16,13 +16,6 @@
  {
   "docstatus": 0,
   "doctype": "Workflow Action Master",
-  "modified": "2024-03-04 08:55:06.272441",
-  "name": "Save",
-  "workflow_action_name": "Save"
- },
- {
-  "docstatus": 0,
-  "doctype": "Workflow Action Master",
   "modified": "2024-03-04 08:55:55.755300",
   "name": "Submit",
   "workflow_action_name": "Submit"
@@ -40,5 +33,33 @@
   "modified": "2024-03-01 15:59:39.349242",
   "name": "Reject",
   "workflow_action_name": "Reject"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2024-03-04 08:55:06.272441",
+  "name": "Save",
+  "workflow_action_name": "Save"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2024-10-11 10:19:10.478653",
+  "name": "Send Invitation",
+  "workflow_action_name": "Send Invitation"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2024-10-11 10:20:14.712492",
+  "name": "Create Minute",
+  "workflow_action_name": "Create Minute"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2024-10-14 11:19:43.001204",
+  "name": "Send Minute",
+  "workflow_action_name": "Send Minute"
  }
 ]

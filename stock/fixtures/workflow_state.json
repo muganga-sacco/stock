@@ -192,9 +192,63 @@
   "docstatus": 0,
   "doctype": "Workflow State",
   "icon": "",
+  "modified": "2024-10-11 10:17:33.351907",
+  "name": "Create Minute",
+  "style": "",
+  "workflow_state_name": "Create Minute"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2024-10-14 09:00:03.275124",
+  "name": "Minute sent to attendees",
+  "style": "",
+  "workflow_state_name": "Minute sent to attendees"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2024-10-14 09:11:31.339592",
+  "name": "Minute Approved",
+  "style": "",
+  "workflow_state_name": "Minute Approved"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
   "modified": "2024-09-20 14:38:01.495040",
   "name": "Draft",
   "style": "Primary",
   "workflow_state_name": "Draft"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2024-10-11 10:15:29.804324",
+  "name": "Pending Invitation",
+  "style": "",
+  "workflow_state_name": "Pending Invitation"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2024-10-11 10:17:10.403068",
+  "name": "Invitation Sent",
+  "style": "",
+  "workflow_state_name": "Invitation Sent"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2024-10-11 10:19:47.389161",
+  "name": "Minute Created",
+  "style": "",
+  "workflow_state_name": "Minute Created"
  }
 ]

@@ -79,6 +79,7 @@ frappe.ui.form.on("Sales Order", {
 						fieldname: 'comment',
 						fieldtype: 'Small Text',
 						reqd: true,
+			// Create a dialog to prompt for comments
 					}
 				],
 				primary_action: function () {
@@ -86,16 +87,22 @@ frappe.ui.form.on("Sales Order", {
 	
 					if (!comment) {
 						frappe.msgprint(__('Comment is mandatory. Please enter a comment.'));
+						reqd: true
 						return;
 					}
 	
 					frappe.call({
+					// Get the comment entered by the user
 						method: "frappe.desk.form.utils.add_comment",
+
+					// Validate the comment
 						args: {
 							reference_doctype: frm.doctype,
 							reference_name: frm.docname,
 							content: comment,
 							comment_email: frappe.session.user,
+
+					// Add the comment to the sales order
 							comment_by: frappe.session.user_fullname
 						},
 						callback: function (r) {
@@ -107,31 +114,45 @@ frappe.ui.form.on("Sales Order", {
 				},
 				primary_action_label: __('Confirm approval'),
 			});
+							// Hide the dialog if the comment is added successfully
 	
 			dialog.$wrapper.find('.modal-header .close').prop('disabled', true);
 	
 			dialog.fields_dict.comment.$input.on('input', function () {
 				const comment = dialog.get_value('comment');
 				dialog.$wrapper.find('.modal-header .close').prop('disabled', !comment);
+				primary_action_label: __('Confirm approval')
 			});
 	
+
+			// Disable the close button on the dialog initially
 			dialog.$wrapper.find('.modal-header .close').remove();
 	
+
+			// Enable the close button when a comment is entered
 			dialog.$wrapper.find('.modal-header').append(
 				'<button class="btn btn-default btn-xs pull-right close-dialog" disabled>Close</button>'
 			);
 	
 			dialog.$wrapper.find('.modal-header .close-dialog').on('click', function () {
+
+			// Remove the default close button on the dialog
 				dialog.hide();
 			});
+
+			// Add a custom close button to the dialog
 			dialog.show();
 		}
 	},
 
+
+			// Handle the custom close button click event
   refresh: function (frm) {
     
 		if(frm.doc.docstatus === 1) {
 			if (frm.doc.status !== 'Closed' && flt(frm.doc.per_delivered, 2) < 100 && flt(frm.doc.per_billed, 2) < 100) {
+
+			// Show the dialog
 				frm.add_custom_button(__('Update Items'), () => {
 					stock.utils.update_child_items({
 						frm: frm,

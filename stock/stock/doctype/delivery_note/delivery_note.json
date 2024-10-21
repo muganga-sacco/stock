@@ -9,13 +9,12 @@
  "engine": "InnoDB",
  "field_order": [
   "title",
-  "requester",
+  "posting_date",
   "naming_series",
   "customer",
   "tax_id",
   "customer_name",
   "column_break1",
-  "posting_date",
   "posting_time",
   "set_posting_time",
   "column_break_10",
@@ -46,6 +45,10 @@
   "items",
   "total_price",
   "description",
+  "section_break_xnmc",
+  "requester",
+  "column_break_badi",
+  "requester_signature",
   "section_break_31",
   "total_qty",
   "total_net_weight",
@@ -727,7 +730,6 @@
    "oldfieldname": "rounded_total",
    "oldfieldtype": "Currency",
    "options": "Company:company:default_currency",
-   "print_hide": 1,
    "print_width": "150px",
    "read_only": 1,
    "width": "150px"
@@ -774,7 +776,6 @@
    "read_only": 1
   },
   {
-   "bold": 1,
    "depends_on": "eval:!doc.disable_rounded_total",
    "fieldname": "rounded_total",
    "fieldtype": "Currency",
@@ -784,7 +785,6 @@
    "options": "currency",
    "print_hide": 1,
    "print_width": "150px",
-   "read_only": 1,
    "width": "150px"
   },
   {
@@ -1263,13 +1263,26 @@
    "in_list_view": 1,
    "in_preview": 1,
    "label": "Total price"
+  },
+  {
+   "fieldname": "requester_signature",
+   "fieldtype": "Signature",
+   "label": "Requester Signature"
+  },
+  {
+   "fieldname": "section_break_xnmc",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_badi",
+   "fieldtype": "Column Break"
   }
  ],
  "icon": "fa fa-truck",
  "idx": 146,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-09-05 13:29:03.989956",
+ "modified": "2024-10-21 09:54:57.879010",
  "modified_by": "Administrator",
  "module": "stock",
  "name": "Delivery Note",

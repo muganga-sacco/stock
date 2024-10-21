@@ -64,7 +64,7 @@ class SalesOrder(SellingController):
 		advance_paid: DF.Currency
 		amended_from: DF.Link | None
 		amount_eligible_for_commission: DF.Currency
-		apply_discount_on: DF.Literal["", "Grand Total", "Net Total"]
+		apply_discount_on: DF.Literal["", "Grand Total", "Net Total"] # type: ignore
 		auto_repeat: DF.Link | None
 		base_discount_amount: DF.Currency
 		base_grand_total: DF.Currency
