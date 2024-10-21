@@ -47,7 +47,6 @@
   "description",
   "section_break_xnmc",
   "requester",
-  "column_break_badi",
   "requester_signature",
   "section_break_31",
   "total_qty",
@@ -1267,22 +1266,19 @@
   {
    "fieldname": "requester_signature",
    "fieldtype": "Signature",
+   "in_preview": 1,
    "label": "Requester Signature"
   },
   {
    "fieldname": "section_break_xnmc",
    "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "column_break_badi",
-   "fieldtype": "Column Break"
   }
  ],
  "icon": "fa fa-truck",
  "idx": 146,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-10-21 09:54:57.879010",
+ "modified": "2024-10-21 10:00:56.329772",
  "modified_by": "Administrator",
  "module": "stock",
  "name": "Delivery Note",
