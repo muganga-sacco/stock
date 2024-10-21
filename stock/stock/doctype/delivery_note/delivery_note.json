@@ -47,7 +47,7 @@
   "description",
   "section_break_xnmc",
   "requester",
-  "requester_signature",
+  "your_signature",
   "section_break_31",
   "total_qty",
   "total_net_weight",
@@ -57,7 +57,6 @@
   "column_break_33",
   "total",
   "net_total",
-  "taxes_section",
   "column_break_43",
   "column_break_39",
   "named_place",
@@ -73,7 +72,6 @@
   "column_break3",
   "grand_total",
   "rounding_adjustment",
-  "rounded_total",
   "in_words",
   "disable_rounded_total",
   "section_break_49",
@@ -595,15 +593,6 @@
    "read_only": 1
   },
   {
-   "fieldname": "taxes_section",
-   "fieldtype": "Section Break",
-   "hidden": 1,
-   "hide_border": 1,
-   "label": "Taxes and Charges",
-   "oldfieldtype": "Section Break",
-   "options": "fa fa-money"
-  },
-  {
    "fieldname": "column_break_39",
    "fieldtype": "Column Break"
   },
@@ -625,7 +614,8 @@
   {
    "fieldname": "section_break_44",
    "fieldtype": "Section Break",
-   "hidden": 1
+   "hidden": 1,
+   "print_hide": 1
   },
   {
    "fieldname": "base_total_taxes_and_charges",
@@ -697,7 +687,8 @@
    "hidden": 1,
    "label": "Totals",
    "oldfieldtype": "Section Break",
-   "options": "fa fa-money"
+   "options": "fa fa-money",
+   "print_hide": 1
   },
   {
    "fieldname": "base_grand_total",
@@ -729,6 +720,7 @@
    "oldfieldname": "rounded_total",
    "oldfieldtype": "Currency",
    "options": "Company:company:default_currency",
+   "print_hide": 1,
    "print_width": "150px",
    "read_only": 1,
    "width": "150px"
@@ -773,18 +765,6 @@
    "options": "currency",
    "print_hide": 1,
    "read_only": 1
-  },
-  {
-   "depends_on": "eval:!doc.disable_rounded_total",
-   "fieldname": "rounded_total",
-   "fieldtype": "Currency",
-   "label": "Rounded Total",
-   "oldfieldname": "rounded_total_export",
-   "oldfieldtype": "Currency",
-   "options": "currency",
-   "print_hide": 1,
-   "print_width": "150px",
-   "width": "150px"
   },
   {
    "description": "In Words (Export) will be visible once you save the Delivery Note.",
@@ -1119,7 +1099,8 @@
    "depends_on": "grand_total",
    "fieldname": "disable_rounded_total",
    "fieldtype": "Check",
-   "label": "Disable Rounded Total"
+   "label": "Disable Rounded Total",
+   "print_hide": 1
   },
   {
    "fieldname": "dispatch_address_name",
@@ -1264,21 +1245,22 @@
    "label": "Total price"
   },
   {
-   "fieldname": "requester_signature",
-   "fieldtype": "Signature",
-   "in_preview": 1,
-   "label": "Requester Signature"
-  },
-  {
    "fieldname": "section_break_xnmc",
    "fieldtype": "Section Break"
+  },
+  {
+   "default": ":___________________________________",
+   "fetch_if_empty": 1,
+   "fieldname": "your_signature",
+   "fieldtype": "Small Text",
+   "label": "Your Signature"
   }
  ],
  "icon": "fa fa-truck",
  "idx": 146,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-10-21 10:00:56.329772",
+ "modified": "2024-10-21 11:08:01.837849",
  "modified_by": "Administrator",
  "module": "stock",
  "name": "Delivery Note",

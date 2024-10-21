@@ -452,21 +452,21 @@ class SalesOrder(SellingController):
 			self.create_stock_reservation_entries()
 
 	def on_cancel(self):
-		self.ignore_linked_doctypes = (
-			"GL Entry",
-			"Stock Ledger Entry",
-			"Payment Ledger Entry",
-		)
-		super(SalesOrder, self).on_cancel()
+		# self.ignore_linked_doctypes = (
+		# 	"GL Entry",
+		# 	"Stock Ledger Entry",
+		# 	"Payment Ledger Entry",
+		# )
+		# super(SalesOrder, self).on_cancel()
 
 		# Cannot cancel closed SO
 		if self.status == "Closed":
 			frappe.throw(_("Closed order cannot be cancelled. Unclose to cancel."))
 
-		self.check_nextdoc_docstatus()
+		# self.check_nextdoc_docstatus()
 		self.update_prevdoc_status("cancel")
 		self.db_set("status", "Cancelled")
-		self.cancel_stock_reservation_entries()
+		# self.cancel_stock_reservation_entries()
 
 	def update_project(self):
 		if (
