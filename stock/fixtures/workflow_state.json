@@ -250,5 +250,23 @@
   "name": "Minute Created",
   "style": "",
   "workflow_state_name": "Minute Created"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2024-10-21 16:41:34.168082",
+  "name": "Waiting DG approval",
+  "style": "",
+  "workflow_state_name": "Waiting DG approval"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2024-10-21 16:45:32.435913",
+  "name": "Approved By DG",
+  "style": "",
+  "workflow_state_name": "Approved By DG"
  }
 ]
