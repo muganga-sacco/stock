@@ -37,16 +37,16 @@ fixtures = [
     {
         "dt":"Dashboard",
         "filters":{
-            "Dashboard Name":"Meetings",
+            "name":"Meetings",
         
         }
     },
     
-    {
+   {
         "dt":"Dashboard Chart",
         "filters":{
-            "ID":"Resolution chart",
-            "ID":"Resolutions"
+            "name":"Resolution chart",
+            "name":"Resolutions"
         }
     }
       
