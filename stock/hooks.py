@@ -41,6 +41,14 @@ fixtures = [
         
         }
     },
+    
+    {
+        "dt":"Dashboard Chart",
+        "filters":{
+            "ID":"Resolution chart",
+            "ID":"Resolutions"
+        }
+    }
       
 ]
 
