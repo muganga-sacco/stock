@@ -48,16 +48,13 @@ frappe.ui.form.on("Sales Order", {
 		frm.set_df_property('packed_items', 'cannot_add_rows', true);
     frm.set_df_property('packed_items', 'cannot_delete_rows', true);
     
-    frm.set_query("assign_to", function () { 
-      return {
-        
-          filters: {
-              "role_profile_name": "Supevisor" ,
-			  "role_profile_name": "DAF" ,
-			  "role_profile_name":"Meeting Initiator",
-          }
-      };
-  });
+    frm.set_query("assign_to", function () {
+		return {
+			filters: {
+				"role_profile_name": ["in", ["Supevisor", "DAF", "Meeting Initiator"]]
+			}
+		};
+	});
   },
   
 
