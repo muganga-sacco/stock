@@ -34,7 +34,13 @@ fixtures = [
     "Workflow State",
     "Workflow Action Master",
     "Role",
-    "Dashboard"
+    {
+        "dt":"Dashboard",
+        "filters":{
+            "Dashboard Name":"Meetings",
+        
+        }
+    },
       
 ]
 
