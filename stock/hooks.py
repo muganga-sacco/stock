@@ -33,7 +33,9 @@ fixtures = [
     },
     "Workflow State",
     "Workflow Action Master",
-    "Role"   
+    "Role",
+    "Dashboard"
+      
 ]
 
 # include js, css files in header of web template
