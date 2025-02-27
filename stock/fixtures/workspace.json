@@ -1,149 +1,69 @@
 [
  {
-  "charts": [],
-  "content": "[{\"id\":\"1it3dCOnm6\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Quick Access</b></span>\",\"col\":12}},{\"id\":\"SSGrXWmY-H\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Requests\",\"col\":4}},{\"id\":\"lyfOOrGYMt\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Vehicle request\",\"col\":3}},{\"id\":\"mArWxjPtll\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Pending Supervisor Approval\",\"col\":4}},{\"id\":\"J1YGHnVDtK\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Pending accountant Approval\",\"col\":4}},{\"id\":\"O23uCQTRc6\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Pending Administration Approval\",\"col\":4}},{\"id\":\"6Zb_i9BC5V\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Pending DAF Approval\",\"col\":4}},{\"id\":\"OUA3GsEvWO\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Approved Requests\",\"col\":4}},{\"id\":\"vBtlEaK7sD\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Available Items\",\"col\":4}},{\"id\":\"S3TSJ1lRQI\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"ALL vehicle request\",\"col\":3}}]",
+  "charts": [
+   {
+    "chart_name": "Resolution chart",
+    "label": "Resolution ",
+    "parent": "Meetings",
+    "parentfield": "charts",
+    "parenttype": "Workspace"
+   }
+  ],
+  "content": "[{\"id\":\"h7ax1m7aBp\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Meetings</span>\",\"col\":12}},{\"id\":\"ZMs88veahD\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Create a new meeting\",\"col\":3}},{\"id\":\"__9ZhCpBvU\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Resolution \",\"col\":12}},{\"id\":\"aAxXKdsXrE\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"All meetings\",\"col\":4}},{\"id\":\"8v2w1iyPUH\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"All minutes\",\"col\":4}}]",
   "custom_blocks": [],
   "docstatus": 0,
   "doctype": "Workspace",
   "for_user": "",
   "hide_custom": 0,
-  "icon": "sell",
-  "indicator_color": null,
+  "icon": "small-message",
+  "indicator_color": "orange",
   "is_hidden": 0,
-  "label": "Request",
+  "label": "Meetings",
   "links": [],
-  "modified": "2024-09-20 14:24:10.813795",
-  "module": "Selling",
-  "name": "Request",
+  "modified": "2025-02-27 11:42:52.558511",
+  "module": null,
+  "name": "Meetings",
   "number_cards": [],
   "parent_page": "",
   "public": 1,
   "quick_lists": [
    {
-    "document_type": "Item",
-    "label": "Available Items",
-    "parent": "Request",
+    "document_type": "Meeting",
+    "label": "All meetings",
+    "parent": "Meetings",
     "parentfield": "quick_lists",
     "parenttype": "Workspace",
     "quick_list_filter": "[]"
    },
    {
-    "document_type": "Sales Order",
-    "label": "Pending Supervisor Approval",
-    "parent": "Request",
+    "document_type": "Minutes",
+    "label": "All minutes",
+    "parent": "Meetings",
     "parentfield": "quick_lists",
     "parenttype": "Workspace",
-    "quick_list_filter": "[[\"Sales Order\",\"workflow_state\",\"=\",\"Pending Supervisor Approval\",false]]"
-   },
-   {
-    "document_type": "Sales Order",
-    "label": "Pending accountant Approval",
-    "parent": "Request",
-    "parentfield": "quick_lists",
-    "parenttype": "Workspace",
-    "quick_list_filter": "[[\"Sales Order\",\"workflow_state\",\"=\",\"Pending Accountant Approval\",false]]"
-   },
-   {
-    "document_type": "Sales Order",
-    "label": "Pending Administration Approval",
-    "parent": "Request",
-    "parentfield": "quick_lists",
-    "parenttype": "Workspace",
-    "quick_list_filter": "[[\"Sales Order\",\"workflow_state\",\"=\",\"Pending Administration Approval\",false]]"
-   },
-   {
-    "document_type": "Sales Order",
-    "label": "Pending DAF Approval",
-    "parent": "Request",
-    "parentfield": "quick_lists",
-    "parenttype": "Workspace",
-    "quick_list_filter": "[[\"Sales Order\",\"workflow_state\",\"=\",\"Pending DAF Approval\",false]]"
-   },
-   {
-    "document_type": "Sales Order",
-    "label": "Approved Requests",
-    "parent": "Request",
-    "parentfield": "quick_lists",
-    "parenttype": "Workspace",
-    "quick_list_filter": "[[\"Sales Order\",\"workflow_state\",\"=\",\"Approved\",false]]"
+    "quick_list_filter": "[]"
    }
   ],
-  "restrict_to_domain": "",
+  "restrict_to_domain": null,
   "roles": [
    {
-    "parent": "Request",
+    "parent": "Meetings",
     "parentfield": "roles",
     "parenttype": "Workspace",
-    "role": "Requester"
-   },
-   {
-    "parent": "Request",
-    "parentfield": "roles",
-    "parenttype": "Workspace",
-    "role": "DAF"
-   },
-   {
-    "parent": "Request",
-    "parentfield": "roles",
-    "parenttype": "Workspace",
-    "role": "Stock Manager"
-   },
-   {
-    "parent": "Request",
-    "parentfield": "roles",
-    "parenttype": "Workspace",
-    "role": "Sales Manager"
-   },
-   {
-    "parent": "Request",
-    "parentfield": "roles",
-    "parenttype": "Workspace",
-    "role": "Procurement officer"
+    "role": "Meeting Initiator"
    }
   ],
-  "sequence_id": 6.0,
+  "sequence_id": 40.0,
   "shortcuts": [
-   {
-    "color": "Yellow",
-    "doc_view": "New",
-    "format": "{} ",
-    "icon": null,
-    "kanban_board": null,
-    "label": "Requests",
-    "link_to": "Sales Order",
-    "parent": "Request",
-    "parentfield": "shortcuts",
-    "parenttype": "Workspace",
-    "restrict_to_domain": null,
-    "stats_filter": "[]",
-    "type": "DocType",
-    "url": null
-   },
-   {
-    "color": "Pink",
-    "doc_view": "List",
-    "format": null,
-    "icon": null,
-    "kanban_board": null,
-    "label": "ALL vehicle request",
-    "link_to": "Vehicle Request",
-    "parent": "Request",
-    "parentfield": "shortcuts",
-    "parenttype": "Workspace",
-    "restrict_to_domain": null,
-    "stats_filter": "[]",
-    "type": "DocType",
-    "url": null
-   },
    {
     "color": "Grey",
     "doc_view": "New",
     "format": null,
     "icon": null,
     "kanban_board": null,
-    "label": "Vehicle request",
-    "link_to": "Vehicle Request",
-    "parent": "Request",
+    "label": "Create a new meeting",
+    "link_to": "Meeting",
+    "parent": "Meetings",
     "parentfield": "shortcuts",
     "parenttype": "Workspace",
     "restrict_to_domain": null,
@@ -152,6 +72,6 @@
     "url": null
    }
   ],
-  "title": "Request"
+  "title": "Meetings"
  }
 ]
