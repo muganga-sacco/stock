@@ -34,14 +34,7 @@ fixtures = [
     "Workflow State",
     "Workflow Action Master",
     "Role",
-   {
-        "dt":"Dashboard Chart",
-        "filters":{
-            "name":"Resolution chart",
-            "name":"Resolutions"
-        }
-    }
-      
+   
 ]
 
 # include js, css files in header of web template
