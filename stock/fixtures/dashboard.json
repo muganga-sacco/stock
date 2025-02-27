@@ -1,0 +1,788 @@
+[
+ {
+  "cards": [],
+  "chart_options": null,
+  "charts": [
+   {
+    "chart": "Project Summary",
+    "parent": "Project",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Full"
+   }
+  ],
+  "dashboard_name": "Project",
+  "docstatus": 0,
+  "doctype": "Dashboard",
+  "is_default": 0,
+  "is_standard": 1,
+  "modified": "2020-07-22 17:17:03.780625",
+  "module": "Projects",
+  "name": "Project"
+ },
+ {
+  "cards": [
+   {
+    "card": "Annual Sales",
+    "parent": "Selling",
+    "parentfield": "cards",
+    "parenttype": "Dashboard"
+   },
+   {
+    "card": "Sales Orders to Deliver",
+    "parent": "Selling",
+    "parentfield": "cards",
+    "parenttype": "Dashboard"
+   },
+   {
+    "card": "Sales Orders to Bill",
+    "parent": "Selling",
+    "parentfield": "cards",
+    "parenttype": "Dashboard"
+   },
+   {
+    "card": "Active Customers",
+    "parent": "Selling",
+    "parentfield": "cards",
+    "parenttype": "Dashboard"
+   }
+  ],
+  "chart_options": null,
+  "charts": [
+   {
+    "chart": "Sales Order Trends",
+    "parent": "Selling",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Full"
+   },
+   {
+    "chart": "Top Customers",
+    "parent": "Selling",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Half"
+   },
+   {
+    "chart": "Sales Order Analysis",
+    "parent": "Selling",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Half"
+   },
+   {
+    "chart": "Item-wise Annual Sales",
+    "parent": "Selling",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Full"
+   }
+  ],
+  "dashboard_name": "Selling",
+  "docstatus": 0,
+  "doctype": "Dashboard",
+  "is_default": 0,
+  "is_standard": 1,
+  "modified": "2020-07-22 15:31:22.299903",
+  "module": "Selling",
+  "name": "Selling"
+ },
+ {
+  "cards": [
+   {
+    "card": "Annual Purchase",
+    "parent": "Buying",
+    "parentfield": "cards",
+    "parenttype": "Dashboard"
+   },
+   {
+    "card": "Purchase Orders to Receive",
+    "parent": "Buying",
+    "parentfield": "cards",
+    "parenttype": "Dashboard"
+   },
+   {
+    "card": "Purchase Orders to Bill",
+    "parent": "Buying",
+    "parentfield": "cards",
+    "parenttype": "Dashboard"
+   },
+   {
+    "card": "Active Suppliers",
+    "parent": "Buying",
+    "parentfield": "cards",
+    "parenttype": "Dashboard"
+   }
+  ],
+  "chart_options": null,
+  "charts": [
+   {
+    "chart": "Purchase Order Trends",
+    "parent": "Buying",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Full"
+   },
+   {
+    "chart": "Material Request Analysis",
+    "parent": "Buying",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Half"
+   },
+   {
+    "chart": "Purchase Order Analysis",
+    "parent": "Buying",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Half"
+   },
+   {
+    "chart": "Top Suppliers",
+    "parent": "Buying",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Full"
+   }
+  ],
+  "dashboard_name": "Buying",
+  "docstatus": 0,
+  "doctype": "Dashboard",
+  "is_default": 1,
+  "is_standard": 1,
+  "modified": "2020-07-22 12:48:38.112744",
+  "module": "Buying",
+  "name": "Buying"
+ },
+ {
+  "cards": [
+   {
+    "card": "Total Declaration Submitted",
+    "parent": "Payroll",
+    "parentfield": "cards",
+    "parenttype": "Dashboard"
+   },
+   {
+    "card": "Total Salary Structure",
+    "parent": "Payroll",
+    "parentfield": "cards",
+    "parenttype": "Dashboard"
+   },
+   {
+    "card": "Total Incentive Given(Last month)",
+    "parent": "Payroll",
+    "parentfield": "cards",
+    "parenttype": "Dashboard"
+   },
+   {
+    "card": "Total Outgoing Salary(Last month)",
+    "parent": "Payroll",
+    "parentfield": "cards",
+    "parenttype": "Dashboard"
+   }
+  ],
+  "chart_options": null,
+  "charts": [
+   {
+    "chart": "Outgoing Salary",
+    "parent": "Payroll",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Full"
+   },
+   {
+    "chart": "Designation Wise Salary(Last Month)",
+    "parent": "Payroll",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Half"
+   },
+   {
+    "chart": "Department Wise Salary(Last Month)",
+    "parent": "Payroll",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Half"
+   }
+  ],
+  "dashboard_name": "Payroll",
+  "docstatus": 0,
+  "doctype": "Dashboard",
+  "is_default": 0,
+  "is_standard": 1,
+  "modified": "2022-08-22 14:21:33.653983",
+  "module": "Payroll",
+  "name": "Payroll"
+ },
+ {
+  "cards": [],
+  "chart_options": null,
+  "charts": [
+   {
+    "chart": "Resolutions",
+    "parent": "Meetings",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Half"
+   },
+   {
+    "chart": "Resolution chart",
+    "parent": "Meetings",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Half"
+   }
+  ],
+  "dashboard_name": "Meetings",
+  "docstatus": 0,
+  "doctype": "Dashboard",
+  "is_default": 0,
+  "is_standard": 1,
+  "modified": "2025-02-27 10:42:02.712749",
+  "module": "Mugangasacco Meeting Management",
+  "name": "Meetings"
+ },
+ {
+  "cards": [
+   {
+    "card": "Total Assets",
+    "parent": "Asset",
+    "parentfield": "cards",
+    "parenttype": "Dashboard"
+   },
+   {
+    "card": "New Assets (This Year)",
+    "parent": "Asset",
+    "parentfield": "cards",
+    "parenttype": "Dashboard"
+   },
+   {
+    "card": "Asset Value",
+    "parent": "Asset",
+    "parentfield": "cards",
+    "parenttype": "Dashboard"
+   }
+  ],
+  "chart_options": null,
+  "charts": [
+   {
+    "chart": "Asset Value Analytics",
+    "parent": "Asset",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Full"
+   },
+   {
+    "chart": "Category-wise Asset Value",
+    "parent": "Asset",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Half"
+   },
+   {
+    "chart": "Location-wise Asset Value",
+    "parent": "Asset",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Half"
+   }
+  ],
+  "dashboard_name": "Asset",
+  "docstatus": 0,
+  "doctype": "Dashboard",
+  "is_default": 0,
+  "is_standard": 1,
+  "modified": "2020-07-21 18:14:25.078929",
+  "module": "Assets",
+  "name": "Asset"
+ },
+ {
+  "cards": [
+   {
+    "card": "Job Openings",
+    "parent": "Recruitment",
+    "parentfield": "cards",
+    "parenttype": "Dashboard"
+   },
+   {
+    "card": "Total Applicants (This month)",
+    "parent": "Recruitment",
+    "parentfield": "cards",
+    "parenttype": "Dashboard"
+   },
+   {
+    "card": "Accepted Job Applicants",
+    "parent": "Recruitment",
+    "parentfield": "cards",
+    "parenttype": "Dashboard"
+   },
+   {
+    "card": "Rejected Job Applicants",
+    "parent": "Recruitment",
+    "parentfield": "cards",
+    "parenttype": "Dashboard"
+   },
+   {
+    "card": "Job Offers (This Month)",
+    "parent": "Recruitment",
+    "parentfield": "cards",
+    "parenttype": "Dashboard"
+   },
+   {
+    "card": "Applicant-to-Hire Percentage",
+    "parent": "Recruitment",
+    "parentfield": "cards",
+    "parenttype": "Dashboard"
+   },
+   {
+    "card": "Job Offer Acceptance Rate",
+    "parent": "Recruitment",
+    "parentfield": "cards",
+    "parenttype": "Dashboard"
+   },
+   {
+    "card": "Time to Fill",
+    "parent": "Recruitment",
+    "parentfield": "cards",
+    "parenttype": "Dashboard"
+   }
+  ],
+  "chart_options": null,
+  "charts": [
+   {
+    "chart": "Job Applicant Pipeline",
+    "parent": "Recruitment",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Half"
+   },
+   {
+    "chart": "Job Applicant Source",
+    "parent": "Recruitment",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Half"
+   },
+   {
+    "chart": "Job Applicants by Country",
+    "parent": "Recruitment",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Half"
+   },
+   {
+    "chart": "Job Application Status",
+    "parent": "Recruitment",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Half"
+   },
+   {
+    "chart": "Job Offer Status",
+    "parent": "Recruitment",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Half"
+   },
+   {
+    "chart": "Interview Status",
+    "parent": "Recruitment",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Half"
+   },
+   {
+    "chart": "Job Application Frequency",
+    "parent": "Recruitment",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Full"
+   },
+   {
+    "chart": "Department Wise Openings",
+    "parent": "Recruitment",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Half"
+   },
+   {
+    "chart": "Designation Wise Openings",
+    "parent": "Recruitment",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Half"
+   }
+  ],
+  "dashboard_name": "Recruitment",
+  "docstatus": 0,
+  "doctype": "Dashboard",
+  "is_default": 0,
+  "is_standard": 1,
+  "modified": "2022-08-29 23:28:26.765572",
+  "module": "HR",
+  "name": "Recruitment"
+ },
+ {
+  "cards": [
+   {
+    "card": "Onboardings (This Month)",
+    "parent": "Employee Lifecycle",
+    "parentfield": "cards",
+    "parenttype": "Dashboard"
+   },
+   {
+    "card": "Separations (This Month)",
+    "parent": "Employee Lifecycle",
+    "parentfield": "cards",
+    "parenttype": "Dashboard"
+   },
+   {
+    "card": "Promotions (This Month)",
+    "parent": "Employee Lifecycle",
+    "parentfield": "cards",
+    "parenttype": "Dashboard"
+   },
+   {
+    "card": "Transfers (This Month)",
+    "parent": "Employee Lifecycle",
+    "parentfield": "cards",
+    "parenttype": "Dashboard"
+   },
+   {
+    "card": "Trainings (This Month)",
+    "parent": "Employee Lifecycle",
+    "parentfield": "cards",
+    "parenttype": "Dashboard"
+   }
+  ],
+  "chart_options": null,
+  "charts": [
+   {
+    "chart": "Grievance Type",
+    "parent": "Employee Lifecycle",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Half"
+   },
+   {
+    "chart": "Training Type",
+    "parent": "Employee Lifecycle",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Half"
+   },
+   {
+    "chart": "Y-O-Y Transfers",
+    "parent": "Employee Lifecycle",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Half"
+   },
+   {
+    "chart": "Y-O-Y Promotions",
+    "parent": "Employee Lifecycle",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Half"
+   }
+  ],
+  "dashboard_name": "Employee Lifecycle",
+  "docstatus": 0,
+  "doctype": "Dashboard",
+  "is_default": 0,
+  "is_standard": 1,
+  "modified": "2022-08-22 11:05:25.627559",
+  "module": "HR",
+  "name": "Employee Lifecycle"
+ },
+ {
+  "cards": [
+   {
+    "card": "Expense Claims (This Month)",
+    "parent": "Expense Claims",
+    "parentfield": "cards",
+    "parenttype": "Dashboard"
+   },
+   {
+    "card": "Approved Claims (This Month)",
+    "parent": "Expense Claims",
+    "parentfield": "cards",
+    "parenttype": "Dashboard"
+   },
+   {
+    "card": "Rejected Claims (This Month)",
+    "parent": "Expense Claims",
+    "parentfield": "cards",
+    "parenttype": "Dashboard"
+   }
+  ],
+  "chart_options": null,
+  "charts": [
+   {
+    "chart": "Expense Claims",
+    "parent": "Expense Claims",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Full"
+   },
+   {
+    "chart": "Claims by Type",
+    "parent": "Expense Claims",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Half"
+   },
+   {
+    "chart": "Department wise Expense Claims",
+    "parent": "Expense Claims",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Full"
+   }
+  ],
+  "dashboard_name": "Expense Claims",
+  "docstatus": 0,
+  "doctype": "Dashboard",
+  "is_default": 0,
+  "is_standard": 1,
+  "modified": "2022-09-16 11:36:44.704033",
+  "module": "HR",
+  "name": "Expense Claims"
+ },
+ {
+  "cards": [
+   {
+    "card": "Total Employees",
+    "parent": "Human Resource",
+    "parentfield": "cards",
+    "parenttype": "Dashboard"
+   },
+   {
+    "card": "New Hires (This Year)",
+    "parent": "Human Resource",
+    "parentfield": "cards",
+    "parenttype": "Dashboard"
+   },
+   {
+    "card": "Employee Exits (This Year)",
+    "parent": "Human Resource",
+    "parentfield": "cards",
+    "parenttype": "Dashboard"
+   },
+   {
+    "card": "Employees Joining (This Quarter)",
+    "parent": "Human Resource",
+    "parentfield": "cards",
+    "parenttype": "Dashboard"
+   },
+   {
+    "card": "Employees Relieving (This Quarter)",
+    "parent": "Human Resource",
+    "parentfield": "cards",
+    "parenttype": "Dashboard"
+   }
+  ],
+  "chart_options": null,
+  "charts": [
+   {
+    "chart": "Hiring vs Attrition Count",
+    "parent": "Human Resource",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Full"
+   },
+   {
+    "chart": "Employees by Age",
+    "parent": "Human Resource",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Full"
+   },
+   {
+    "chart": "Gender Diversity Ratio",
+    "parent": "Human Resource",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Half"
+   },
+   {
+    "chart": "Employees by Type",
+    "parent": "Human Resource",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Half"
+   },
+   {
+    "chart": "Employees by Grade",
+    "parent": "Human Resource",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Half"
+   },
+   {
+    "chart": "Employees by Branch",
+    "parent": "Human Resource",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Half"
+   },
+   {
+    "chart": "Designation Wise Employee Count",
+    "parent": "Human Resource",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Half"
+   },
+   {
+    "chart": "Department Wise Employee Count",
+    "parent": "Human Resource",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Half"
+   }
+  ],
+  "dashboard_name": "Human Resource",
+  "docstatus": 0,
+  "doctype": "Dashboard",
+  "is_default": 0,
+  "is_standard": 1,
+  "modified": "2024-01-08 14:06:32.104261",
+  "module": "HR",
+  "name": "Human Resource"
+ },
+ {
+  "cards": [
+   {
+    "card": "Total Present (This Month)",
+    "parent": "Attendance",
+    "parentfield": "cards",
+    "parenttype": "Dashboard"
+   },
+   {
+    "card": "Total Absent (This Month)",
+    "parent": "Attendance",
+    "parentfield": "cards",
+    "parenttype": "Dashboard"
+   },
+   {
+    "card": "Late Entry (This Month)",
+    "parent": "Attendance",
+    "parentfield": "cards",
+    "parenttype": "Dashboard"
+   },
+   {
+    "card": "Early Exit (This Month)",
+    "parent": "Attendance",
+    "parentfield": "cards",
+    "parenttype": "Dashboard"
+   }
+  ],
+  "chart_options": null,
+  "charts": [
+   {
+    "chart": "Attendance Count",
+    "parent": "Attendance",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Full"
+   },
+   {
+    "chart": "Timesheet Activity Breakup",
+    "parent": "Attendance",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Half"
+   },
+   {
+    "chart": "Shift Assignment Breakup",
+    "parent": "Attendance",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Half"
+   },
+   {
+    "chart": "Department wise Timesheet Hours",
+    "parent": "Attendance",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Full"
+   }
+  ],
+  "dashboard_name": "Attendance",
+  "docstatus": 0,
+  "doctype": "Dashboard",
+  "is_default": 0,
+  "is_standard": 1,
+  "modified": "2022-08-21 18:12:38.531243",
+  "module": "HR",
+  "name": "Attendance"
+ },
+ {
+  "cards": [
+   {
+    "card": "Total Active Items",
+    "parent": "Stock",
+    "parentfield": "cards",
+    "parenttype": "Dashboard"
+   },
+   {
+    "card": "Total Warehouses",
+    "parent": "Stock",
+    "parentfield": "cards",
+    "parenttype": "Dashboard"
+   },
+   {
+    "card": "Total Stock Value",
+    "parent": "Stock",
+    "parentfield": "cards",
+    "parenttype": "Dashboard"
+   }
+  ],
+  "chart_options": null,
+  "charts": [
+   {
+    "chart": "Warehouse wise Stock Value",
+    "parent": "Stock",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Full"
+   },
+   {
+    "chart": "Purchase Receipt Trends",
+    "parent": "Stock",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Half"
+   },
+   {
+    "chart": "Delivery Trends",
+    "parent": "Stock",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Half"
+   },
+   {
+    "chart": "Oldest Items",
+    "parent": "Stock",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Half"
+   },
+   {
+    "chart": "Item Shortage Summary",
+    "parent": "Stock",
+    "parentfield": "charts",
+    "parenttype": "Dashboard",
+    "width": "Half"
+   }
+  ],
+  "dashboard_name": "Stock",
+  "docstatus": 0,
+  "doctype": "Dashboard",
+  "is_default": 0,
+  "is_standard": 1,
+  "modified": "2020-07-22 13:09:33.096694",
+  "module": "Stock",
+  "name": "Stock"
+ }
+]
