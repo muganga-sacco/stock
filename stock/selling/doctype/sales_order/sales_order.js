@@ -52,7 +52,9 @@ frappe.ui.form.on("Sales Order", {
       return {
         
           filters: {
-              "role_profile_name": "Supevisor"  // Filter for users with the Supervisor role
+              "role_profile_name": "Supevisor" ,
+			  "role_profile_name": "DAF" ,
+			  "role_profile_name":"Meeting Initiator",
           }
       };
   });

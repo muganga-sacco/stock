@@ -1,0 +1,33 @@
+{
+ "attach_print": 0,
+ "channel": "Email",
+ "condition": "",
+ "creation": "2025-02-07 11:54:53.619306",
+ "date_changed": "remind_me_at",
+ "days_in_advance": 1,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Remind me",
+ "enabled": 1,
+ "event": "Submit",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "<p>Add your message here</p>\n",
+ "message_type": "Markdown",
+ "modified": "2025-02-25 12:15:50.242369",
+ "modified_by": "Administrator",
+ "module": "stock",
+ "name": "Reminder",
+ "owner": "Administrator",
+ "recipients": [
+  {
+   "receiver_by_document_field": "owner"
+  }
+ ],
+ "send_system_notification": 1,
+ "send_to_all_assignees": 0,
+ "sender": "Web notifications",
+ "sender_email": "web.notifications@mugangasacco.rw",
+ "subject": "Remind me",
+ "value_changed": "remind_me_at"
+}
