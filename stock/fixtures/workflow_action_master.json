@@ -37,6 +37,13 @@
  {
   "docstatus": 0,
   "doctype": "Workflow Action Master",
+  "modified": "2025-01-31 08:52:02.351476",
+  "name": "Proceed to DG",
+  "workflow_action_name": "Proceed to DG"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
   "modified": "2024-03-04 08:55:06.272441",
   "name": "Save",
   "workflow_action_name": "Save"
@@ -61,12 +68,5 @@
   "modified": "2024-10-14 11:19:43.001204",
   "name": "Send Minute",
   "workflow_action_name": "Send Minute"
- },
- {
-  "docstatus": 0,
-  "doctype": "Workflow Action Master",
-  "modified": "2025-01-31 08:52:02.351476",
-  "name": "Proceed to DG",
-  "workflow_action_name": "Proceed to DG"
  }
 ]
