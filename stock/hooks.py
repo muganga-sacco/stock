@@ -28,7 +28,6 @@ fixtures = [
         "dt":"Workspace",
         "filters":{
             "name":"Request",
-            "name":"Meetings"
         }
     },
     "Workflow State",
