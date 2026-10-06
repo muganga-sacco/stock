@@ -5,7 +5,7 @@
    "label": "Asset Value Analytics"
   }
  ],
- "content": "[{\"type\":\"onboarding\",\"data\":{\"onboarding_name\":\"Assets\",\"col\":12}},{\"type\":\"chart\",\"data\":{\"chart_name\":\"Asset Value Analytics\",\"col\":12}},{\"type\":\"spacer\",\"data\":{\"col\":12}},{\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Your Shortcuts</b></span>\",\"col\":12}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Asset\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Asset Category\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Fixed Asset Register\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Dashboard\",\"col\":3}},{\"type\":\"spacer\",\"data\":{\"col\":12}},{\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports & Masters</b></span>\",\"col\":12}},{\"type\":\"card\",\"data\":{\"card_name\":\"Assets\",\"col\":4}},{\"type\":\"card\",\"data\":{\"card_name\":\"Maintenance\",\"col\":4}},{\"type\":\"card\",\"data\":{\"card_name\":\"Reports\",\"col\":4}}]",
+ "content": "[{\"id\":\"vyIPaq_vID\",\"type\":\"onboarding\",\"data\":{\"onboarding_name\":\"Assets\",\"col\":12}},{\"id\":\"mysza0pHOF\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Asset Value Analytics\",\"col\":12}},{\"id\":\"qBNNLiPHN-\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"SBkHrlGBc7\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Your Shortcuts</b></span>\",\"col\":12}},{\"id\":\"6POaF8EZAB\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Asset\",\"col\":3}},{\"id\":\"0hCgva7GbC\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Asset Category\",\"col\":3}},{\"id\":\"QmTtgfH9Mg\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Fixed Asset Register\",\"col\":3}},{\"id\":\"OlfsaiBzpD\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Dashboard\",\"col\":3}},{\"id\":\"pjkkAO1I-G\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"6RXtRfGfk2\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports &amp; Masters</b></span>\",\"col\":12}},{\"id\":\"QLJWDQmTFa\",\"type\":\"card\",\"data\":{\"card_name\":\"Assets\",\"col\":4}},{\"id\":\"pm9rJSm_MB\",\"type\":\"card\",\"data\":{\"card_name\":\"Maintenance\",\"col\":4}},{\"id\":\"DtoMHD1rVz\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports\",\"col\":4}}]",
  "creation": "2020-03-02 15:43:27.634865",
  "custom_blocks": [],
  "docstatus": 0,
@@ -14,7 +14,7 @@
  "hide_custom": 0,
  "icon": "assets",
  "idx": 0,
- "is_hidden": 0,
+ "is_hidden": 1,
  "label": "Assets",
  "links": [
   {
@@ -160,6 +160,7 @@
    "link_to": "Asset Maintenance",
    "link_type": "Report",
    "onboard": 0,
+   "report_ref_doctype": "Asset Maintenance",
    "type": "Link"
   },
   {
@@ -171,10 +172,11 @@
    "link_to": "Asset Activity",
    "link_type": "Report",
    "onboard": 0,
+   "report_ref_doctype": "Asset Activity",
    "type": "Link"
   }
  ],
- "modified": "2024-03-13 10:51:42.590741",
+ "modified": "2026-02-17 10:52:42.546525",
  "modified_by": "Administrator",
  "module": "Assets",
  "name": "Assets",
@@ -204,6 +206,7 @@
   {
    "label": "Fixed Asset Register",
    "link_to": "Fixed Asset Register",
+   "report_ref_doctype": "Asset",
    "type": "Report"
   },
   {

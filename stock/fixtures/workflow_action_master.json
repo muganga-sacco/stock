@@ -44,6 +44,20 @@
  {
   "docstatus": 0,
   "doctype": "Workflow Action Master",
+  "modified": "2025-11-13 13:39:13.167940",
+  "name": "Proceed to MD",
+  "workflow_action_name": "Proceed to MD"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2026-01-09 12:38:42.063342",
+  "name": "Cancel",
+  "workflow_action_name": "Cancel"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
   "modified": "2024-03-04 08:55:06.272441",
   "name": "Save",
   "workflow_action_name": "Save"

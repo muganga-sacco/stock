@@ -3,6 +3,15 @@
   "docstatus": 0,
   "doctype": "Workflow State",
   "icon": "",
+  "modified": "2026-01-12 13:29:02.994455",
+  "name": "Pending Approval",
+  "style": "Warning",
+  "workflow_state_name": "Pending Approval"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
   "modified": "2024-09-20 14:37:41.343697",
   "name": "Approved By DAF",
   "style": "Success",
@@ -48,9 +57,9 @@
   "docstatus": 0,
   "doctype": "Workflow State",
   "icon": "",
-  "modified": "2024-03-04 08:53:41.184868",
+  "modified": "2026-01-12 13:30:44.932976",
   "name": "Rejected By HR",
-  "style": "",
+  "style": "Danger",
   "workflow_state_name": "Rejected By HR"
  },
  {
@@ -84,36 +93,36 @@
   "docstatus": 0,
   "doctype": "Workflow State",
   "icon": "",
-  "modified": "2024-06-27 14:44:11.209126",
+  "modified": "2026-01-12 13:31:37.264653",
   "name": "Approved By Accountant",
-  "style": "",
+  "style": "Success",
   "workflow_state_name": "Approved By Accountant"
  },
  {
   "docstatus": 0,
   "doctype": "Workflow State",
   "icon": "",
-  "modified": "2024-03-04 08:52:36.025769",
+  "modified": "2026-01-12 13:31:04.956246",
   "name": "Rejected By Supervisor",
-  "style": "",
+  "style": "Danger",
   "workflow_state_name": "Rejected By Supervisor"
  },
  {
   "docstatus": 0,
   "doctype": "Workflow State",
   "icon": "",
-  "modified": "2024-06-27 14:44:35.180365",
+  "modified": "2026-01-12 13:30:56.031020",
   "name": "Rejected By Accountant",
-  "style": "",
+  "style": "Danger",
   "workflow_state_name": "Rejected By Accountant"
  },
  {
   "docstatus": 0,
   "doctype": "Workflow State",
   "icon": "",
-  "modified": "2024-06-27 14:42:36.301646",
+  "modified": "2026-01-12 13:31:15.720513",
   "name": "Rejected By Administration",
-  "style": "",
+  "style": "Danger",
   "workflow_state_name": "Rejected By Administration"
  },
  {
@@ -192,9 +201,9 @@
   "docstatus": 0,
   "doctype": "Workflow State",
   "icon": "",
-  "modified": "2024-10-11 10:17:33.351907",
+  "modified": "2026-01-12 13:29:42.746425",
   "name": "Create Minute",
-  "style": "",
+  "style": "Primary",
   "workflow_state_name": "Create Minute"
  },
  {
@@ -219,18 +228,27 @@
   "docstatus": 0,
   "doctype": "Workflow State",
   "icon": "",
-  "modified": "2024-10-14 09:00:03.275124",
+  "modified": "2026-01-12 13:28:55.363644",
+  "name": "Pending MD Approval",
+  "style": "Info",
+  "workflow_state_name": "Pending MD Approval"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2026-01-12 13:29:29.335037",
   "name": "Minute sent to attendees",
-  "style": "",
+  "style": "Success",
   "workflow_state_name": "Minute sent to attendees"
  },
  {
   "docstatus": 0,
   "doctype": "Workflow State",
   "icon": "",
-  "modified": "2024-10-14 09:11:31.339592",
+  "modified": "2026-01-12 13:29:12.913389",
   "name": "Minute Approved",
-  "style": "",
+  "style": "Success",
   "workflow_state_name": "Minute Approved"
  },
  {
@@ -246,18 +264,18 @@
   "docstatus": 0,
   "doctype": "Workflow State",
   "icon": "",
-  "modified": "2024-10-11 10:15:29.804324",
+  "modified": "2026-01-12 13:30:35.270043",
   "name": "Pending Invitation",
-  "style": "",
+  "style": "Inverse",
   "workflow_state_name": "Pending Invitation"
  },
  {
   "docstatus": 0,
   "doctype": "Workflow State",
   "icon": "",
-  "modified": "2024-10-11 10:17:10.403068",
+  "modified": "2026-01-12 13:29:51.217229",
   "name": "Invitation Sent",
-  "style": "",
+  "style": "Success",
   "workflow_state_name": "Invitation Sent"
  },
  {
@@ -268,5 +286,41 @@
   "name": "Minute Created",
   "style": "",
   "workflow_state_name": "Minute Created"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2026-01-12 13:28:45.513071",
+  "name": "Send to email",
+  "style": "Primary",
+  "workflow_state_name": "Send to email"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2026-01-12 13:28:35.997450",
+  "name": "Cancelled",
+  "style": "Danger",
+  "workflow_state_name": "Cancelled"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2026-04-15 11:42:46.255050",
+  "name": "Inprogress",
+  "style": "",
+  "workflow_state_name": "Inprogress"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2026-04-15 11:47:34.031519",
+  "name": "Pending ICT Director Approval",
+  "style": "",
+  "workflow_state_name": "Pending ICT Director Approval"
  }
 ]
