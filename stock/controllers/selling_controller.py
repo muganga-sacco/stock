@@ -29,7 +29,7 @@ class SellingController(StockController):
 		self.validate_items()
 		self.validate_max_discount()
 		self.validate_selling_price()
-		# self.set_qty_as_per_stock_uom()
+		self.set_qty_as_per_stock_uom()
 		self.set_po_nos(for_validate=True)
 		self.set_gross_profit()
 		set_default_income_account_for_item(self)
